@@ -1,0 +1,29 @@
+{
+  "module": "_root",
+  "path": "_root",
+  "files": [
+    {
+      "path": "_worker.js",
+      "language": "javascript",
+      "lines": 9,
+      "functions": [],
+      "classes": [],
+      "types": [],
+      "variables": [],
+      "imports": [],
+      "exports": [],
+      "isEntryPoint": false,
+      "hash": "sha256:3b2729d3f8eb97c9"
+    }
+  ],
+  "exports": [],
+  "dependsOn": [],
+  "dependedBy": [],
+  "stats": {
+    "totalFiles": 1,
+    "totalFunctions": 0,
+    "totalClasses": 0,
+    "totalVariables": 0,
+    "totalLines": 9
+  }
+}

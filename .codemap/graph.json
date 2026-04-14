@@ -1,0 +1,7959 @@
+{
+  "version": "1.0",
+  "project": {
+    "name": "argosbx",
+    "root": "//?/D:/opencode_test/argosbx"
+  },
+  "scannedAt": "2026-04-13T10:28:55.000Z",
+  "commitHash": null,
+  "config": {
+    "languages": [
+      "javascript",
+      "rust",
+      "typescript"
+    ],
+    "excludePatterns": []
+  },
+  "summary": {
+    "totalFiles": 39,
+    "totalFunctions": 455,
+    "totalClasses": 51,
+    "totalVariables": 31,
+    "languages": {
+      "javascript": 2,
+      "rust": 35,
+      "typescript": 2
+    },
+    "modules": [
+      "_root",
+      "container",
+      "temp_codemap"
+    ],
+    "entryPoints": [
+      "container/nodejs/index.js",
+      "temp_codemap/rust-cli/src/main.rs",
+      "temp_codemap/rust-cli/test_fixtures/src/index.ts"
+    ]
+  },
+  "modules": {
+    "temp_codemap": {
+      "files": [
+        "temp_codemap/rust-cli/src/commands/impact.rs",
+        "temp_codemap/rust-cli/src/commands/mod.rs",
+        "temp_codemap/rust-cli/src/commands/query.rs",
+        "temp_codemap/rust-cli/src/commands/scan.rs",
+        "temp_codemap/rust-cli/src/commands/slice.rs",
+        "temp_codemap/rust-cli/src/commands/status.rs",
+        "temp_codemap/rust-cli/src/commands/update.rs",
+        "temp_codemap/rust-cli/src/differ.rs",
+        "temp_codemap/rust-cli/src/grammar_tests.rs",
+        "temp_codemap/rust-cli/src/graph.rs",
+        "temp_codemap/rust-cli/src/impact.rs",
+        "temp_codemap/rust-cli/src/languages/c_lang.rs",
+        "temp_codemap/rust-cli/src/languages/cpp.rs",
+        "temp_codemap/rust-cli/src/languages/go_lang.rs",
+        "temp_codemap/rust-cli/src/languages/java.rs",
+        "temp_codemap/rust-cli/src/languages/javascript.rs",
+        "temp_codemap/rust-cli/src/languages/mod.rs",
+        "temp_codemap/rust-cli/src/languages/python.rs",
+        "temp_codemap/rust-cli/src/languages/rust_lang.rs",
+        "temp_codemap/rust-cli/src/languages/typescript.rs",
+        "temp_codemap/rust-cli/src/lib.rs",
+        "temp_codemap/rust-cli/src/main.rs",
+        "temp_codemap/rust-cli/src/parser.rs",
+        "temp_codemap/rust-cli/src/path_utils.rs",
+        "temp_codemap/rust-cli/src/query.rs",
+        "temp_codemap/rust-cli/src/scanner.rs",
+        "temp_codemap/rust-cli/src/slicer.rs",
+        "temp_codemap/rust-cli/src/traverser.rs",
+        "temp_codemap/rust-cli/test_fixtures/src/auth/login.ts",
+        "temp_codemap/rust-cli/test_fixtures/src/index.ts",
+        "temp_codemap/rust-cli/tests/differ_compat.rs",
+        "temp_codemap/rust-cli/tests/fixture_compat.rs",
+        "temp_codemap/rust-cli/tests/impact_compat.rs",
+        "temp_codemap/rust-cli/tests/query_compat.rs",
+        "temp_codemap/rust-cli/tests/scanner_compat.rs",
+        "temp_codemap/rust-cli/tests/slicer_compat.rs",
+        "temp_codemap/rust-cli/tests/variable_compat.rs"
+      ],
+      "dependsOn": [],
+      "dependedBy": []
+    },
+    "container": {
+      "files": [
+        "container/nodejs/index.js"
+      ],
+      "dependsOn": [],
+      "dependedBy": []
+    },
+    "_root": {
+      "files": [
+        "_worker.js"
+      ],
+      "dependsOn": [],
+      "dependedBy": []
+    }
+  },
+  "files": {
+    "temp_codemap/rust-cli/src/languages/javascript.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:fce0f73e0ddaeb94",
+      "lines": 321,
+      "functions": [
+        {
+          "name": "JavaScriptAdapter::default",
+          "signature": "JavaScriptAdapter::default()",
+          "startLine": 11,
+          "endLine": 13
+        },
+        {
+          "name": "JavaScriptAdapter::new",
+          "signature": "JavaScriptAdapter::new()",
+          "startLine": 17,
+          "endLine": 19
+        },
+        {
+          "name": "JavaScriptAdapter::language",
+          "signature": "JavaScriptAdapter::language(&self)",
+          "startLine": 23,
+          "endLine": 25
+        },
+        {
+          "name": "JavaScriptAdapter::extract_functions",
+          "signature": "JavaScriptAdapter::extract_functions(&self, tree, source)",
+          "startLine": 27,
+          "endLine": 88
+        },
+        {
+          "name": "JavaScriptAdapter::extract_imports",
+          "signature": "JavaScriptAdapter::extract_imports(&self, tree, source)",
+          "startLine": 90,
+          "endLine": 133
+        },
+        {
+          "name": "JavaScriptAdapter::extract_exports",
+          "signature": "JavaScriptAdapter::extract_exports(&self, tree, source)",
+          "startLine": 135,
+          "endLine": 188
+        },
+        {
+          "name": "JavaScriptAdapter::extract_classes",
+          "signature": "JavaScriptAdapter::extract_classes(&self, tree, source)",
+          "startLine": 190,
+          "endLine": 214
+        },
+        {
+          "name": "JavaScriptAdapter::extract_variables",
+          "signature": "JavaScriptAdapter::extract_variables(&self, tree, source)",
+          "startLine": 216,
+          "endLine": 231
+        },
+        {
+          "name": "extract_js_lexical_decl",
+          "signature": "extract_js_lexical_decl(node, source, is_exported, variables)",
+          "startLine": 234,
+          "endLine": 271
+        },
+        {
+          "name": "extract_js_params",
+          "signature": "extract_js_params(params_node, source)",
+          "startLine": 273,
+          "endLine": 284
+        },
+        {
+          "name": "parse",
+          "signature": "parse(source)",
+          "startLine": 290,
+          "endLine": 295
+        },
+        {
+          "name": "test_js_extract_functions",
+          "signature": "test_js_extract_functions()",
+          "startLine": 298,
+          "endLine": 309
+        },
+        {
+          "name": "test_js_extract_imports",
+          "signature": "test_js_extract_imports()",
+          "startLine": 312,
+          "endLine": 319
+        }
+      ],
+      "classes": [
+        {
+          "name": "JavaScriptAdapter",
+          "startLine": 8,
+          "endLine": 8
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "super",
+          "symbols": [
+            "find_child_of_type",
+            "node_text",
+            "strip_quotes",
+            "walk_nodes",
+            "ClassInfo",
+            "ExportInfo",
+            "FunctionInfo",
+            "ImportInfo",
+            "LanguageAdapter",
+            "VariableInfo"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "tree_sitter",
+          "symbols": [
+            "Language",
+            "Tree"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        }
+      ],
+      "exports": [
+        "JavaScriptAdapter"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "ClassInfo": {
+          "symbol": "ClassInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "ExportInfo": {
+          "symbol": "ExportInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "FunctionInfo": {
+          "symbol": "FunctionInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "ImportInfo": {
+          "symbol": "ImportInfo",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "JavaScriptAdapter": {
+          "symbol": "JavaScriptAdapter",
+          "importLine": 0,
+          "useLines": [
+            291,
+            306,
+            315
+          ]
+        },
+        "Language": {
+          "symbol": "Language",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "LanguageAdapter": {
+          "symbol": "LanguageAdapter",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "Tree": {
+          "symbol": "Tree",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "VariableInfo": {
+          "symbol": "VariableInfo",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "find_child_of_type": {
+          "symbol": "find_child_of_type",
+          "importLine": 1,
+          "useLines": [
+            2,
+            98,
+            104,
+            105,
+            141,
+            149,
+            157,
+            170,
+            225
+          ]
+        },
+        "node_text": {
+          "symbol": "node_text",
+          "importLine": 1,
+          "useLines": [
+            2,
+            32,
+            63,
+            100,
+            113,
+            121,
+            144,
+            152,
+            163,
+            179,
+            199,
+            204,
+            244,
+            264,
+            274
+          ]
+        },
+        "strip_quotes": {
+          "symbol": "strip_quotes",
+          "importLine": 1,
+          "useLines": [
+            2,
+            100
+          ]
+        },
+        "walk_nodes": {
+          "symbol": "walk_nodes",
+          "importLine": 1,
+          "useLines": [
+            2,
+            29,
+            92,
+            137,
+            192,
+            196
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/languages/mod.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:f6335ed3cfc34291",
+      "lines": 155,
+      "functions": [
+        {
+          "name": "extract_variables",
+          "signature": "extract_variables(&self, _tree, _source)",
+          "startLine": 64,
+          "endLine": 66
+        },
+        {
+          "name": "get_adapter",
+          "signature": "get_adapter(lang)",
+          "startLine": 73,
+          "endLine": 84
+        },
+        {
+          "name": "walk_nodes",
+          "signature": "walk_nodes(root, visitor)",
+          "startLine": 91,
+          "endLine": 106
+        },
+        {
+          "name": "find_child_of_type",
+          "signature": "find_child_of_type(node, kind)",
+          "startLine": 110,
+          "endLine": 121
+        },
+        {
+          "name": "find_descendant_of_type",
+          "signature": "find_descendant_of_type(node, kind)",
+          "startLine": 124,
+          "endLine": 143
+        },
+        {
+          "name": "strip_quotes",
+          "signature": "strip_quotes(s)",
+          "startLine": 146,
+          "endLine": 149
+        },
+        {
+          "name": "node_text",
+          "signature": "node_text(node, source)",
+          "startLine": 152,
+          "endLine": 154
+        }
+      ],
+      "classes": [
+        {
+          "name": "FunctionInfo",
+          "startLine": 15,
+          "endLine": 21
+        },
+        {
+          "name": "ImportInfo",
+          "startLine": 24,
+          "endLine": 29
+        },
+        {
+          "name": "ExportInfo",
+          "startLine": 32,
+          "endLine": 35
+        },
+        {
+          "name": "ClassInfo",
+          "startLine": 38,
+          "endLine": 44
+        },
+        {
+          "name": "VariableInfo",
+          "startLine": 47,
+          "endLine": 52
+        }
+      ],
+      "types": [
+        {
+          "name": "LanguageAdapter",
+          "kind": "trait",
+          "startLine": 58,
+          "endLine": 67
+        }
+      ],
+      "variables": [],
+      "imports": [],
+      "exports": [
+        "c_lang",
+        "cpp",
+        "go_lang",
+        "java",
+        "javascript",
+        "python",
+        "rust_lang",
+        "typescript",
+        "FunctionInfo",
+        "ImportInfo",
+        "ExportInfo",
+        "ClassInfo",
+        "VariableInfo",
+        "LanguageAdapter",
+        "get_adapter",
+        "walk_nodes",
+        "find_child_of_type",
+        "find_descendant_of_type",
+        "strip_quotes",
+        "node_text"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {}
+    },
+    "temp_codemap/rust-cli/src/path_utils.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:0b096d4b96f2975d",
+      "lines": 84,
+      "functions": [
+        {
+          "name": "strip_extension",
+          "signature": "strip_extension(path)",
+          "startLine": 4,
+          "endLine": 12
+        },
+        {
+          "name": "posix_dirname",
+          "signature": "posix_dirname(path)",
+          "startLine": 15,
+          "endLine": 21
+        },
+        {
+          "name": "posix_normalize",
+          "signature": "posix_normalize(path)",
+          "startLine": 24,
+          "endLine": 40
+        },
+        {
+          "name": "normalize_path",
+          "signature": "normalize_path(path)",
+          "startLine": 43,
+          "endLine": 46
+        },
+        {
+          "name": "test_strip_extension",
+          "signature": "test_strip_extension()",
+          "startLine": 55,
+          "endLine": 59
+        },
+        {
+          "name": "test_posix_dirname",
+          "signature": "test_posix_dirname()",
+          "startLine": 62,
+          "endLine": 66
+        },
+        {
+          "name": "test_posix_normalize",
+          "signature": "test_posix_normalize()",
+          "startLine": 69,
+          "endLine": 76
+        },
+        {
+          "name": "test_normalize_path",
+          "signature": "test_normalize_path()",
+          "startLine": 79,
+          "endLine": 82
+        }
+      ],
+      "classes": [],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "std::path",
+          "symbols": [
+            "Path"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        }
+      ],
+      "exports": [
+        "strip_extension",
+        "posix_dirname",
+        "posix_normalize",
+        "normalize_path"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "Path": {
+          "symbol": "Path",
+          "importLine": 1,
+          "useLines": [
+            1,
+            80
+          ]
+        },
+        "normalize_path": {
+          "symbol": "normalize_path",
+          "importLine": 0,
+          "useLines": [
+            81
+          ]
+        },
+        "posix_dirname": {
+          "symbol": "posix_dirname",
+          "importLine": 0,
+          "useLines": [
+            63,
+            64,
+            65
+          ]
+        },
+        "posix_normalize": {
+          "symbol": "posix_normalize",
+          "importLine": 0,
+          "useLines": [
+            45,
+            71,
+            74,
+            75
+          ]
+        },
+        "strip_extension": {
+          "symbol": "strip_extension",
+          "importLine": 0,
+          "useLines": [
+            56,
+            57,
+            58
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/query.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:93cee069e41dce54",
+      "lines": 654,
+      "functions": [
+        {
+          "name": "query_symbol",
+          "signature": "query_symbol(graph, symbol_name, opts)",
+          "startLine": 60,
+          "endLine": 167
+        },
+        {
+          "name": "query_module",
+          "signature": "query_module(graph, module_name)",
+          "startLine": 170,
+          "endLine": 178
+        },
+        {
+          "name": "query_dependants",
+          "signature": "query_dependants(graph, module_name)",
+          "startLine": 181,
+          "endLine": 187
+        },
+        {
+          "name": "query_dependencies",
+          "signature": "query_dependencies(graph, module_name)",
+          "startLine": 190,
+          "endLine": 196
+        },
+        {
+          "name": "matches_symbol",
+          "signature": "matches_symbol(name, query)",
+          "startLine": 201,
+          "endLine": 203
+        },
+        {
+          "name": "collect_file_imports",
+          "signature": "collect_file_imports(file_data, self_name)",
+          "startLine": 206,
+          "endLine": 214
+        },
+        {
+          "name": "find_callers",
+          "signature": "find_callers(graph, source_file, symbol_name)",
+          "startLine": 218,
+          "endLine": 268
+        },
+        {
+          "name": "format_symbol_results",
+          "signature": "format_symbol_results(results)",
+          "startLine": 273,
+          "endLine": 326
+        },
+        {
+          "name": "format_module_result",
+          "signature": "format_module_result(result)",
+          "startLine": 329,
+          "endLine": 345
+        },
+        {
+          "name": "make_graph",
+          "signature": "make_graph()",
+          "startLine": 358,
+          "endLine": 478
+        },
+        {
+          "name": "test_query_exact_match",
+          "signature": "test_query_exact_match()",
+          "startLine": 481,
+          "endLine": 489
+        },
+        {
+          "name": "test_query_substring_match",
+          "signature": "test_query_substring_match()",
+          "startLine": 492,
+          "endLine": 500
+        },
+        {
+          "name": "test_query_type_filter_function",
+          "signature": "test_query_type_filter_function()",
+          "startLine": 503,
+          "endLine": 511
+        },
+        {
+          "name": "test_query_type_filter_class",
+          "signature": "test_query_type_filter_class()",
+          "startLine": 514,
+          "endLine": 523
+        },
+        {
+          "name": "test_query_type_filter_type",
+          "signature": "test_query_type_filter_type()",
+          "startLine": 526,
+          "endLine": 535
+        },
+        {
+          "name": "test_query_no_match",
+          "signature": "test_query_no_match()",
+          "startLine": 538,
+          "endLine": 542
+        },
+        {
+          "name": "test_find_callers",
+          "signature": "test_find_callers()",
+          "startLine": 545,
+          "endLine": 553
+        },
+        {
+          "name": "test_query_module",
+          "signature": "test_query_module()",
+          "startLine": 556,
+          "endLine": 561
+        },
+        {
+          "name": "test_query_module_not_found",
+          "signature": "test_query_module_not_found()",
+          "startLine": 564,
+          "endLine": 567
+        },
+        {
+          "name": "test_query_dependants",
+          "signature": "test_query_dependants()",
+          "startLine": 570,
+          "endLine": 574
+        },
+        {
+          "name": "test_query_type_filter_variable",
+          "signature": "test_query_type_filter_variable()",
+          "startLine": 577,
+          "endLine": 588
+        },
+        {
+          "name": "test_query_variable_no_type_filter",
+          "signature": "test_query_variable_no_type_filter()",
+          "startLine": 591,
+          "endLine": 597
+        },
+        {
+          "name": "test_query_variable_excluded_by_function_filter",
+          "signature": "test_query_variable_excluded_by_function_filter()",
+          "startLine": 600,
+          "endLine": 607
+        },
+        {
+          "name": "test_query_dependencies",
+          "signature": "test_query_dependencies()",
+          "startLine": 610,
+          "endLine": 614
+        },
+        {
+          "name": "test_format_symbol_results_empty",
+          "signature": "test_format_symbol_results_empty()",
+          "startLine": 617,
+          "endLine": 620
+        },
+        {
+          "name": "test_format_symbol_results",
+          "signature": "test_format_symbol_results()",
+          "startLine": 623,
+          "endLine": 630
+        },
+        {
+          "name": "test_query_variable_same_file_usage",
+          "signature": "test_query_variable_same_file_usage()",
+          "startLine": 633,
+          "endLine": 652
+        }
+      ],
+      "classes": [
+        {
+          "name": "LineRange",
+          "startLine": 10,
+          "endLine": 13
+        },
+        {
+          "name": "CallerRef",
+          "startLine": 16,
+          "endLine": 21
+        },
+        {
+          "name": "SymbolResult",
+          "startLine": 24,
+          "endLine": 37
+        },
+        {
+          "name": "ModuleResult",
+          "startLine": 40,
+          "endLine": 45
+        },
+        {
+          "name": "QueryOptions",
+          "startLine": 50,
+          "endLine": 53
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "crate::graph",
+          "symbols": [
+            "CodeGraph",
+            "FileEntry"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        },
+        {
+          "source": "crate::graph",
+          "symbols": [
+            "ClassInfo",
+            "CodeGraph",
+            "FileEntry",
+            "FunctionInfo",
+            "GraphConfig",
+            "GraphSummary",
+            "ImportInfo",
+            "ModuleEntry",
+            "ProjectInfo",
+            "TypeInfo",
+            "VariableInfo"
+          ],
+          "isExternal": true,
+          "importLine": 352
+        },
+        {
+          "source": "std::collections",
+          "symbols": [
+            "HashMap"
+          ],
+          "isExternal": true,
+          "importLine": 356
+        }
+      ],
+      "exports": [
+        "LineRange",
+        "CallerRef",
+        "SymbolResult",
+        "ModuleResult",
+        "QueryOptions",
+        "query_symbol",
+        "query_module",
+        "query_dependants",
+        "query_dependencies",
+        "format_symbol_results",
+        "format_module_result"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "ClassInfo": {
+          "symbol": "ClassInfo",
+          "importLine": 352,
+          "useLines": [
+            353,
+            383
+          ]
+        },
+        "CodeGraph": {
+          "symbol": "CodeGraph",
+          "importLine": 352,
+          "useLines": [
+            5,
+            353
+          ]
+        },
+        "FileEntry": {
+          "symbol": "FileEntry",
+          "importLine": 352,
+          "useLines": [
+            5,
+            353
+          ]
+        },
+        "FunctionInfo": {
+          "symbol": "FunctionInfo",
+          "importLine": 352,
+          "useLines": [
+            353,
+            370,
+            376,
+            420
+          ]
+        },
+        "GraphConfig": {
+          "symbol": "GraphConfig",
+          "importLine": 352,
+          "useLines": [
+            353
+          ]
+        },
+        "GraphSummary": {
+          "symbol": "GraphSummary",
+          "importLine": 352,
+          "useLines": [
+            353
+          ]
+        },
+        "HashMap": {
+          "symbol": "HashMap",
+          "importLine": 356,
+          "useLines": [
+            356,
+            359,
+            436,
+            471
+          ]
+        },
+        "ImportInfo": {
+          "symbol": "ImportInfo",
+          "importLine": 352,
+          "useLines": [
+            353,
+            400
+          ]
+        },
+        "ModuleEntry": {
+          "symbol": "ModuleEntry",
+          "importLine": 352,
+          "useLines": [
+            354
+          ]
+        },
+        "ProjectInfo": {
+          "symbol": "ProjectInfo",
+          "importLine": 352,
+          "useLines": [
+            354
+          ]
+        },
+        "QueryOptions": {
+          "symbol": "QueryOptions",
+          "importLine": 0,
+          "useLines": [
+            483,
+            494,
+            540,
+            593,
+            625,
+            646
+          ]
+        },
+        "TypeInfo": {
+          "symbol": "TypeInfo",
+          "importLine": 352,
+          "useLines": [
+            354,
+            388
+          ]
+        },
+        "VariableInfo": {
+          "symbol": "VariableInfo",
+          "importLine": 352,
+          "useLines": [
+            354,
+            394
+          ]
+        },
+        "format_symbol_results": {
+          "symbol": "format_symbol_results",
+          "importLine": 0,
+          "useLines": [
+            618,
+            626
+          ]
+        },
+        "query_dependants": {
+          "symbol": "query_dependants",
+          "importLine": 0,
+          "useLines": [
+            572
+          ]
+        },
+        "query_dependencies": {
+          "symbol": "query_dependencies",
+          "importLine": 0,
+          "useLines": [
+            612
+          ]
+        },
+        "query_module": {
+          "symbol": "query_module",
+          "importLine": 0,
+          "useLines": [
+            558,
+            566
+          ]
+        },
+        "query_symbol": {
+          "symbol": "query_symbol",
+          "importLine": 0,
+          "useLines": [
+            483,
+            494,
+            508,
+            519,
+            531,
+            540,
+            582,
+            593,
+            605,
+            625,
+            646
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/parser.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:75cc78ffc391161c",
+      "lines": 156,
+      "functions": [
+        {
+          "name": "DefaultAdapter::new",
+          "signature": "DefaultAdapter::new(lang)",
+          "startLine": 41,
+          "endLine": 43
+        },
+        {
+          "name": "DefaultAdapter::language",
+          "signature": "DefaultAdapter::language(&self)",
+          "startLine": 47,
+          "endLine": 49
+        },
+        {
+          "name": "DefaultAdapter::extract_functions",
+          "signature": "DefaultAdapter::extract_functions(&self, _tree, _source)",
+          "startLine": 50,
+          "endLine": 52
+        },
+        {
+          "name": "DefaultAdapter::extract_imports",
+          "signature": "DefaultAdapter::extract_imports(&self, _tree, _source)",
+          "startLine": 53,
+          "endLine": 55
+        },
+        {
+          "name": "DefaultAdapter::extract_exports",
+          "signature": "DefaultAdapter::extract_exports(&self, _tree, _source)",
+          "startLine": 56,
+          "endLine": 58
+        },
+        {
+          "name": "DefaultAdapter::extract_classes",
+          "signature": "DefaultAdapter::extract_classes(&self, _tree, _source)",
+          "startLine": 59,
+          "endLine": 61
+        },
+        {
+          "name": "DefaultAdapter::extract_types",
+          "signature": "DefaultAdapter::extract_types(&self, _tree, _source)",
+          "startLine": 62,
+          "endLine": 64
+        },
+        {
+          "name": "parse_file",
+          "signature": "parse_file(_file_path, language, source, adapter)",
+          "startLine": 71,
+          "endLine": 102
+        },
+        {
+          "name": "get_ts_language",
+          "signature": "get_ts_language(language)",
+          "startLine": 106,
+          "endLine": 117
+        },
+        {
+          "name": "test_parse_empty_js",
+          "signature": "test_parse_empty_js()",
+          "startLine": 127,
+          "endLine": 134
+        },
+        {
+          "name": "test_parse_simple_rust",
+          "signature": "test_parse_simple_rust()",
+          "startLine": 137,
+          "endLine": 144
+        },
+        {
+          "name": "test_line_count",
+          "signature": "test_line_count()",
+          "startLine": 147,
+          "endLine": 154
+        }
+      ],
+      "classes": [
+        {
+          "name": "ParseResult",
+          "startLine": 23,
+          "endLine": 30
+        },
+        {
+          "name": "DefaultAdapter",
+          "startLine": 35,
+          "endLine": 37
+        }
+      ],
+      "types": [
+        {
+          "name": "LanguageAdapter",
+          "kind": "trait",
+          "startLine": 10,
+          "endLine": 17
+        }
+      ],
+      "variables": [],
+      "imports": [
+        {
+          "source": "crate::graph",
+          "symbols": [
+            "ClassInfo",
+            "FunctionInfo",
+            "ImportInfo",
+            "TypeInfo"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "crate::traverser",
+          "symbols": [
+            "Language"
+          ],
+          "isExternal": true,
+          "importLine": 2
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "Path"
+          ],
+          "isExternal": true,
+          "importLine": 3
+        },
+        {
+          "source": "tree_sitter",
+          "symbols": [
+            "Tree"
+          ],
+          "isExternal": true,
+          "importLine": 4
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "Path"
+          ],
+          "isExternal": true,
+          "importLine": 124
+        }
+      ],
+      "exports": [
+        "LanguageAdapter",
+        "ParseResult",
+        "DefaultAdapter",
+        "parse_file",
+        "get_ts_language"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "ClassInfo": {
+          "symbol": "ClassInfo",
+          "importLine": 1,
+          "useLines": [
+            1
+          ]
+        },
+        "DefaultAdapter": {
+          "symbol": "DefaultAdapter",
+          "importLine": 0,
+          "useLines": [
+            130,
+            140,
+            150
+          ]
+        },
+        "FunctionInfo": {
+          "symbol": "FunctionInfo",
+          "importLine": 1,
+          "useLines": [
+            1
+          ]
+        },
+        "ImportInfo": {
+          "symbol": "ImportInfo",
+          "importLine": 1,
+          "useLines": [
+            1
+          ]
+        },
+        "Language": {
+          "symbol": "Language",
+          "importLine": 2,
+          "useLines": [
+            2,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            128,
+            138,
+            148
+          ]
+        },
+        "Path": {
+          "symbol": "Path",
+          "importLine": 124,
+          "useLines": [
+            3,
+            124,
+            131,
+            142,
+            152
+          ]
+        },
+        "Tree": {
+          "symbol": "Tree",
+          "importLine": 4,
+          "useLines": [
+            4
+          ]
+        },
+        "TypeInfo": {
+          "symbol": "TypeInfo",
+          "importLine": 1,
+          "useLines": [
+            1
+          ]
+        },
+        "get_ts_language": {
+          "symbol": "get_ts_language",
+          "importLine": 0,
+          "useLines": [
+            129,
+            139,
+            149
+          ]
+        },
+        "parse_file": {
+          "symbol": "parse_file",
+          "importLine": 0,
+          "useLines": [
+            131,
+            142,
+            152
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/test_fixtures/src/index.ts": {
+      "language": "typescript",
+      "module": "temp_codemap",
+      "hash": "sha256:e6311e8fc66ac191",
+      "lines": 4,
+      "functions": [],
+      "classes": [],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "./auth/login",
+          "symbols": [
+            "login"
+          ],
+          "isExternal": false,
+          "importLine": 1
+        }
+      ],
+      "exports": [
+        "login"
+      ],
+      "isEntryPoint": true,
+      "symbolRefs": {
+        "login": {
+          "symbol": "login",
+          "importLine": 1,
+          "useLines": [
+            1,
+            2
+          ]
+        }
+      }
+    },
+    "_worker.js": {
+      "language": "javascript",
+      "module": "_root",
+      "hash": "sha256:3b2729d3f8eb97c9",
+      "lines": 9,
+      "functions": [],
+      "classes": [],
+      "types": [],
+      "variables": [],
+      "imports": [],
+      "exports": [],
+      "isEntryPoint": false,
+      "symbolRefs": {}
+    },
+    "temp_codemap/rust-cli/src/grammar_tests.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:2abbe582a1138347",
+      "lines": 119,
+      "functions": [
+        {
+          "name": "lang_typescript",
+          "signature": "lang_typescript()",
+          "startLine": 7,
+          "endLine": 9
+        },
+        {
+          "name": "lang_tsx",
+          "signature": "lang_tsx()",
+          "startLine": 11,
+          "endLine": 13
+        },
+        {
+          "name": "lang_javascript",
+          "signature": "lang_javascript()",
+          "startLine": 15,
+          "endLine": 17
+        },
+        {
+          "name": "lang_python",
+          "signature": "lang_python()",
+          "startLine": 19,
+          "endLine": 21
+        },
+        {
+          "name": "lang_go",
+          "signature": "lang_go()",
+          "startLine": 23,
+          "endLine": 25
+        },
+        {
+          "name": "lang_rust",
+          "signature": "lang_rust()",
+          "startLine": 27,
+          "endLine": 29
+        },
+        {
+          "name": "lang_java",
+          "signature": "lang_java()",
+          "startLine": 31,
+          "endLine": 33
+        },
+        {
+          "name": "lang_c",
+          "signature": "lang_c()",
+          "startLine": 35,
+          "endLine": 37
+        },
+        {
+          "name": "lang_cpp",
+          "signature": "lang_cpp()",
+          "startLine": 39,
+          "endLine": 41
+        },
+        {
+          "name": "test_typescript_grammar_loads",
+          "signature": "test_typescript_grammar_loads()",
+          "startLine": 44,
+          "endLine": 47
+        },
+        {
+          "name": "test_tsx_grammar_loads",
+          "signature": "test_tsx_grammar_loads()",
+          "startLine": 50,
+          "endLine": 53
+        },
+        {
+          "name": "test_javascript_grammar_loads",
+          "signature": "test_javascript_grammar_loads()",
+          "startLine": 56,
+          "endLine": 59
+        },
+        {
+          "name": "test_python_grammar_loads",
+          "signature": "test_python_grammar_loads()",
+          "startLine": 62,
+          "endLine": 65
+        },
+        {
+          "name": "test_go_grammar_loads",
+          "signature": "test_go_grammar_loads()",
+          "startLine": 68,
+          "endLine": 71
+        },
+        {
+          "name": "test_rust_grammar_loads",
+          "signature": "test_rust_grammar_loads()",
+          "startLine": 74,
+          "endLine": 77
+        },
+        {
+          "name": "test_java_grammar_loads",
+          "signature": "test_java_grammar_loads()",
+          "startLine": 80,
+          "endLine": 83
+        },
+        {
+          "name": "test_c_grammar_loads",
+          "signature": "test_c_grammar_loads()",
+          "startLine": 86,
+          "endLine": 89
+        },
+        {
+          "name": "test_cpp_grammar_loads",
+          "signature": "test_cpp_grammar_loads()",
+          "startLine": 92,
+          "endLine": 95
+        },
+        {
+          "name": "test_parse_simple_typescript",
+          "signature": "test_parse_simple_typescript()",
+          "startLine": 98,
+          "endLine": 106
+        },
+        {
+          "name": "test_parse_simple_python",
+          "signature": "test_parse_simple_python()",
+          "startLine": 109,
+          "endLine": 117
+        }
+      ],
+      "classes": [],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "tree_sitter",
+          "symbols": [
+            "Language"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        }
+      ],
+      "exports": [],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "Language": {
+          "symbol": "Language",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/impact.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:d6b2f2ad6df52c48",
+      "lines": 287,
+      "functions": [
+        {
+          "name": "TargetType::as_str",
+          "signature": "TargetType::as_str(&self)",
+          "startLine": 23,
+          "endLine": 28
+        },
+        {
+          "name": "analyze_impact",
+          "signature": "analyze_impact(graph, target, max_depth)",
+          "startLine": 35,
+          "endLine": 68
+        },
+        {
+          "name": "resolve_target",
+          "signature": "resolve_target(graph, target)",
+          "startLine": 70,
+          "endLine": 89
+        },
+        {
+          "name": "bfs_dependants",
+          "signature": "bfs_dependants(modules, start, max_depth)",
+          "startLine": 92,
+          "endLine": 122
+        },
+        {
+          "name": "make_graph",
+          "signature": "make_graph()",
+          "startLine": 132,
+          "endLine": 206
+        },
+        {
+          "name": "test_impact_module_core",
+          "signature": "test_impact_module_core()",
+          "startLine": 209,
+          "endLine": 223
+        },
+        {
+          "name": "test_impact_module_utils",
+          "signature": "test_impact_module_utils()",
+          "startLine": 226,
+          "endLine": 231
+        },
+        {
+          "name": "test_impact_module_app_no_dependants",
+          "signature": "test_impact_module_app_no_dependants()",
+          "startLine": 234,
+          "endLine": 240
+        },
+        {
+          "name": "test_impact_file_path",
+          "signature": "test_impact_file_path()",
+          "startLine": 243,
+          "endLine": 248
+        },
+        {
+          "name": "test_impact_partial_file_path",
+          "signature": "test_impact_partial_file_path()",
+          "startLine": 251,
+          "endLine": 256
+        },
+        {
+          "name": "test_impact_not_found",
+          "signature": "test_impact_not_found()",
+          "startLine": 259,
+          "endLine": 265
+        },
+        {
+          "name": "test_bfs_depth_limit",
+          "signature": "test_bfs_depth_limit()",
+          "startLine": 268,
+          "endLine": 273
+        },
+        {
+          "name": "test_impacted_files_sorted",
+          "signature": "test_impacted_files_sorted()",
+          "startLine": 276,
+          "endLine": 285
+        }
+      ],
+      "classes": [
+        {
+          "name": "ImpactResult",
+          "startLine": 7,
+          "endLine": 14
+        }
+      ],
+      "types": [
+        {
+          "name": "TargetType",
+          "kind": "enum",
+          "startLine": 17,
+          "endLine": 20
+        }
+      ],
+      "variables": [],
+      "imports": [
+        {
+          "source": "std::collections",
+          "symbols": [
+            "HashMap",
+            "HashSet",
+            "VecDeque"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "crate::graph",
+          "symbols": [
+            "CodeGraph",
+            "ModuleEntry"
+          ],
+          "isExternal": true,
+          "importLine": 3
+        },
+        {
+          "source": "crate::graph",
+          "symbols": [
+            "CodeGraph",
+            "FileEntry",
+            "GraphConfig",
+            "GraphSummary",
+            "ModuleEntry",
+            "ProjectInfo"
+          ],
+          "isExternal": true,
+          "importLine": 129
+        },
+        {
+          "source": "std::collections",
+          "symbols": [
+            "HashMap"
+          ],
+          "isExternal": true,
+          "importLine": 130
+        }
+      ],
+      "exports": [
+        "ImpactResult",
+        "TargetType",
+        "analyze_impact"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "CodeGraph": {
+          "symbol": "CodeGraph",
+          "importLine": 129,
+          "useLines": [
+            3,
+            129
+          ]
+        },
+        "FileEntry": {
+          "symbol": "FileEntry",
+          "importLine": 129,
+          "useLines": [
+            129
+          ]
+        },
+        "GraphConfig": {
+          "symbol": "GraphConfig",
+          "importLine": 129,
+          "useLines": [
+            129
+          ]
+        },
+        "GraphSummary": {
+          "symbol": "GraphSummary",
+          "importLine": 129,
+          "useLines": [
+            129
+          ]
+        },
+        "HashMap": {
+          "symbol": "HashMap",
+          "importLine": 130,
+          "useLines": [
+            1,
+            130,
+            137,
+            163,
+            199
+          ]
+        },
+        "HashSet": {
+          "symbol": "HashSet",
+          "importLine": 1,
+          "useLines": [
+            1,
+            97
+          ]
+        },
+        "ModuleEntry": {
+          "symbol": "ModuleEntry",
+          "importLine": 129,
+          "useLines": [
+            3,
+            129
+          ]
+        },
+        "ProjectInfo": {
+          "symbol": "ProjectInfo",
+          "importLine": 129,
+          "useLines": [
+            129
+          ]
+        },
+        "VecDeque": {
+          "symbol": "VecDeque",
+          "importLine": 1,
+          "useLines": [
+            1,
+            102
+          ]
+        },
+        "analyze_impact": {
+          "symbol": "analyze_impact",
+          "importLine": 0,
+          "useLines": [
+            211,
+            228,
+            236,
+            245,
+            253,
+            261,
+            271,
+            278
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/scanner.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:18c26fa4dfeca68d",
+      "lines": 665,
+      "functions": [
+        {
+          "name": "convert_functions",
+          "signature": "convert_functions(lang_functions)",
+          "startLine": 18,
+          "endLine": 35
+        },
+        {
+          "name": "convert_classes",
+          "signature": "convert_classes(lang_classes)",
+          "startLine": 37,
+          "endLine": 47
+        },
+        {
+          "name": "convert_types",
+          "signature": "convert_types(lang_classes, _lang)",
+          "startLine": 49,
+          "endLine": 63
+        },
+        {
+          "name": "convert_imports",
+          "signature": "convert_imports(lang_imports)",
+          "startLine": 65,
+          "endLine": 75
+        },
+        {
+          "name": "convert_variables",
+          "signature": "convert_variables(lang_vars)",
+          "startLine": 77,
+          "endLine": 87
+        },
+        {
+          "name": "convert_exports",
+          "signature": "convert_exports(lang_exports)",
+          "startLine": 89,
+          "endLine": 91
+        },
+        {
+          "name": "scan_symbol_uses",
+          "signature": "scan_symbol_uses(tree, source, imported_symbols)",
+          "startLine": 97,
+          "endLine": 119
+        },
+        {
+          "name": "detect_module_name",
+          "signature": "detect_module_name(file_path, root_dir)",
+          "startLine": 131,
+          "endLine": 159
+        },
+        {
+          "name": "scan_project",
+          "signature": "scan_project(root_dir, exclude)",
+          "startLine": 162,
+          "endLine": 478
+        },
+        {
+          "name": "resolve_import_module",
+          "signature": "resolve_import_module(importer_path, import_source, path_lookup, _fallback)",
+          "startLine": 485,
+          "endLine": 513
+        },
+        {
+          "name": "scan_and_save",
+          "signature": "scan_and_save(root_dir, exclude)",
+          "startLine": 516,
+          "endLine": 521
+        },
+        {
+          "name": "test_detect_module_name_root",
+          "signature": "test_detect_module_name_root()",
+          "startLine": 531,
+          "endLine": 535
+        },
+        {
+          "name": "test_detect_module_name_src",
+          "signature": "test_detect_module_name_src()",
+          "startLine": 538,
+          "endLine": 542
+        },
+        {
+          "name": "test_detect_module_name_direct_subdir",
+          "signature": "test_detect_module_name_direct_subdir()",
+          "startLine": 545,
+          "endLine": 549
+        },
+        {
+          "name": "test_detect_module_name_src_root",
+          "signature": "test_detect_module_name_src_root()",
+          "startLine": 552,
+          "endLine": 556
+        },
+        {
+          "name": "test_convert_functions_generates_signature",
+          "signature": "test_convert_functions_generates_signature()",
+          "startLine": 559,
+          "endLine": 580
+        },
+        {
+          "name": "test_convert_classes_filters_non_class",
+          "signature": "test_convert_classes_filters_non_class()",
+          "startLine": 583,
+          "endLine": 612
+        },
+        {
+          "name": "test_convert_types_excludes_python_class",
+          "signature": "test_convert_types_excludes_python_class()",
+          "startLine": 615,
+          "endLine": 642
+        },
+        {
+          "name": "test_convert_imports_is_external",
+          "signature": "test_convert_imports_is_external()",
+          "startLine": 645,
+          "endLine": 663
+        }
+      ],
+      "classes": [
+        {
+          "name": "FileInfo",
+          "startLine": 175,
+          "endLine": 189
+        }
+      ],
+      "types": [],
+      "variables": [
+        {
+          "name": "COMMON_ROOT_DIRS",
+          "kind": "const",
+          "startLine": 122,
+          "isExported": false
+        }
+      ],
+      "imports": [
+        {
+          "source": "crate::graph",
+          "symbols": [
+            "compute_file_hash",
+            "create_empty_graph",
+            "is_entry_point",
+            "save_graph",
+            "CodeGraph",
+            "FileEntry",
+            "ModuleEntry"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "crate",
+          "symbols": [
+            "languages"
+          ],
+          "isExternal": true,
+          "importLine": 6
+        },
+        {
+          "source": "crate::path_utils",
+          "symbols": [
+            "normalize_path",
+            "strip_extension"
+          ],
+          "isExternal": true,
+          "importLine": 7
+        },
+        {
+          "source": "crate::traverser",
+          "symbols": [
+            "detect_language",
+            "effective_language",
+            "has_cpp_source_files",
+            "traverse_files",
+            "Language"
+          ],
+          "isExternal": true,
+          "importLine": 8
+        },
+        {
+          "source": "std::collections",
+          "symbols": [
+            "BTreeMap",
+            "HashMap",
+            "HashSet"
+          ],
+          "isExternal": true,
+          "importLine": 11
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "Path",
+            "PathBuf"
+          ],
+          "isExternal": true,
+          "importLine": 12
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "Path"
+          ],
+          "isExternal": true,
+          "importLine": 528
+        },
+        {
+          "source": "crate::traverser",
+          "symbols": [
+            "Language"
+          ],
+          "isExternal": true,
+          "importLine": 616
+        }
+      ],
+      "exports": [
+        "convert_functions",
+        "convert_classes",
+        "convert_types",
+        "convert_imports",
+        "convert_variables",
+        "convert_exports",
+        "scan_symbol_uses",
+        "detect_module_name",
+        "scan_project",
+        "scan_and_save"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "BTreeMap": {
+          "symbol": "BTreeMap",
+          "importLine": 11,
+          "useLines": [
+            11,
+            265
+          ]
+        },
+        "COMMON_ROOT_DIRS": {
+          "symbol": "COMMON_ROOT_DIRS",
+          "importLine": 0,
+          "useLines": [
+            150
+          ]
+        },
+        "CodeGraph": {
+          "symbol": "CodeGraph",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "FileEntry": {
+          "symbol": "FileEntry",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "HashMap": {
+          "symbol": "HashMap",
+          "importLine": 11,
+          "useLines": [
+            11,
+            102,
+            192,
+            358,
+            371,
+            383,
+            384
+          ]
+        },
+        "HashSet": {
+          "symbol": "HashSet",
+          "importLine": 11,
+          "useLines": [
+            11,
+            196,
+            386,
+            387
+          ]
+        },
+        "Language": {
+          "symbol": "Language",
+          "importLine": 616,
+          "useLines": [
+            9,
+            616,
+            634,
+            639
+          ]
+        },
+        "ModuleEntry": {
+          "symbol": "ModuleEntry",
+          "importLine": 1,
+          "useLines": [
+            4
+          ]
+        },
+        "Path": {
+          "symbol": "Path",
+          "importLine": 528,
+          "useLines": [
+            12,
+            528,
+            532,
+            533,
+            539,
+            540,
+            546,
+            547,
+            553,
+            554
+          ]
+        },
+        "PathBuf": {
+          "symbol": "PathBuf",
+          "importLine": 12,
+          "useLines": [
+            12
+          ]
+        },
+        "compute_file_hash": {
+          "symbol": "compute_file_hash",
+          "importLine": 1,
+          "useLines": [
+            2,
+            210
+          ]
+        },
+        "convert_classes": {
+          "symbol": "convert_classes",
+          "importLine": 0,
+          "useLines": [
+            236,
+            607
+          ]
+        },
+        "convert_exports": {
+          "symbol": "convert_exports",
+          "importLine": 0,
+          "useLines": [
+            239
+          ]
+        },
+        "convert_functions": {
+          "symbol": "convert_functions",
+          "importLine": 0,
+          "useLines": [
+            235,
+            576
+          ]
+        },
+        "convert_imports": {
+          "symbol": "convert_imports",
+          "importLine": 0,
+          "useLines": [
+            238,
+            660
+          ]
+        },
+        "convert_types": {
+          "symbol": "convert_types",
+          "importLine": 0,
+          "useLines": [
+            237,
+            634,
+            639
+          ]
+        },
+        "convert_variables": {
+          "symbol": "convert_variables",
+          "importLine": 0,
+          "useLines": [
+            240
+          ]
+        },
+        "create_empty_graph": {
+          "symbol": "create_empty_graph",
+          "importLine": 1,
+          "useLines": [
+            2,
+            168
+          ]
+        },
+        "detect_language": {
+          "symbol": "detect_language",
+          "importLine": 8,
+          "useLines": [
+            9,
+            199
+          ]
+        },
+        "detect_module_name": {
+          "symbol": "detect_module_name",
+          "importLine": 0,
+          "useLines": [
+            324,
+            534,
+            541,
+            548,
+            555
+          ]
+        },
+        "effective_language": {
+          "symbol": "effective_language",
+          "importLine": 8,
+          "useLines": [
+            9,
+            203
+          ]
+        },
+        "has_cpp_source_files": {
+          "symbol": "has_cpp_source_files",
+          "importLine": 8,
+          "useLines": [
+            9,
+            172
+          ]
+        },
+        "is_entry_point": {
+          "symbol": "is_entry_point",
+          "importLine": 1,
+          "useLines": [
+            2,
+            351
+          ]
+        },
+        "languages": {
+          "symbol": "languages",
+          "importLine": 6,
+          "useLines": [
+            6,
+            18,
+            37,
+            49,
+            65,
+            77,
+            89,
+            103,
+            107,
+            211,
+            561,
+            568,
+            585,
+            592,
+            599,
+            618,
+            625,
+            647,
+            653
+          ]
+        },
+        "normalize_path": {
+          "symbol": "normalize_path",
+          "importLine": 7,
+          "useLines": [
+            7,
+            498
+          ]
+        },
+        "save_graph": {
+          "symbol": "save_graph",
+          "importLine": 1,
+          "useLines": [
+            2,
+            519
+          ]
+        },
+        "scan_project": {
+          "symbol": "scan_project",
+          "importLine": 0,
+          "useLines": [
+            517
+          ]
+        },
+        "scan_symbol_uses": {
+          "symbol": "scan_symbol_uses",
+          "importLine": 0,
+          "useLines": [
+            264
+          ]
+        },
+        "strip_extension": {
+          "symbol": "strip_extension",
+          "importLine": 7,
+          "useLines": [
+            7,
+            376
+          ]
+        },
+        "traverse_files": {
+          "symbol": "traverse_files",
+          "importLine": 8,
+          "useLines": [
+            9,
+            171
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/tests/fixture_compat.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:26fc4a8171411bdb",
+      "lines": 573,
+      "functions": [
+        {
+          "name": "parse_fixture",
+          "signature": "parse_fixture(lang, rel_path)",
+          "startLine": 10,
+          "endLine": 33
+        },
+        {
+          "name": "test_ts_login_functions",
+          "signature": "test_ts_login_functions()",
+          "startLine": 38,
+          "endLine": 46
+        },
+        {
+          "name": "test_ts_login_imports",
+          "signature": "test_ts_login_imports()",
+          "startLine": 49,
+          "endLine": 61
+        },
+        {
+          "name": "test_ts_login_exports",
+          "signature": "test_ts_login_exports()",
+          "startLine": 64,
+          "endLine": 77
+        },
+        {
+          "name": "test_ts_login_classes",
+          "signature": "test_ts_login_classes()",
+          "startLine": 80,
+          "endLine": 93
+        },
+        {
+          "name": "test_ts_routes_functions",
+          "signature": "test_ts_routes_functions()",
+          "startLine": 98,
+          "endLine": 106
+        },
+        {
+          "name": "test_ts_routes_imports",
+          "signature": "test_ts_routes_imports()",
+          "startLine": 109,
+          "endLine": 118
+        },
+        {
+          "name": "test_ts_routes_exports",
+          "signature": "test_ts_routes_exports()",
+          "startLine": 121,
+          "endLine": 129
+        },
+        {
+          "name": "test_py_helpers_functions",
+          "signature": "test_py_helpers_functions()",
+          "startLine": 134,
+          "endLine": 147
+        },
+        {
+          "name": "test_py_helpers_imports",
+          "signature": "test_py_helpers_imports()",
+          "startLine": 150,
+          "endLine": 170
+        },
+        {
+          "name": "test_py_helpers_exports_dunder_all",
+          "signature": "test_py_helpers_exports_dunder_all()",
+          "startLine": 173,
+          "endLine": 193
+        },
+        {
+          "name": "test_py_helpers_classes",
+          "signature": "test_py_helpers_classes()",
+          "startLine": 196,
+          "endLine": 212
+        },
+        {
+          "name": "test_go_handler_functions",
+          "signature": "test_go_handler_functions()",
+          "startLine": 217,
+          "endLine": 235
+        },
+        {
+          "name": "test_go_handler_exports",
+          "signature": "test_go_handler_exports()",
+          "startLine": 238,
+          "endLine": 256
+        },
+        {
+          "name": "test_go_handler_imports",
+          "signature": "test_go_handler_imports()",
+          "startLine": 259,
+          "endLine": 277
+        },
+        {
+          "name": "test_go_handler_structs",
+          "signature": "test_go_handler_structs()",
+          "startLine": 280,
+          "endLine": 293
+        },
+        {
+          "name": "test_rust_engine_functions",
+          "signature": "test_rust_engine_functions()",
+          "startLine": 298,
+          "endLine": 321
+        },
+        {
+          "name": "test_rust_engine_exports",
+          "signature": "test_rust_engine_exports()",
+          "startLine": 324,
+          "endLine": 352
+        },
+        {
+          "name": "test_rust_engine_imports",
+          "signature": "test_rust_engine_imports()",
+          "startLine": 355,
+          "endLine": 362
+        },
+        {
+          "name": "test_rust_engine_classes",
+          "signature": "test_rust_engine_classes()",
+          "startLine": 365,
+          "endLine": 383
+        },
+        {
+          "name": "test_java_user_functions",
+          "signature": "test_java_user_functions()",
+          "startLine": 388,
+          "endLine": 406
+        },
+        {
+          "name": "test_java_user_imports",
+          "signature": "test_java_user_imports()",
+          "startLine": 409,
+          "endLine": 425
+        },
+        {
+          "name": "test_java_user_exports",
+          "signature": "test_java_user_exports()",
+          "startLine": 428,
+          "endLine": 442
+        },
+        {
+          "name": "test_java_user_classes",
+          "signature": "test_java_user_classes()",
+          "startLine": 445,
+          "endLine": 468
+        },
+        {
+          "name": "test_cpp_engine_functions",
+          "signature": "test_cpp_engine_functions()",
+          "startLine": 473,
+          "endLine": 496
+        },
+        {
+          "name": "test_cpp_engine_exports",
+          "signature": "test_cpp_engine_exports()",
+          "startLine": 499,
+          "endLine": 513
+        },
+        {
+          "name": "test_cpp_engine_includes",
+          "signature": "test_cpp_engine_includes()",
+          "startLine": 516,
+          "endLine": 534
+        },
+        {
+          "name": "test_cpp_engine_classes",
+          "signature": "test_cpp_engine_classes()",
+          "startLine": 537,
+          "endLine": 550
+        },
+        {
+          "name": "test_cpp_namespace_not_in_exports",
+          "signature": "test_cpp_namespace_not_in_exports()",
+          "startLine": 553,
+          "endLine": 572
+        }
+      ],
+      "classes": [],
+      "types": [],
+      "variables": [
+        {
+          "name": "FIXTURE_BASE",
+          "kind": "const",
+          "startLine": 8,
+          "isExported": false
+        }
+      ],
+      "imports": [
+        {
+          "source": "codegraph::languages",
+          "symbols": [
+            "get_adapter"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        },
+        {
+          "source": "codegraph::traverser",
+          "symbols": [
+            "Language"
+          ],
+          "isExternal": true,
+          "importLine": 6
+        }
+      ],
+      "exports": [],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "FIXTURE_BASE": {
+          "symbol": "FIXTURE_BASE",
+          "importLine": 0,
+          "useLines": [
+            19
+          ]
+        },
+        "Language": {
+          "symbol": "Language",
+          "importLine": 6,
+          "useLines": [
+            6,
+            39,
+            50,
+            65,
+            81,
+            99,
+            110,
+            122,
+            135,
+            151,
+            174,
+            197,
+            218,
+            239,
+            260,
+            281,
+            299,
+            325,
+            356,
+            366,
+            389,
+            410,
+            429,
+            446,
+            474,
+            500,
+            517,
+            538,
+            554
+          ]
+        },
+        "get_adapter": {
+          "symbol": "get_adapter",
+          "importLine": 5,
+          "useLines": [
+            5,
+            22
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/commands/slice.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:edc60368d031cadd",
+      "lines": 88,
+      "functions": [
+        {
+          "name": "run",
+          "signature": "run(args)",
+          "startLine": 16,
+          "endLine": 87
+        }
+      ],
+      "classes": [
+        {
+          "name": "SliceArgs",
+          "startLine": 5,
+          "endLine": 14
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "clap",
+          "symbols": [
+            "Args"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "PathBuf"
+          ],
+          "isExternal": true,
+          "importLine": 2
+        }
+      ],
+      "exports": [
+        "SliceArgs",
+        "run"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "Args": {
+          "symbol": "Args",
+          "importLine": 1,
+          "useLines": [
+            1,
+            4
+          ]
+        },
+        "PathBuf": {
+          "symbol": "PathBuf",
+          "importLine": 2,
+          "useLines": [
+            2,
+            17
+          ]
+        }
+      }
+    },
+    "container/nodejs/index.js": {
+      "language": "javascript",
+      "module": "container",
+      "hash": "sha256:7170e81e8def3dc2",
+      "lines": 200,
+      "functions": [
+        {
+          "name": "ensureModule",
+          "signature": "ensureModule(name)",
+          "startLine": 6,
+          "endLine": 13
+        }
+      ],
+      "classes": [],
+      "types": [],
+      "variables": [
+        {
+          "name": "os",
+          "kind": "const",
+          "startLine": 1,
+          "isExported": false
+        },
+        {
+          "name": "http",
+          "kind": "const",
+          "startLine": 2,
+          "isExported": false
+        },
+        {
+          "name": "fs",
+          "kind": "const",
+          "startLine": 3,
+          "isExported": false
+        },
+        {
+          "name": "net",
+          "kind": "const",
+          "startLine": 4,
+          "isExported": false
+        },
+        {
+          "name": "{ exec, execSync }",
+          "kind": "const",
+          "startLine": 5,
+          "isExported": false
+        },
+        {
+          "name": "{ WebSocket, createWebSocketStream }",
+          "kind": "const",
+          "startLine": 14,
+          "isExported": false
+        },
+        {
+          "name": "subtxt",
+          "kind": "const",
+          "startLine": 15,
+          "isExported": false
+        },
+        {
+          "name": "NAME",
+          "kind": "const",
+          "startLine": 16,
+          "isExported": false
+        },
+        {
+          "name": "PORT",
+          "kind": "const",
+          "startLine": 17,
+          "isExported": false
+        },
+        {
+          "name": "uuid",
+          "kind": "const",
+          "startLine": 18,
+          "isExported": false
+        },
+        {
+          "name": "DOMAIN",
+          "kind": "const",
+          "startLine": 19,
+          "isExported": false
+        },
+        {
+          "name": "vlessInfo",
+          "kind": "const",
+          "startLine": 20,
+          "isExported": false
+        },
+        {
+          "name": "server",
+          "kind": "const",
+          "startLine": 39,
+          "isExported": false
+        },
+        {
+          "name": "wss",
+          "kind": "const",
+          "startLine": 177,
+          "isExported": false
+        },
+        {
+          "name": "uuidkey",
+          "kind": "const",
+          "startLine": 178,
+          "isExported": false
+        }
+      ],
+      "imports": [],
+      "exports": [],
+      "isEntryPoint": true,
+      "symbolRefs": {
+        "DOMAIN": {
+          "symbol": "DOMAIN",
+          "importLine": 0,
+          "useLines": [
+            20,
+            48
+          ]
+        },
+        "NAME": {
+          "symbol": "NAME",
+          "importLine": 0,
+          "useLines": [
+            20
+          ]
+        },
+        "PORT": {
+          "symbol": "PORT",
+          "importLine": 0,
+          "useLines": [
+            173,
+            174
+          ]
+        },
+        "fs": {
+          "symbol": "fs",
+          "importLine": 0,
+          "useLines": [
+            23,
+            156,
+            157
+          ]
+        },
+        "http": {
+          "symbol": "http",
+          "importLine": 0,
+          "useLines": [
+            39
+          ]
+        },
+        "net": {
+          "symbol": "net",
+          "importLine": 0,
+          "useLines": [
+            194
+          ]
+        },
+        "os": {
+          "symbol": "os",
+          "importLine": 0,
+          "useLines": [
+            16
+          ]
+        },
+        "server": {
+          "symbol": "server",
+          "importLine": 0,
+          "useLines": [
+            173
+          ]
+        },
+        "subtxt": {
+          "symbol": "subtxt",
+          "importLine": 0,
+          "useLines": [
+            156,
+            157
+          ]
+        },
+        "uuid": {
+          "symbol": "uuid",
+          "importLine": 0,
+          "useLines": [
+            20,
+            46,
+            49,
+            154,
+            178
+          ]
+        },
+        "uuidkey": {
+          "symbol": "uuidkey",
+          "importLine": 0,
+          "useLines": [
+            183
+          ]
+        },
+        "vlessInfo": {
+          "symbol": "vlessInfo",
+          "importLine": 0,
+          "useLines": [
+            21,
+            158,
+            163
+          ]
+        },
+        "wss": {
+          "symbol": "wss",
+          "importLine": 0,
+          "useLines": [
+            179
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/traverser.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:5f47e3a2102e95b4",
+      "lines": 207,
+      "functions": [
+        {
+          "name": "Language::as_str",
+          "signature": "Language::as_str(self)",
+          "startLine": 30,
+          "endLine": 41
+        },
+        {
+          "name": "detect_language",
+          "signature": "detect_language(path)",
+          "startLine": 45,
+          "endLine": 58
+        },
+        {
+          "name": "has_cpp_source_files",
+          "signature": "has_cpp_source_files(files)",
+          "startLine": 61,
+          "endLine": 68
+        },
+        {
+          "name": "effective_language",
+          "signature": "effective_language(path, base, project_has_cpp)",
+          "startLine": 71,
+          "endLine": 84
+        },
+        {
+          "name": "traverse_files",
+          "signature": "traverse_files(root_dir, extra_exclude)",
+          "startLine": 87,
+          "endLine": 117
+        },
+        {
+          "name": "is_excluded",
+          "signature": "is_excluded(path, root, extra_exclude)",
+          "startLine": 119,
+          "endLine": 140
+        },
+        {
+          "name": "test_detect_language_typescript",
+          "signature": "test_detect_language_typescript()",
+          "startLine": 148,
+          "endLine": 157
+        },
+        {
+          "name": "test_detect_language_javascript",
+          "signature": "test_detect_language_javascript()",
+          "startLine": 160,
+          "endLine": 173
+        },
+        {
+          "name": "test_detect_language_others",
+          "signature": "test_detect_language_others()",
+          "startLine": 176,
+          "endLine": 183
+        },
+        {
+          "name": "test_detect_language_unknown",
+          "signature": "test_detect_language_unknown()",
+          "startLine": 186,
+          "endLine": 189
+        },
+        {
+          "name": "test_h_reclassification",
+          "signature": "test_h_reclassification()",
+          "startLine": 192,
+          "endLine": 196
+        },
+        {
+          "name": "test_has_cpp_source_files",
+          "signature": "test_has_cpp_source_files()",
+          "startLine": 199,
+          "endLine": 205
+        }
+      ],
+      "classes": [],
+      "types": [
+        {
+          "name": "Language",
+          "kind": "enum",
+          "startLine": 18,
+          "endLine": 27
+        }
+      ],
+      "variables": [
+        {
+          "name": "DEFAULT_EXCLUDE",
+          "kind": "const",
+          "startLine": 5,
+          "isExported": false
+        }
+      ],
+      "imports": [
+        {
+          "source": "ignore",
+          "symbols": [
+            "WalkBuilder"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "Path",
+            "PathBuf"
+          ],
+          "isExternal": true,
+          "importLine": 2
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "Path"
+          ],
+          "isExternal": true,
+          "importLine": 145
+        }
+      ],
+      "exports": [
+        "Language",
+        "detect_language",
+        "has_cpp_source_files",
+        "effective_language",
+        "traverse_files"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "DEFAULT_EXCLUDE": {
+          "symbol": "DEFAULT_EXCLUDE",
+          "importLine": 0,
+          "useLines": [
+            128
+          ]
+        },
+        "Path": {
+          "symbol": "Path",
+          "importLine": 145,
+          "useLines": [
+            2,
+            145,
+            150,
+            154,
+            162,
+            166,
+            170,
+            177,
+            178,
+            179,
+            180,
+            181,
+            182,
+            187,
+            188,
+            193
+          ]
+        },
+        "PathBuf": {
+          "symbol": "PathBuf",
+          "importLine": 2,
+          "useLines": [
+            2,
+            200,
+            203
+          ]
+        },
+        "WalkBuilder": {
+          "symbol": "WalkBuilder",
+          "importLine": 1,
+          "useLines": [
+            1,
+            90
+          ]
+        },
+        "detect_language": {
+          "symbol": "detect_language",
+          "importLine": 0,
+          "useLines": [
+            110,
+            150,
+            154,
+            162,
+            166,
+            170,
+            177,
+            178,
+            179,
+            180,
+            181,
+            182,
+            187,
+            188
+          ]
+        },
+        "effective_language": {
+          "symbol": "effective_language",
+          "importLine": 0,
+          "useLines": [
+            194,
+            195
+          ]
+        },
+        "has_cpp_source_files": {
+          "symbol": "has_cpp_source_files",
+          "importLine": 0,
+          "useLines": [
+            201,
+            204
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/tests/scanner_compat.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:5b067a2004e871d1",
+      "lines": 284,
+      "functions": [
+        {
+          "name": "fixture",
+          "signature": "fixture()",
+          "startLine": 10,
+          "endLine": 12
+        },
+        {
+          "name": "test_scan_valid_graph_version",
+          "signature": "test_scan_valid_graph_version()",
+          "startLine": 17,
+          "endLine": 20
+        },
+        {
+          "name": "test_scan_total_files",
+          "signature": "test_scan_total_files()",
+          "startLine": 23,
+          "endLine": 26
+        },
+        {
+          "name": "test_scan_languages_include_typescript",
+          "signature": "test_scan_languages_include_typescript()",
+          "startLine": 29,
+          "endLine": 35
+        },
+        {
+          "name": "test_scan_language_counts",
+          "signature": "test_scan_language_counts()",
+          "startLine": 38,
+          "endLine": 49
+        },
+        {
+          "name": "test_scan_modules_detected",
+          "signature": "test_scan_modules_detected()",
+          "startLine": 54,
+          "endLine": 66
+        },
+        {
+          "name": "test_scan_module_count",
+          "signature": "test_scan_module_count()",
+          "startLine": 69,
+          "endLine": 72
+        },
+        {
+          "name": "test_scan_login_ts_exists",
+          "signature": "test_scan_login_ts_exists()",
+          "startLine": 77,
+          "endLine": 83
+        },
+        {
+          "name": "test_scan_login_ts_has_functions",
+          "signature": "test_scan_login_ts_has_functions()",
+          "startLine": 86,
+          "endLine": 91
+        },
+        {
+          "name": "test_scan_login_ts_has_imports",
+          "signature": "test_scan_login_ts_has_imports()",
+          "startLine": 94,
+          "endLine": 98
+        },
+        {
+          "name": "test_scan_login_ts_exports_login",
+          "signature": "test_scan_login_ts_exports_login()",
+          "startLine": 101,
+          "endLine": 108
+        },
+        {
+          "name": "test_scan_api_module_exists",
+          "signature": "test_scan_api_module_exists()",
+          "startLine": 113,
+          "endLine": 116
+        },
+        {
+          "name": "test_scan_api_depends_on_auth",
+          "signature": "test_scan_api_depends_on_auth()",
+          "startLine": 119,
+          "endLine": 127
+        },
+        {
+          "name": "test_scan_auth_depended_by_api",
+          "signature": "test_scan_auth_depended_by_api()",
+          "startLine": 130,
+          "endLine": 138
+        },
+        {
+          "name": "test_cross_validate_total_functions",
+          "signature": "test_cross_validate_total_functions()",
+          "startLine": 143,
+          "endLine": 150
+        },
+        {
+          "name": "test_cross_validate_total_classes",
+          "signature": "test_cross_validate_total_classes()",
+          "startLine": 153,
+          "endLine": 160
+        },
+        {
+          "name": "test_cross_validate_file_hashes",
+          "signature": "test_cross_validate_file_hashes()",
+          "startLine": 163,
+          "endLine": 186
+        },
+        {
+          "name": "test_cross_validate_routes_ts",
+          "signature": "test_cross_validate_routes_ts()",
+          "startLine": 189,
+          "endLine": 200
+        },
+        {
+          "name": "test_cross_validate_login_ts",
+          "signature": "test_cross_validate_login_ts()",
+          "startLine": 203,
+          "endLine": 214
+        },
+        {
+          "name": "test_cross_validate_engine_rs_functions",
+          "signature": "test_cross_validate_engine_rs_functions()",
+          "startLine": 217,
+          "endLine": 229
+        },
+        {
+          "name": "test_cross_validate_engine_rs_exports",
+          "signature": "test_cross_validate_engine_rs_exports()",
+          "startLine": 232,
+          "endLine": 239
+        },
+        {
+          "name": "test_cross_validate_handler_go_functions",
+          "signature": "test_cross_validate_handler_go_functions()",
+          "startLine": 242,
+          "endLine": 250
+        },
+        {
+          "name": "test_cross_validate_helpers_py_exports",
+          "signature": "test_cross_validate_helpers_py_exports()",
+          "startLine": 253,
+          "endLine": 260
+        },
+        {
+          "name": "test_cross_validate_user_java_types",
+          "signature": "test_cross_validate_user_java_types()",
+          "startLine": 263,
+          "endLine": 271
+        },
+        {
+          "name": "test_load_nodejs_graph_json",
+          "signature": "test_load_nodejs_graph_json()",
+          "startLine": 276,
+          "endLine": 283
+        }
+      ],
+      "classes": [],
+      "types": [],
+      "variables": [
+        {
+          "name": "FIXTURE_DIR",
+          "kind": "const",
+          "startLine": 8,
+          "isExported": false
+        }
+      ],
+      "imports": [
+        {
+          "source": "codegraph::scanner",
+          "symbols": [
+            "scan_project"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "Path"
+          ],
+          "isExternal": true,
+          "importLine": 6
+        },
+        {
+          "source": "codegraph::graph",
+          "symbols": [
+            "load_graph"
+          ],
+          "isExternal": true,
+          "importLine": 277
+        }
+      ],
+      "exports": [],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "FIXTURE_DIR": {
+          "symbol": "FIXTURE_DIR",
+          "importLine": 0,
+          "useLines": [
+            11,
+            278
+          ]
+        },
+        "Path": {
+          "symbol": "Path",
+          "importLine": 6,
+          "useLines": [
+            6,
+            11,
+            278
+          ]
+        },
+        "load_graph": {
+          "symbol": "load_graph",
+          "importLine": 277,
+          "useLines": [
+            277,
+            279
+          ]
+        },
+        "scan_project": {
+          "symbol": "scan_project",
+          "importLine": 5,
+          "useLines": [
+            5,
+            11
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/languages/typescript.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:ae4ce30c6da44b8a",
+      "lines": 460,
+      "functions": [
+        {
+          "name": "TypeScriptAdapter::default",
+          "signature": "TypeScriptAdapter::default()",
+          "startLine": 12,
+          "endLine": 14
+        },
+        {
+          "name": "TypeScriptAdapter::new",
+          "signature": "TypeScriptAdapter::new()",
+          "startLine": 18,
+          "endLine": 20
+        },
+        {
+          "name": "TypeScriptAdapter::new_tsx",
+          "signature": "TypeScriptAdapter::new_tsx()",
+          "startLine": 21,
+          "endLine": 23
+        },
+        {
+          "name": "TypeScriptAdapter::language",
+          "signature": "TypeScriptAdapter::language(&self)",
+          "startLine": 27,
+          "endLine": 33
+        },
+        {
+          "name": "TypeScriptAdapter::extract_functions",
+          "signature": "TypeScriptAdapter::extract_functions(&self, tree, source)",
+          "startLine": 35,
+          "endLine": 82
+        },
+        {
+          "name": "TypeScriptAdapter::extract_imports",
+          "signature": "TypeScriptAdapter::extract_imports(&self, tree, source)",
+          "startLine": 84,
+          "endLine": 129
+        },
+        {
+          "name": "TypeScriptAdapter::extract_exports",
+          "signature": "TypeScriptAdapter::extract_exports(&self, tree, source)",
+          "startLine": 131,
+          "endLine": 206
+        },
+        {
+          "name": "TypeScriptAdapter::extract_classes",
+          "signature": "TypeScriptAdapter::extract_classes(&self, tree, source)",
+          "startLine": 208,
+          "endLine": 237
+        },
+        {
+          "name": "TypeScriptAdapter::extract_variables",
+          "signature": "TypeScriptAdapter::extract_variables(&self, tree, source)",
+          "startLine": 239,
+          "endLine": 256
+        },
+        {
+          "name": "extract_ts_lexical_decl",
+          "signature": "extract_ts_lexical_decl(node, source, is_exported, variables)",
+          "startLine": 259,
+          "endLine": 298
+        },
+        {
+          "name": "parse_function_declaration",
+          "signature": "parse_function_declaration(node, source)",
+          "startLine": 300,
+          "endLine": 318
+        },
+        {
+          "name": "extract_params_text",
+          "signature": "extract_params_text(params_node, source)",
+          "startLine": 320,
+          "endLine": 331
+        },
+        {
+          "name": "extract_class_methods",
+          "signature": "extract_class_methods(class_node, source)",
+          "startLine": 333,
+          "endLine": 343
+        },
+        {
+          "name": "parse",
+          "signature": "parse(source, tsx)",
+          "startLine": 349,
+          "endLine": 358
+        },
+        {
+          "name": "test_ts_extract_functions",
+          "signature": "test_ts_extract_functions()",
+          "startLine": 361,
+          "endLine": 376
+        },
+        {
+          "name": "test_ts_extract_imports",
+          "signature": "test_ts_extract_imports()",
+          "startLine": 379,
+          "endLine": 391
+        },
+        {
+          "name": "test_ts_extract_exports",
+          "signature": "test_ts_extract_exports()",
+          "startLine": 394,
+          "endLine": 411
+        },
+        {
+          "name": "test_ts_extract_classes",
+          "signature": "test_ts_extract_classes()",
+          "startLine": 414,
+          "endLine": 434
+        },
+        {
+          "name": "test_ts_extract_variables",
+          "signature": "test_ts_extract_variables()",
+          "startLine": 437,
+          "endLine": 458
+        }
+      ],
+      "classes": [
+        {
+          "name": "TypeScriptAdapter",
+          "startLine": 7,
+          "endLine": 9
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "super",
+          "symbols": [
+            "find_child_of_type",
+            "node_text",
+            "strip_quotes",
+            "walk_nodes",
+            "ClassInfo",
+            "ExportInfo",
+            "FunctionInfo",
+            "ImportInfo",
+            "LanguageAdapter",
+            "VariableInfo"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "tree_sitter",
+          "symbols": [
+            "Language",
+            "Tree"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        }
+      ],
+      "exports": [
+        "TypeScriptAdapter"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "ClassInfo": {
+          "symbol": "ClassInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "ExportInfo": {
+          "symbol": "ExportInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "FunctionInfo": {
+          "symbol": "FunctionInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "ImportInfo": {
+          "symbol": "ImportInfo",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "Language": {
+          "symbol": "Language",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "LanguageAdapter": {
+          "symbol": "LanguageAdapter",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "Tree": {
+          "symbol": "Tree",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "TypeScriptAdapter": {
+          "symbol": "TypeScriptAdapter",
+          "importLine": 0,
+          "useLines": [
+            351,
+            353,
+            369,
+            384,
+            403,
+            423,
+            445
+          ]
+        },
+        "VariableInfo": {
+          "symbol": "VariableInfo",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "find_child_of_type": {
+          "symbol": "find_child_of_type",
+          "importLine": 1,
+          "useLines": [
+            2,
+            92,
+            98,
+            100,
+            138,
+            147,
+            156,
+            165,
+            174,
+            188,
+            250
+          ]
+        },
+        "node_text": {
+          "symbol": "node_text",
+          "importLine": 1,
+          "useLines": [
+            2,
+            57,
+            94,
+            108,
+            117,
+            141,
+            150,
+            159,
+            168,
+            180,
+            197,
+            215,
+            226,
+            270,
+            291,
+            302,
+            321,
+            338
+          ]
+        },
+        "strip_quotes": {
+          "symbol": "strip_quotes",
+          "importLine": 1,
+          "useLines": [
+            2,
+            94
+          ]
+        },
+        "walk_nodes": {
+          "symbol": "walk_nodes",
+          "importLine": 1,
+          "useLines": [
+            2,
+            37,
+            86,
+            133,
+            210,
+            335
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/tests/variable_compat.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:e98b5aa15dad8615",
+      "lines": 527,
+      "functions": [
+        {
+          "name": "parse_variables",
+          "signature": "parse_variables(lang, source)",
+          "startLine": 14,
+          "endLine": 20
+        },
+        {
+          "name": "test_ts_variables_count",
+          "signature": "test_ts_variables_count()",
+          "startLine": 38,
+          "endLine": 47
+        },
+        {
+          "name": "test_ts_const_kind",
+          "signature": "test_ts_const_kind()",
+          "startLine": 50,
+          "endLine": 58
+        },
+        {
+          "name": "test_ts_let_kind",
+          "signature": "test_ts_let_kind()",
+          "startLine": 61,
+          "endLine": 69
+        },
+        {
+          "name": "test_ts_non_exported_const",
+          "signature": "test_ts_non_exported_const()",
+          "startLine": 72,
+          "endLine": 80
+        },
+        {
+          "name": "test_js_variables_count",
+          "signature": "test_js_variables_count()",
+          "startLine": 94,
+          "endLine": 103
+        },
+        {
+          "name": "test_js_exported_const",
+          "signature": "test_js_exported_const()",
+          "startLine": 106,
+          "endLine": 114
+        },
+        {
+          "name": "test_py_variables_count",
+          "signature": "test_py_variables_count()",
+          "startLine": 131,
+          "endLine": 139
+        },
+        {
+          "name": "test_py_exported_by_naming",
+          "signature": "test_py_exported_by_naming()",
+          "startLine": 142,
+          "endLine": 157
+        },
+        {
+          "name": "test_rust_variables_count",
+          "signature": "test_rust_variables_count()",
+          "startLine": 171,
+          "endLine": 179
+        },
+        {
+          "name": "test_rust_const_vs_static",
+          "signature": "test_rust_const_vs_static()",
+          "startLine": 182,
+          "endLine": 196
+        },
+        {
+          "name": "test_rust_private_variables",
+          "signature": "test_rust_private_variables()",
+          "startLine": 199,
+          "endLine": 211
+        },
+        {
+          "name": "test_go_variables_count",
+          "signature": "test_go_variables_count()",
+          "startLine": 227,
+          "endLine": 235
+        },
+        {
+          "name": "test_go_exported_by_case",
+          "signature": "test_go_exported_by_case()",
+          "startLine": 238,
+          "endLine": 257
+        },
+        {
+          "name": "test_c_variables_count",
+          "signature": "test_c_variables_count()",
+          "startLine": 271,
+          "endLine": 279
+        },
+        {
+          "name": "test_c_const_and_static",
+          "signature": "test_c_const_and_static()",
+          "startLine": 282,
+          "endLine": 295
+        },
+        {
+          "name": "test_cpp_variables_count",
+          "signature": "test_cpp_variables_count()",
+          "startLine": 307,
+          "endLine": 315
+        },
+        {
+          "name": "test_cpp_constexpr_is_const",
+          "signature": "test_cpp_constexpr_is_const()",
+          "startLine": 318,
+          "endLine": 322
+        },
+        {
+          "name": "test_java_variables_count",
+          "signature": "test_java_variables_count()",
+          "startLine": 337,
+          "endLine": 345
+        },
+        {
+          "name": "test_java_final_static_is_const",
+          "signature": "test_java_final_static_is_const()",
+          "startLine": 348,
+          "endLine": 356
+        },
+        {
+          "name": "test_java_private_static",
+          "signature": "test_java_private_static()",
+          "startLine": 359,
+          "endLine": 367
+        },
+        {
+          "name": "make_variable_graph",
+          "signature": "make_variable_graph()",
+          "startLine": 371,
+          "endLine": 439
+        },
+        {
+          "name": "test_query_variable_by_name",
+          "signature": "test_query_variable_by_name()",
+          "startLine": 442,
+          "endLine": 451
+        },
+        {
+          "name": "test_query_variable_has_signature",
+          "signature": "test_query_variable_has_signature()",
+          "startLine": 454,
+          "endLine": 461
+        },
+        {
+          "name": "test_query_variable_excluded_by_function_filter",
+          "signature": "test_query_variable_excluded_by_function_filter()",
+          "startLine": 464,
+          "endLine": 474
+        },
+        {
+          "name": "test_query_no_filter_includes_variables",
+          "signature": "test_query_no_filter_includes_variables()",
+          "startLine": 477,
+          "endLine": 487
+        },
+        {
+          "name": "test_backward_compat_no_variables_field",
+          "signature": "test_backward_compat_no_variables_field()",
+          "startLine": 492,
+          "endLine": 526
+        }
+      ],
+      "classes": [],
+      "types": [],
+      "variables": [
+        {
+          "name": "TS_SOURCE",
+          "kind": "const",
+          "startLine": 24,
+          "isExported": false
+        },
+        {
+          "name": "JS_SOURCE",
+          "kind": "const",
+          "startLine": 84,
+          "isExported": false
+        },
+        {
+          "name": "PY_SOURCE",
+          "kind": "const",
+          "startLine": 118,
+          "isExported": false
+        },
+        {
+          "name": "RS_SOURCE",
+          "kind": "const",
+          "startLine": 161,
+          "isExported": false
+        },
+        {
+          "name": "GO_SOURCE",
+          "kind": "const",
+          "startLine": 215,
+          "isExported": false
+        },
+        {
+          "name": "C_SOURCE",
+          "kind": "const",
+          "startLine": 261,
+          "isExported": false
+        },
+        {
+          "name": "CPP_SOURCE",
+          "kind": "const",
+          "startLine": 299,
+          "isExported": false
+        },
+        {
+          "name": "JAVA_SOURCE",
+          "kind": "const",
+          "startLine": 326,
+          "isExported": false
+        }
+      ],
+      "imports": [
+        {
+          "source": "codegraph::graph",
+          "symbols": [
+            "CodeGraph",
+            "FileEntry",
+            "GraphConfig",
+            "GraphSummary",
+            "ModuleEntry",
+            "ProjectInfo"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "codegraph::languages",
+          "symbols": [
+            "self",
+            "get_adapter"
+          ],
+          "isExternal": true,
+          "importLine": 6
+        },
+        {
+          "source": "codegraph::query",
+          "symbols": [
+            "query_symbol",
+            "QueryOptions"
+          ],
+          "isExternal": true,
+          "importLine": 7
+        },
+        {
+          "source": "codegraph::scanner",
+          "symbols": [
+            "convert_functions",
+            "convert_imports",
+            "convert_variables"
+          ],
+          "isExternal": true,
+          "importLine": 8
+        },
+        {
+          "source": "codegraph::traverser",
+          "symbols": [
+            "Language"
+          ],
+          "isExternal": true,
+          "importLine": 9
+        },
+        {
+          "source": "std::collections",
+          "symbols": [
+            "HashMap"
+          ],
+          "isExternal": true,
+          "importLine": 10
+        }
+      ],
+      "exports": [],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "CPP_SOURCE": {
+          "symbol": "CPP_SOURCE",
+          "importLine": 0,
+          "useLines": [
+            308,
+            319
+          ]
+        },
+        "C_SOURCE": {
+          "symbol": "C_SOURCE",
+          "importLine": 0,
+          "useLines": [
+            272,
+            283
+          ]
+        },
+        "CodeGraph": {
+          "symbol": "CodeGraph",
+          "importLine": 1,
+          "useLines": [
+            1
+          ]
+        },
+        "FileEntry": {
+          "symbol": "FileEntry",
+          "importLine": 1,
+          "useLines": [
+            1
+          ]
+        },
+        "GO_SOURCE": {
+          "symbol": "GO_SOURCE",
+          "importLine": 0,
+          "useLines": [
+            228,
+            239
+          ]
+        },
+        "GraphConfig": {
+          "symbol": "GraphConfig",
+          "importLine": 1,
+          "useLines": [
+            1
+          ]
+        },
+        "GraphSummary": {
+          "symbol": "GraphSummary",
+          "importLine": 1,
+          "useLines": [
+            1
+          ]
+        },
+        "HashMap": {
+          "symbol": "HashMap",
+          "importLine": 10,
+          "useLines": [
+            10,
+            386,
+            405,
+            432
+          ]
+        },
+        "JAVA_SOURCE": {
+          "symbol": "JAVA_SOURCE",
+          "importLine": 0,
+          "useLines": [
+            338,
+            349,
+            360
+          ]
+        },
+        "JS_SOURCE": {
+          "symbol": "JS_SOURCE",
+          "importLine": 0,
+          "useLines": [
+            95,
+            107
+          ]
+        },
+        "Language": {
+          "symbol": "Language",
+          "importLine": 9,
+          "useLines": [
+            9,
+            39,
+            51,
+            62,
+            73,
+            95,
+            107,
+            132,
+            143,
+            172,
+            183,
+            200,
+            228,
+            239,
+            272,
+            283,
+            308,
+            319,
+            338,
+            349,
+            360,
+            373
+          ]
+        },
+        "ModuleEntry": {
+          "symbol": "ModuleEntry",
+          "importLine": 1,
+          "useLines": [
+            1
+          ]
+        },
+        "PY_SOURCE": {
+          "symbol": "PY_SOURCE",
+          "importLine": 0,
+          "useLines": [
+            132,
+            143
+          ]
+        },
+        "ProjectInfo": {
+          "symbol": "ProjectInfo",
+          "importLine": 1,
+          "useLines": [
+            1
+          ]
+        },
+        "QueryOptions": {
+          "symbol": "QueryOptions",
+          "importLine": 7,
+          "useLines": [
+            7
+          ]
+        },
+        "RS_SOURCE": {
+          "symbol": "RS_SOURCE",
+          "importLine": 0,
+          "useLines": [
+            172,
+            183,
+            200
+          ]
+        },
+        "TS_SOURCE": {
+          "symbol": "TS_SOURCE",
+          "importLine": 0,
+          "useLines": [
+            39,
+            51,
+            62,
+            73,
+            376,
+            378,
+            379,
+            380
+          ]
+        },
+        "convert_functions": {
+          "symbol": "convert_functions",
+          "importLine": 8,
+          "useLines": [
+            8,
+            383
+          ]
+        },
+        "convert_imports": {
+          "symbol": "convert_imports",
+          "importLine": 8,
+          "useLines": [
+            8,
+            384
+          ]
+        },
+        "convert_variables": {
+          "symbol": "convert_variables",
+          "importLine": 8,
+          "useLines": [
+            8,
+            382
+          ]
+        },
+        "get_adapter": {
+          "symbol": "get_adapter",
+          "importLine": 6,
+          "useLines": [
+            6,
+            15,
+            373
+          ]
+        },
+        "query_symbol": {
+          "symbol": "query_symbol",
+          "importLine": 7,
+          "useLines": [
+            7,
+            447,
+            459,
+            469,
+            480
+          ]
+        },
+        "self": {
+          "symbol": "self",
+          "importLine": 6,
+          "useLines": []
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/languages/rust_lang.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:39dbb65b823d04a1",
+      "lines": 374,
+      "functions": [
+        {
+          "name": "RustAdapter::default",
+          "signature": "RustAdapter::default()",
+          "startLine": 10,
+          "endLine": 12
+        },
+        {
+          "name": "RustAdapter::new",
+          "signature": "RustAdapter::new()",
+          "startLine": 16,
+          "endLine": 18
+        },
+        {
+          "name": "RustAdapter::language",
+          "signature": "RustAdapter::language(&self)",
+          "startLine": 22,
+          "endLine": 24
+        },
+        {
+          "name": "RustAdapter::extract_functions",
+          "signature": "RustAdapter::extract_functions(&self, tree, source)",
+          "startLine": 26,
+          "endLine": 56
+        },
+        {
+          "name": "RustAdapter::extract_imports",
+          "signature": "RustAdapter::extract_imports(&self, tree, source)",
+          "startLine": 58,
+          "endLine": 76
+        },
+        {
+          "name": "RustAdapter::extract_exports",
+          "signature": "RustAdapter::extract_exports(&self, tree, source)",
+          "startLine": 78,
+          "endLine": 106
+        },
+        {
+          "name": "RustAdapter::extract_classes",
+          "signature": "RustAdapter::extract_classes(&self, tree, source)",
+          "startLine": 108,
+          "endLine": 147
+        },
+        {
+          "name": "RustAdapter::extract_variables",
+          "signature": "RustAdapter::extract_variables(&self, tree, source)",
+          "startLine": 149,
+          "endLine": 179
+        },
+        {
+          "name": "get_impl_type",
+          "signature": "get_impl_type(node, source)",
+          "startLine": 182,
+          "endLine": 193
+        },
+        {
+          "name": "has_pub_visibility",
+          "signature": "has_pub_visibility(node, source)",
+          "startLine": 195,
+          "endLine": 203
+        },
+        {
+          "name": "is_inside_impl",
+          "signature": "is_inside_impl(node)",
+          "startLine": 205,
+          "endLine": 214
+        },
+        {
+          "name": "extract_rust_params",
+          "signature": "extract_rust_params(params_node, source)",
+          "startLine": 216,
+          "endLine": 233
+        },
+        {
+          "name": "parse_use_tree",
+          "signature": "parse_use_tree(node, source, result)",
+          "startLine": 235,
+          "endLine": 261
+        },
+        {
+          "name": "extract_use_list_symbols",
+          "signature": "extract_use_list_symbols(list_node, source, symbols)",
+          "startLine": 263,
+          "endLine": 282
+        },
+        {
+          "name": "parse",
+          "signature": "parse(source)",
+          "startLine": 288,
+          "endLine": 293
+        },
+        {
+          "name": "test_rust_extract_functions",
+          "signature": "test_rust_extract_functions()",
+          "startLine": 296,
+          "endLine": 315
+        },
+        {
+          "name": "test_rust_extract_imports",
+          "signature": "test_rust_extract_imports()",
+          "startLine": 318,
+          "endLine": 324
+        },
+        {
+          "name": "test_rust_extract_exports_const_static",
+          "signature": "test_rust_extract_exports_const_static()",
+          "startLine": 327,
+          "endLine": 349
+        },
+        {
+          "name": "test_rust_extract_classes",
+          "signature": "test_rust_extract_classes()",
+          "startLine": 352,
+          "endLine": 372
+        }
+      ],
+      "classes": [
+        {
+          "name": "RustAdapter",
+          "startLine": 7,
+          "endLine": 7
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "super",
+          "symbols": [
+            "node_text",
+            "walk_nodes",
+            "ClassInfo",
+            "ExportInfo",
+            "FunctionInfo",
+            "ImportInfo",
+            "LanguageAdapter",
+            "VariableInfo"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "tree_sitter",
+          "symbols": [
+            "Language",
+            "Tree"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        }
+      ],
+      "exports": [
+        "RustAdapter"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "ClassInfo": {
+          "symbol": "ClassInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "ExportInfo": {
+          "symbol": "ExportInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "FunctionInfo": {
+          "symbol": "FunctionInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "ImportInfo": {
+          "symbol": "ImportInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "Language": {
+          "symbol": "Language",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "LanguageAdapter": {
+          "symbol": "LanguageAdapter",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "RustAdapter": {
+          "symbol": "RustAdapter",
+          "importLine": 0,
+          "useLines": [
+            289,
+            310,
+            321,
+            336,
+            361
+          ]
+        },
+        "Tree": {
+          "symbol": "Tree",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "VariableInfo": {
+          "symbol": "VariableInfo",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "node_text": {
+          "symbol": "node_text",
+          "importLine": 1,
+          "useLines": [
+            2,
+            38,
+            40,
+            100,
+            114,
+            125,
+            136,
+            158,
+            168,
+            188,
+            199,
+            223,
+            227,
+            241,
+            246,
+            251,
+            272,
+            276
+          ]
+        },
+        "walk_nodes": {
+          "symbol": "walk_nodes",
+          "importLine": 1,
+          "useLines": [
+            2,
+            28,
+            60,
+            80,
+            110
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/differ.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:775c81b0c7da3cfa",
+      "lines": 444,
+      "functions": [
+        {
+          "name": "ChangeSet::is_empty",
+          "signature": "ChangeSet::is_empty(&self)",
+          "startLine": 17,
+          "endLine": 19
+        },
+        {
+          "name": "detect_changed_files",
+          "signature": "detect_changed_files(old_hashes, new_hashes)",
+          "startLine": 28,
+          "endLine": 64
+        },
+        {
+          "name": "merge_graph_update",
+          "signature": "merge_graph_update(graph, updated_files, removed_files)",
+          "startLine": 72,
+          "endLine": 125
+        },
+        {
+          "name": "recalculate_summary",
+          "signature": "recalculate_summary(graph)",
+          "startLine": 130,
+          "endLine": 164
+        },
+        {
+          "name": "rebuild_dependencies",
+          "signature": "rebuild_dependencies(graph)",
+          "startLine": 170,
+          "endLine": 238
+        },
+        {
+          "name": "make_file_entry",
+          "signature": "make_file_entry(module)",
+          "startLine": 247,
+          "endLine": 262
+        },
+        {
+          "name": "test_detect_no_changes",
+          "signature": "test_detect_no_changes()",
+          "startLine": 267,
+          "endLine": 279
+        },
+        {
+          "name": "test_detect_added",
+          "signature": "test_detect_added()",
+          "startLine": 282,
+          "endLine": 293
+        },
+        {
+          "name": "test_detect_modified",
+          "signature": "test_detect_modified()",
+          "startLine": 296,
+          "endLine": 303
+        },
+        {
+          "name": "test_detect_removed",
+          "signature": "test_detect_removed()",
+          "startLine": 306,
+          "endLine": 317
+        },
+        {
+          "name": "test_detect_sorted_output",
+          "signature": "test_detect_sorted_output()",
+          "startLine": 320,
+          "endLine": 330
+        },
+        {
+          "name": "test_merge_remove_file",
+          "signature": "test_merge_remove_file()",
+          "startLine": 335,
+          "endLine": 356
+        },
+        {
+          "name": "test_merge_add_file",
+          "signature": "test_merge_add_file()",
+          "startLine": 359,
+          "endLine": 371
+        },
+        {
+          "name": "test_merge_module_change",
+          "signature": "test_merge_module_change()",
+          "startLine": 374,
+          "endLine": 397
+        },
+        {
+          "name": "test_rebuild_dependencies",
+          "signature": "test_rebuild_dependencies()",
+          "startLine": 400,
+          "endLine": 442
+        }
+      ],
+      "classes": [
+        {
+          "name": "ChangeSet",
+          "startLine": 8,
+          "endLine": 14
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "crate::graph",
+          "symbols": [
+            "CodeGraph",
+            "FileEntry",
+            "ModuleEntry"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "crate::path_utils",
+          "symbols": [
+            "posix_dirname",
+            "posix_normalize",
+            "strip_extension"
+          ],
+          "isExternal": true,
+          "importLine": 2
+        },
+        {
+          "source": "std::collections",
+          "symbols": [
+            "HashMap",
+            "HashSet"
+          ],
+          "isExternal": true,
+          "importLine": 3
+        },
+        {
+          "source": "crate::graph",
+          "symbols": [
+            "create_empty_graph",
+            "FileEntry",
+            "ModuleEntry"
+          ],
+          "isExternal": true,
+          "importLine": 245
+        },
+        {
+          "source": "crate::graph",
+          "symbols": [
+            "ImportInfo"
+          ],
+          "isExternal": true,
+          "importLine": 401
+        }
+      ],
+      "exports": [
+        "ChangeSet",
+        "detect_changed_files",
+        "merge_graph_update"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "CodeGraph": {
+          "symbol": "CodeGraph",
+          "importLine": 1,
+          "useLines": [
+            1
+          ]
+        },
+        "FileEntry": {
+          "symbol": "FileEntry",
+          "importLine": 245,
+          "useLines": [
+            1,
+            245
+          ]
+        },
+        "HashMap": {
+          "symbol": "HashMap",
+          "importLine": 3,
+          "useLines": [
+            3,
+            134,
+            172,
+            184,
+            185,
+            321,
+            350,
+            362,
+            388
+          ]
+        },
+        "HashSet": {
+          "symbol": "HashSet",
+          "importLine": 3,
+          "useLines": [
+            3,
+            187,
+            188
+          ]
+        },
+        "ImportInfo": {
+          "symbol": "ImportInfo",
+          "importLine": 401,
+          "useLines": [
+            401,
+            406
+          ]
+        },
+        "ModuleEntry": {
+          "symbol": "ModuleEntry",
+          "importLine": 245,
+          "useLines": [
+            1,
+            245
+          ]
+        },
+        "create_empty_graph": {
+          "symbol": "create_empty_graph",
+          "importLine": 245,
+          "useLines": [
+            245,
+            336,
+            360,
+            375,
+            403
+          ]
+        },
+        "detect_changed_files": {
+          "symbol": "detect_changed_files",
+          "importLine": 0,
+          "useLines": [
+            273,
+            289,
+            299,
+            313,
+            328
+          ]
+        },
+        "merge_graph_update": {
+          "symbol": "merge_graph_update",
+          "importLine": 0,
+          "useLines": [
+            350,
+            365,
+            390
+          ]
+        },
+        "posix_dirname": {
+          "symbol": "posix_dirname",
+          "importLine": 2,
+          "useLines": [
+            2,
+            201
+          ]
+        },
+        "posix_normalize": {
+          "symbol": "posix_normalize",
+          "importLine": 2,
+          "useLines": [
+            2,
+            202
+          ]
+        },
+        "strip_extension": {
+          "symbol": "strip_extension",
+          "importLine": 2,
+          "useLines": [
+            2,
+            177
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/languages/java.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:27a9519de683272b",
+      "lines": 311,
+      "functions": [
+        {
+          "name": "JavaAdapter::default",
+          "signature": "JavaAdapter::default()",
+          "startLine": 10,
+          "endLine": 12
+        },
+        {
+          "name": "JavaAdapter::new",
+          "signature": "JavaAdapter::new()",
+          "startLine": 16,
+          "endLine": 18
+        },
+        {
+          "name": "JavaAdapter::language",
+          "signature": "JavaAdapter::language(&self)",
+          "startLine": 22,
+          "endLine": 24
+        },
+        {
+          "name": "JavaAdapter::extract_functions",
+          "signature": "JavaAdapter::extract_functions(&self, tree, source)",
+          "startLine": 26,
+          "endLine": 55
+        },
+        {
+          "name": "JavaAdapter::extract_imports",
+          "signature": "JavaAdapter::extract_imports(&self, tree, source)",
+          "startLine": 57,
+          "endLine": 91
+        },
+        {
+          "name": "JavaAdapter::extract_exports",
+          "signature": "JavaAdapter::extract_exports(&self, tree, source)",
+          "startLine": 93,
+          "endLine": 112
+        },
+        {
+          "name": "JavaAdapter::extract_classes",
+          "signature": "JavaAdapter::extract_classes(&self, tree, source)",
+          "startLine": 114,
+          "endLine": 135
+        },
+        {
+          "name": "JavaAdapter::extract_variables",
+          "signature": "JavaAdapter::extract_variables(&self, tree, source)",
+          "startLine": 137,
+          "endLine": 169
+        },
+        {
+          "name": "find_enclosing_class_name",
+          "signature": "find_enclosing_class_name(node, source)",
+          "startLine": 172,
+          "endLine": 185
+        },
+        {
+          "name": "has_modifier",
+          "signature": "has_modifier(node, source, modifier)",
+          "startLine": 187,
+          "endLine": 200
+        },
+        {
+          "name": "extract_java_params",
+          "signature": "extract_java_params(params_node, source)",
+          "startLine": 202,
+          "endLine": 213
+        },
+        {
+          "name": "extract_java_methods",
+          "signature": "extract_java_methods(class_node, source)",
+          "startLine": 215,
+          "endLine": 225
+        },
+        {
+          "name": "parse",
+          "signature": "parse(source)",
+          "startLine": 231,
+          "endLine": 236
+        },
+        {
+          "name": "test_java_extract_functions",
+          "signature": "test_java_extract_functions()",
+          "startLine": 239,
+          "endLine": 257
+        },
+        {
+          "name": "test_java_extract_imports",
+          "signature": "test_java_extract_imports()",
+          "startLine": 260,
+          "endLine": 268
+        },
+        {
+          "name": "test_java_extract_classes",
+          "signature": "test_java_extract_classes()",
+          "startLine": 271,
+          "endLine": 287
+        },
+        {
+          "name": "test_java_extract_variables",
+          "signature": "test_java_extract_variables()",
+          "startLine": 290,
+          "endLine": 309
+        }
+      ],
+      "classes": [
+        {
+          "name": "JavaAdapter",
+          "startLine": 7,
+          "endLine": 7
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "super",
+          "symbols": [
+            "node_text",
+            "walk_nodes",
+            "ClassInfo",
+            "ExportInfo",
+            "FunctionInfo",
+            "ImportInfo",
+            "LanguageAdapter",
+            "VariableInfo"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "tree_sitter",
+          "symbols": [
+            "Language",
+            "Tree"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        }
+      ],
+      "exports": [
+        "JavaAdapter"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "ClassInfo": {
+          "symbol": "ClassInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "ExportInfo": {
+          "symbol": "ExportInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "FunctionInfo": {
+          "symbol": "FunctionInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "ImportInfo": {
+          "symbol": "ImportInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "JavaAdapter": {
+          "symbol": "JavaAdapter",
+          "importLine": 0,
+          "useLines": [
+            232,
+            249,
+            263,
+            279,
+            299
+          ]
+        },
+        "Language": {
+          "symbol": "Language",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "LanguageAdapter": {
+          "symbol": "LanguageAdapter",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "Tree": {
+          "symbol": "Tree",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "VariableInfo": {
+          "symbol": "VariableInfo",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "node_text": {
+          "symbol": "node_text",
+          "importLine": 1,
+          "useLines": [
+            2,
+            38,
+            39,
+            63,
+            105,
+            126,
+            159,
+            178,
+            193,
+            208,
+            220
+          ]
+        },
+        "walk_nodes": {
+          "symbol": "walk_nodes",
+          "importLine": 1,
+          "useLines": [
+            2,
+            28,
+            59,
+            95,
+            116,
+            139,
+            217
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/commands/scan.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:2af44ff340e5ccd5",
+      "lines": 45,
+      "functions": [
+        {
+          "name": "run",
+          "signature": "run(args)",
+          "startLine": 13,
+          "endLine": 44
+        }
+      ],
+      "classes": [
+        {
+          "name": "ScanArgs",
+          "startLine": 5,
+          "endLine": 11
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "clap",
+          "symbols": [
+            "Args"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "PathBuf"
+          ],
+          "isExternal": true,
+          "importLine": 2
+        }
+      ],
+      "exports": [
+        "ScanArgs",
+        "run"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "Args": {
+          "symbol": "Args",
+          "importLine": 1,
+          "useLines": [
+            1,
+            4
+          ]
+        },
+        "PathBuf": {
+          "symbol": "PathBuf",
+          "importLine": 2,
+          "useLines": [
+            2,
+            15
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/main.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:a97d4a5934387eff",
+      "lines": 54,
+      "functions": [
+        {
+          "name": "main",
+          "signature": "main()",
+          "startLine": 42,
+          "endLine": 53
+        }
+      ],
+      "classes": [
+        {
+          "name": "Cli",
+          "startLine": 21,
+          "endLine": 24
+        }
+      ],
+      "types": [
+        {
+          "name": "Commands",
+          "kind": "enum",
+          "startLine": 27,
+          "endLine": 40
+        }
+      ],
+      "variables": [],
+      "imports": [
+        {
+          "source": "clap",
+          "symbols": [
+            "Parser",
+            "Subcommand"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        }
+      ],
+      "exports": [
+        "impact",
+        "languages",
+        "query"
+      ],
+      "isEntryPoint": true,
+      "symbolRefs": {
+        "Parser": {
+          "symbol": "Parser",
+          "importLine": 1,
+          "useLines": [
+            1,
+            15
+          ]
+        },
+        "Subcommand": {
+          "symbol": "Subcommand",
+          "importLine": 1,
+          "useLines": [
+            1,
+            26
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/test_fixtures/src/auth/login.ts": {
+      "language": "typescript",
+      "module": "temp_codemap",
+      "hash": "sha256:f45c351d0d440239",
+      "lines": 12,
+      "functions": [
+        {
+          "name": "login",
+          "signature": "login(username, password)",
+          "startLine": 3,
+          "endLine": 5
+        }
+      ],
+      "classes": [
+        {
+          "name": "AuthService",
+          "startLine": 7,
+          "endLine": 11
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "../models/user",
+          "symbols": [
+            "User"
+          ],
+          "isExternal": false,
+          "importLine": 1
+        }
+      ],
+      "exports": [
+        "login",
+        "AuthService"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "User": {
+          "symbol": "User",
+          "importLine": 1,
+          "useLines": [
+            1
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/commands/impact.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:24db6aa2317cedda",
+      "lines": 67,
+      "functions": [
+        {
+          "name": "run",
+          "signature": "run(args)",
+          "startLine": 19,
+          "endLine": 66
+        }
+      ],
+      "classes": [
+        {
+          "name": "ImpactArgs",
+          "startLine": 8,
+          "endLine": 17
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "clap",
+          "symbols": [
+            "Args"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "PathBuf"
+          ],
+          "isExternal": true,
+          "importLine": 2
+        },
+        {
+          "source": "crate::graph",
+          "symbols": [
+            "load_graph"
+          ],
+          "isExternal": true,
+          "importLine": 4
+        },
+        {
+          "source": "crate::impact",
+          "symbols": [
+            "analyze_impact"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        }
+      ],
+      "exports": [
+        "ImpactArgs",
+        "run"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "Args": {
+          "symbol": "Args",
+          "importLine": 1,
+          "useLines": [
+            1,
+            7
+          ]
+        },
+        "PathBuf": {
+          "symbol": "PathBuf",
+          "importLine": 2,
+          "useLines": [
+            2,
+            20
+          ]
+        },
+        "analyze_impact": {
+          "symbol": "analyze_impact",
+          "importLine": 5,
+          "useLines": [
+            5,
+            37
+          ]
+        },
+        "load_graph": {
+          "symbol": "load_graph",
+          "importLine": 4,
+          "useLines": [
+            4,
+            29
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/tests/query_compat.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:2b3f3566d343d4c3",
+      "lines": 186,
+      "functions": [
+        {
+          "name": "fixture",
+          "signature": "fixture()",
+          "startLine": 13,
+          "endLine": 15
+        },
+        {
+          "name": "test_query_symbol_login_found",
+          "signature": "test_query_symbol_login_found()",
+          "startLine": 20,
+          "endLine": 25
+        },
+        {
+          "name": "test_query_symbol_login_function_kind",
+          "signature": "test_query_symbol_login_function_kind()",
+          "startLine": 28,
+          "endLine": 36
+        },
+        {
+          "name": "test_query_symbol_login_module",
+          "signature": "test_query_symbol_login_module()",
+          "startLine": 39,
+          "endLine": 48
+        },
+        {
+          "name": "test_query_symbol_login_has_lines",
+          "signature": "test_query_symbol_login_has_lines()",
+          "startLine": 51,
+          "endLine": 61
+        },
+        {
+          "name": "test_query_symbol_filter_by_function_type",
+          "signature": "test_query_symbol_filter_by_function_type()",
+          "startLine": 64,
+          "endLine": 77
+        },
+        {
+          "name": "test_query_symbol_filter_by_type_excludes_function",
+          "signature": "test_query_symbol_filter_by_type_excludes_function()",
+          "startLine": 80,
+          "endLine": 94
+        },
+        {
+          "name": "test_query_symbol_unknown_returns_empty",
+          "signature": "test_query_symbol_unknown_returns_empty()",
+          "startLine": 97,
+          "endLine": 102
+        },
+        {
+          "name": "test_query_module_auth_exists",
+          "signature": "test_query_module_auth_exists()",
+          "startLine": 107,
+          "endLine": 111
+        },
+        {
+          "name": "test_query_module_auth_name",
+          "signature": "test_query_module_auth_name()",
+          "startLine": 114,
+          "endLine": 118
+        },
+        {
+          "name": "test_query_module_auth_has_files",
+          "signature": "test_query_module_auth_has_files()",
+          "startLine": 121,
+          "endLine": 125
+        },
+        {
+          "name": "test_query_module_auth_has_depends_on",
+          "signature": "test_query_module_auth_has_depends_on()",
+          "startLine": 128,
+          "endLine": 134
+        },
+        {
+          "name": "test_query_module_unknown_returns_none",
+          "signature": "test_query_module_unknown_returns_none()",
+          "startLine": 137,
+          "endLine": 141
+        },
+        {
+          "name": "test_query_dependants_auth_contains_api",
+          "signature": "test_query_dependants_auth_contains_api()",
+          "startLine": 146,
+          "endLine": 153
+        },
+        {
+          "name": "test_query_dependants_unknown_returns_empty",
+          "signature": "test_query_dependants_unknown_returns_empty()",
+          "startLine": 156,
+          "endLine": 163
+        },
+        {
+          "name": "test_query_dependencies_api_contains_auth",
+          "signature": "test_query_dependencies_api_contains_auth()",
+          "startLine": 168,
+          "endLine": 175
+        },
+        {
+          "name": "test_query_dependencies_unknown_returns_empty",
+          "signature": "test_query_dependencies_unknown_returns_empty()",
+          "startLine": 178,
+          "endLine": 185
+        }
+      ],
+      "classes": [],
+      "types": [],
+      "variables": [
+        {
+          "name": "FIXTURE_DIR",
+          "kind": "const",
+          "startLine": 11,
+          "isExported": false
+        }
+      ],
+      "imports": [
+        {
+          "source": "codegraph::query",
+          "symbols": [
+            "query_dependants",
+            "query_dependencies",
+            "query_module",
+            "query_symbol",
+            "QueryOptions"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "codegraph::scanner",
+          "symbols": [
+            "scan_project"
+          ],
+          "isExternal": true,
+          "importLine": 8
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "Path"
+          ],
+          "isExternal": true,
+          "importLine": 9
+        }
+      ],
+      "exports": [],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "FIXTURE_DIR": {
+          "symbol": "FIXTURE_DIR",
+          "importLine": 0,
+          "useLines": [
+            14
+          ]
+        },
+        "Path": {
+          "symbol": "Path",
+          "importLine": 9,
+          "useLines": [
+            9,
+            14
+          ]
+        },
+        "QueryOptions": {
+          "symbol": "QueryOptions",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "query_dependants": {
+          "symbol": "query_dependants",
+          "importLine": 1,
+          "useLines": [
+            2,
+            148,
+            158
+          ]
+        },
+        "query_dependencies": {
+          "symbol": "query_dependencies",
+          "importLine": 1,
+          "useLines": [
+            2,
+            170,
+            180
+          ]
+        },
+        "query_module": {
+          "symbol": "query_module",
+          "importLine": 1,
+          "useLines": [
+            2,
+            109,
+            116,
+            123,
+            130,
+            139
+          ]
+        },
+        "query_symbol": {
+          "symbol": "query_symbol",
+          "importLine": 1,
+          "useLines": [
+            2,
+            23,
+            31,
+            42,
+            54,
+            69,
+            85,
+            100
+          ]
+        },
+        "scan_project": {
+          "symbol": "scan_project",
+          "importLine": 8,
+          "useLines": [
+            8,
+            14
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/tests/differ_compat.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:9dff88ae60792ebd",
+      "lines": 270,
+      "functions": [
+        {
+          "name": "make_file_entry",
+          "signature": "make_file_entry(module, hash, functions_count, classes_count)",
+          "startLine": 8,
+          "endLine": 41
+        },
+        {
+          "name": "make_graph",
+          "signature": "make_graph()",
+          "startLine": 43,
+          "endLine": 108
+        },
+        {
+          "name": "test_detect_changed_identifies_all_categories",
+          "signature": "test_detect_changed_identifies_all_categories()",
+          "startLine": 113,
+          "endLine": 136
+        },
+        {
+          "name": "test_detect_changed_identical_hashes",
+          "signature": "test_detect_changed_identical_hashes()",
+          "startLine": 139,
+          "endLine": 154
+        },
+        {
+          "name": "test_detect_changed_empty_old_hashes",
+          "signature": "test_detect_changed_empty_old_hashes()",
+          "startLine": 157,
+          "endLine": 170
+        },
+        {
+          "name": "test_merge_removes_file",
+          "signature": "test_merge_removes_file()",
+          "startLine": 175,
+          "endLine": 186
+        },
+        {
+          "name": "test_merge_removes_empty_module",
+          "signature": "test_merge_removes_empty_module()",
+          "startLine": 189,
+          "endLine": 200
+        },
+        {
+          "name": "test_merge_updates_file",
+          "signature": "test_merge_updates_file()",
+          "startLine": 203,
+          "endLine": 214
+        },
+        {
+          "name": "test_merge_adds_new_file_and_module",
+          "signature": "test_merge_adds_new_file_and_module()",
+          "startLine": 217,
+          "endLine": 236
+        },
+        {
+          "name": "test_merge_recalculates_summary",
+          "signature": "test_merge_recalculates_summary()",
+          "startLine": 239,
+          "endLine": 260
+        },
+        {
+          "name": "test_merge_nonexistent_file_no_panic",
+          "signature": "test_merge_nonexistent_file_no_panic()",
+          "startLine": 263,
+          "endLine": 269
+        }
+      ],
+      "classes": [],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "codegraph::differ",
+          "symbols": [
+            "detect_changed_files",
+            "merge_graph_update"
+          ],
+          "isExternal": true,
+          "importLine": 4
+        },
+        {
+          "source": "codegraph::graph",
+          "symbols": [
+            "CodeGraph",
+            "FileEntry",
+            "GraphConfig",
+            "GraphSummary",
+            "ModuleEntry",
+            "ProjectInfo"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        },
+        {
+          "source": "std::collections",
+          "symbols": [
+            "HashMap"
+          ],
+          "isExternal": true,
+          "importLine": 6
+        }
+      ],
+      "exports": [],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "CodeGraph": {
+          "symbol": "CodeGraph",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "FileEntry": {
+          "symbol": "FileEntry",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "GraphConfig": {
+          "symbol": "GraphConfig",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "GraphSummary": {
+          "symbol": "GraphSummary",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "HashMap": {
+          "symbol": "HashMap",
+          "importLine": 6,
+          "useLines": [
+            6,
+            44,
+            58,
+            165,
+            179,
+            193,
+            205,
+            219,
+            241,
+            266
+          ]
+        },
+        "ModuleEntry": {
+          "symbol": "ModuleEntry",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "ProjectInfo": {
+          "symbol": "ProjectInfo",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "detect_changed_files": {
+          "symbol": "detect_changed_files",
+          "importLine": 4,
+          "useLines": [
+            4,
+            130,
+            147,
+            165
+          ]
+        },
+        "merge_graph_update": {
+          "symbol": "merge_graph_update",
+          "importLine": 4,
+          "useLines": [
+            4,
+            177,
+            191,
+            210,
+            224,
+            250,
+            266
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/languages/python.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:7eb7a85f8d4ccf81",
+      "lines": 408,
+      "functions": [
+        {
+          "name": "PythonAdapter::default",
+          "signature": "PythonAdapter::default()",
+          "startLine": 10,
+          "endLine": 12
+        },
+        {
+          "name": "PythonAdapter::new",
+          "signature": "PythonAdapter::new()",
+          "startLine": 16,
+          "endLine": 18
+        },
+        {
+          "name": "PythonAdapter::language",
+          "signature": "PythonAdapter::language(&self)",
+          "startLine": 22,
+          "endLine": 24
+        },
+        {
+          "name": "PythonAdapter::extract_functions",
+          "signature": "PythonAdapter::extract_functions(&self, tree, source)",
+          "startLine": 26,
+          "endLine": 51
+        },
+        {
+          "name": "PythonAdapter::extract_imports",
+          "signature": "PythonAdapter::extract_imports(&self, tree, source)",
+          "startLine": 53,
+          "endLine": 126
+        },
+        {
+          "name": "PythonAdapter::extract_exports",
+          "signature": "PythonAdapter::extract_exports(&self, tree, source)",
+          "startLine": 128,
+          "endLine": 183
+        },
+        {
+          "name": "PythonAdapter::extract_classes",
+          "signature": "PythonAdapter::extract_classes(&self, tree, source)",
+          "startLine": 185,
+          "endLine": 204
+        },
+        {
+          "name": "PythonAdapter::extract_variables",
+          "signature": "PythonAdapter::extract_variables(&self, tree, source)",
+          "startLine": 206,
+          "endLine": 236
+        },
+        {
+          "name": "unwrap_decorated",
+          "signature": "unwrap_decorated(node, expected)",
+          "startLine": 239,
+          "endLine": 255
+        },
+        {
+          "name": "extract_python_params",
+          "signature": "extract_python_params(params_node, source)",
+          "startLine": 257,
+          "endLine": 272
+        },
+        {
+          "name": "extract_class_methods",
+          "signature": "extract_class_methods(class_node, source)",
+          "startLine": 274,
+          "endLine": 287
+        },
+        {
+          "name": "extract_dunder_all",
+          "signature": "extract_dunder_all(tree, source)",
+          "startLine": 289,
+          "endLine": 319
+        },
+        {
+          "name": "extract_list_strings",
+          "signature": "extract_list_strings(list_node, source)",
+          "startLine": 321,
+          "endLine": 333
+        },
+        {
+          "name": "parse",
+          "signature": "parse(source)",
+          "startLine": 339,
+          "endLine": 344
+        },
+        {
+          "name": "test_python_extract_functions",
+          "signature": "test_python_extract_functions()",
+          "startLine": 347,
+          "endLine": 361
+        },
+        {
+          "name": "test_python_extract_imports",
+          "signature": "test_python_extract_imports()",
+          "startLine": 364,
+          "endLine": 373
+        },
+        {
+          "name": "test_python_extract_classes",
+          "signature": "test_python_extract_classes()",
+          "startLine": 376,
+          "endLine": 390
+        },
+        {
+          "name": "test_python_dunder_all",
+          "signature": "test_python_dunder_all()",
+          "startLine": 393,
+          "endLine": 406
+        }
+      ],
+      "classes": [
+        {
+          "name": "PythonAdapter",
+          "startLine": 7,
+          "endLine": 7
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "super",
+          "symbols": [
+            "node_text",
+            "strip_quotes",
+            "walk_nodes",
+            "ClassInfo",
+            "ExportInfo",
+            "FunctionInfo",
+            "ImportInfo",
+            "LanguageAdapter",
+            "VariableInfo"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "tree_sitter",
+          "symbols": [
+            "Language",
+            "Tree"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        }
+      ],
+      "exports": [
+        "PythonAdapter"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "ClassInfo": {
+          "symbol": "ClassInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "ExportInfo": {
+          "symbol": "ExportInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "FunctionInfo": {
+          "symbol": "FunctionInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "ImportInfo": {
+          "symbol": "ImportInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "Language": {
+          "symbol": "Language",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "LanguageAdapter": {
+          "symbol": "LanguageAdapter",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "PythonAdapter": {
+          "symbol": "PythonAdapter",
+          "importLine": 0,
+          "useLines": [
+            340,
+            356,
+            367,
+            385,
+            401
+          ]
+        },
+        "Tree": {
+          "symbol": "Tree",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "VariableInfo": {
+          "symbol": "VariableInfo",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "node_text": {
+          "symbol": "node_text",
+          "importLine": 1,
+          "useLines": [
+            2,
+            35,
+            61,
+            72,
+            88,
+            103,
+            107,
+            147,
+            154,
+            170,
+            194,
+            223,
+            262,
+            265,
+            281,
+            298,
+            310,
+            329
+          ]
+        },
+        "strip_quotes": {
+          "symbol": "strip_quotes",
+          "importLine": 1,
+          "useLines": [
+            2,
+            329
+          ]
+        },
+        "walk_nodes": {
+          "symbol": "walk_nodes",
+          "importLine": 1,
+          "useLines": [
+            2,
+            55
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/lib.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:14cc46a4235c7489",
+      "lines": 11,
+      "functions": [],
+      "classes": [],
+      "types": [],
+      "variables": [],
+      "imports": [],
+      "exports": [
+        "differ",
+        "graph",
+        "impact",
+        "languages",
+        "parser",
+        "path_utils",
+        "query",
+        "scanner",
+        "slicer",
+        "traverser"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {}
+    },
+    "temp_codemap/rust-cli/src/languages/go_lang.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:b844c1b3b9937d70",
+      "lines": 366,
+      "functions": [
+        {
+          "name": "GoAdapter::default",
+          "signature": "GoAdapter::default()",
+          "startLine": 10,
+          "endLine": 12
+        },
+        {
+          "name": "GoAdapter::new",
+          "signature": "GoAdapter::new()",
+          "startLine": 16,
+          "endLine": 18
+        },
+        {
+          "name": "GoAdapter::language",
+          "signature": "GoAdapter::language(&self)",
+          "startLine": 22,
+          "endLine": 24
+        },
+        {
+          "name": "GoAdapter::extract_functions",
+          "signature": "GoAdapter::extract_functions(&self, tree, source)",
+          "startLine": 26,
+          "endLine": 66
+        },
+        {
+          "name": "GoAdapter::extract_imports",
+          "signature": "GoAdapter::extract_imports(&self, tree, source)",
+          "startLine": 68,
+          "endLine": 104
+        },
+        {
+          "name": "GoAdapter::extract_exports",
+          "signature": "GoAdapter::extract_exports(&self, tree, source)",
+          "startLine": 106,
+          "endLine": 157
+        },
+        {
+          "name": "GoAdapter::extract_classes",
+          "signature": "GoAdapter::extract_classes(&self, tree, source)",
+          "startLine": 159,
+          "endLine": 189
+        },
+        {
+          "name": "GoAdapter::extract_variables",
+          "signature": "GoAdapter::extract_variables(&self, tree, source)",
+          "startLine": 191,
+          "endLine": 207
+        },
+        {
+          "name": "extract_go_specs",
+          "signature": "extract_go_specs(decl, source, kind, out)",
+          "startLine": 210,
+          "endLine": 238
+        },
+        {
+          "name": "is_go_exported",
+          "signature": "is_go_exported(name)",
+          "startLine": 240,
+          "endLine": 245
+        },
+        {
+          "name": "extract_go_params",
+          "signature": "extract_go_params(params_node, source)",
+          "startLine": 247,
+          "endLine": 265
+        },
+        {
+          "name": "parse",
+          "signature": "parse(source)",
+          "startLine": 271,
+          "endLine": 276
+        },
+        {
+          "name": "test_go_extract_functions",
+          "signature": "test_go_extract_functions()",
+          "startLine": 279,
+          "endLine": 293
+        },
+        {
+          "name": "test_go_extract_imports",
+          "signature": "test_go_extract_imports()",
+          "startLine": 296,
+          "endLine": 309
+        },
+        {
+          "name": "test_go_extract_structs",
+          "signature": "test_go_extract_structs()",
+          "startLine": 312,
+          "endLine": 326
+        },
+        {
+          "name": "test_go_extract_variables",
+          "signature": "test_go_extract_variables()",
+          "startLine": 329,
+          "endLine": 364
+        }
+      ],
+      "classes": [
+        {
+          "name": "GoAdapter",
+          "startLine": 7,
+          "endLine": 7
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "super",
+          "symbols": [
+            "node_text",
+            "strip_quotes",
+            "walk_nodes",
+            "ClassInfo",
+            "ExportInfo",
+            "FunctionInfo",
+            "ImportInfo",
+            "LanguageAdapter",
+            "VariableInfo"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "tree_sitter",
+          "symbols": [
+            "Language",
+            "Tree"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        }
+      ],
+      "exports": [
+        "GoAdapter"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "ClassInfo": {
+          "symbol": "ClassInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "ExportInfo": {
+          "symbol": "ExportInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "FunctionInfo": {
+          "symbol": "FunctionInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "GoAdapter": {
+          "symbol": "GoAdapter",
+          "importLine": 0,
+          "useLines": [
+            272,
+            289,
+            305,
+            321,
+            344
+          ]
+        },
+        "ImportInfo": {
+          "symbol": "ImportInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "Language": {
+          "symbol": "Language",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "LanguageAdapter": {
+          "symbol": "LanguageAdapter",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "Tree": {
+          "symbol": "Tree",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "VariableInfo": {
+          "symbol": "VariableInfo",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "node_text": {
+          "symbol": "node_text",
+          "importLine": 1,
+          "useLines": [
+            2,
+            31,
+            48,
+            90,
+            92,
+            111,
+            122,
+            143,
+            180,
+            226,
+            258
+          ]
+        },
+        "strip_quotes": {
+          "symbol": "strip_quotes",
+          "importLine": 1,
+          "useLines": [
+            2,
+            90
+          ]
+        },
+        "walk_nodes": {
+          "symbol": "walk_nodes",
+          "importLine": 1,
+          "useLines": [
+            2,
+            28,
+            70,
+            108,
+            161
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/commands/status.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:833fda667041629b",
+      "lines": 69,
+      "functions": [
+        {
+          "name": "run",
+          "signature": "run(args)",
+          "startLine": 12,
+          "endLine": 68
+        }
+      ],
+      "classes": [
+        {
+          "name": "StatusArgs",
+          "startLine": 7,
+          "endLine": 10
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "clap",
+          "symbols": [
+            "Args"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "PathBuf"
+          ],
+          "isExternal": true,
+          "importLine": 2
+        },
+        {
+          "source": "crate::graph",
+          "symbols": [
+            "load_graph",
+            "load_meta"
+          ],
+          "isExternal": true,
+          "importLine": 4
+        }
+      ],
+      "exports": [
+        "StatusArgs",
+        "run"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "Args": {
+          "symbol": "Args",
+          "importLine": 1,
+          "useLines": [
+            1,
+            6
+          ]
+        },
+        "PathBuf": {
+          "symbol": "PathBuf",
+          "importLine": 2,
+          "useLines": [
+            2,
+            14
+          ]
+        },
+        "load_graph": {
+          "symbol": "load_graph",
+          "importLine": 4,
+          "useLines": [
+            4,
+            28
+          ]
+        },
+        "load_meta": {
+          "symbol": "load_meta",
+          "importLine": 4,
+          "useLines": [
+            4,
+            36
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/languages/cpp.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:c82cdf412b9da84b",
+      "lines": 227,
+      "functions": [
+        {
+          "name": "CppAdapter::default",
+          "signature": "CppAdapter::default()",
+          "startLine": 14,
+          "endLine": 16
+        },
+        {
+          "name": "CppAdapter::new",
+          "signature": "CppAdapter::new()",
+          "startLine": 20,
+          "endLine": 22
+        },
+        {
+          "name": "CppAdapter::language",
+          "signature": "CppAdapter::language(&self)",
+          "startLine": 26,
+          "endLine": 28
+        },
+        {
+          "name": "CppAdapter::extract_functions",
+          "signature": "CppAdapter::extract_functions(&self, tree, source)",
+          "startLine": 30,
+          "endLine": 33
+        },
+        {
+          "name": "CppAdapter::extract_imports",
+          "signature": "CppAdapter::extract_imports(&self, tree, source)",
+          "startLine": 35,
+          "endLine": 37
+        },
+        {
+          "name": "CppAdapter::extract_exports",
+          "signature": "CppAdapter::extract_exports(&self, tree, source)",
+          "startLine": 39,
+          "endLine": 41
+        },
+        {
+          "name": "CppAdapter::extract_classes",
+          "signature": "CppAdapter::extract_classes(&self, tree, source)",
+          "startLine": 43,
+          "endLine": 97
+        },
+        {
+          "name": "CppAdapter::extract_variables",
+          "signature": "CppAdapter::extract_variables(&self, tree, source)",
+          "startLine": 99,
+          "endLine": 101
+        },
+        {
+          "name": "extract_cpp_methods",
+          "signature": "extract_cpp_methods(class_node, source)",
+          "startLine": 104,
+          "endLine": 116
+        },
+        {
+          "name": "parse",
+          "signature": "parse(source)",
+          "startLine": 122,
+          "endLine": 127
+        },
+        {
+          "name": "test_cpp_extract_functions",
+          "signature": "test_cpp_extract_functions()",
+          "startLine": 130,
+          "endLine": 148
+        },
+        {
+          "name": "test_cpp_extract_includes",
+          "signature": "test_cpp_extract_includes()",
+          "startLine": 151,
+          "endLine": 160
+        },
+        {
+          "name": "test_cpp_extract_classes",
+          "signature": "test_cpp_extract_classes()",
+          "startLine": 163,
+          "endLine": 183
+        },
+        {
+          "name": "test_cpp_namespace_exports",
+          "signature": "test_cpp_namespace_exports()",
+          "startLine": 186,
+          "endLine": 202
+        },
+        {
+          "name": "test_cpp_extract_variables",
+          "signature": "test_cpp_extract_variables()",
+          "startLine": 205,
+          "endLine": 225
+        }
+      ],
+      "classes": [
+        {
+          "name": "CppAdapter",
+          "startLine": 11,
+          "endLine": 11
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "super::c_lang",
+          "symbols": [
+            "extract_c_classes",
+            "extract_c_exports",
+            "extract_c_functions",
+            "extract_c_includes",
+            "extract_c_variables"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "super",
+          "symbols": [
+            "find_descendant_of_type",
+            "node_text",
+            "walk_nodes",
+            "ClassInfo",
+            "ExportInfo",
+            "FunctionInfo",
+            "ImportInfo",
+            "LanguageAdapter",
+            "VariableInfo"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        },
+        {
+          "source": "tree_sitter",
+          "symbols": [
+            "Language",
+            "Tree"
+          ],
+          "isExternal": true,
+          "importLine": 9
+        }
+      ],
+      "exports": [
+        "CppAdapter"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "ClassInfo": {
+          "symbol": "ClassInfo",
+          "importLine": 5,
+          "useLines": [
+            6
+          ]
+        },
+        "CppAdapter": {
+          "symbol": "CppAdapter",
+          "importLine": 0,
+          "useLines": [
+            123,
+            145,
+            154,
+            175,
+            193,
+            213
+          ]
+        },
+        "ExportInfo": {
+          "symbol": "ExportInfo",
+          "importLine": 5,
+          "useLines": [
+            6
+          ]
+        },
+        "FunctionInfo": {
+          "symbol": "FunctionInfo",
+          "importLine": 5,
+          "useLines": [
+            6
+          ]
+        },
+        "ImportInfo": {
+          "symbol": "ImportInfo",
+          "importLine": 5,
+          "useLines": [
+            7
+          ]
+        },
+        "Language": {
+          "symbol": "Language",
+          "importLine": 9,
+          "useLines": [
+            9
+          ]
+        },
+        "LanguageAdapter": {
+          "symbol": "LanguageAdapter",
+          "importLine": 5,
+          "useLines": [
+            7
+          ]
+        },
+        "Tree": {
+          "symbol": "Tree",
+          "importLine": 9,
+          "useLines": [
+            9
+          ]
+        },
+        "VariableInfo": {
+          "symbol": "VariableInfo",
+          "importLine": 5,
+          "useLines": [
+            7
+          ]
+        },
+        "extract_c_classes": {
+          "symbol": "extract_c_classes",
+          "importLine": 1,
+          "useLines": [
+            2,
+            44
+          ]
+        },
+        "extract_c_exports": {
+          "symbol": "extract_c_exports",
+          "importLine": 1,
+          "useLines": [
+            2,
+            40
+          ]
+        },
+        "extract_c_functions": {
+          "symbol": "extract_c_functions",
+          "importLine": 1,
+          "useLines": [
+            2,
+            32
+          ]
+        },
+        "extract_c_includes": {
+          "symbol": "extract_c_includes",
+          "importLine": 1,
+          "useLines": [
+            2,
+            36
+          ]
+        },
+        "extract_c_variables": {
+          "symbol": "extract_c_variables",
+          "importLine": 1,
+          "useLines": [
+            3,
+            100
+          ]
+        },
+        "find_descendant_of_type": {
+          "symbol": "find_descendant_of_type",
+          "importLine": 5,
+          "useLines": [
+            6,
+            108
+          ]
+        },
+        "node_text": {
+          "symbol": "node_text",
+          "importLine": 5,
+          "useLines": [
+            6,
+            54,
+            73,
+            88,
+            110
+          ]
+        },
+        "walk_nodes": {
+          "symbol": "walk_nodes",
+          "importLine": 5,
+          "useLines": [
+            6,
+            46,
+            64,
+            82,
+            106
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/languages/c_lang.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:8729a73f6a436f7d",
+      "lines": 399,
+      "functions": [
+        {
+          "name": "CAdapter::default",
+          "signature": "CAdapter::default()",
+          "startLine": 10,
+          "endLine": 12
+        },
+        {
+          "name": "CAdapter::new",
+          "signature": "CAdapter::new()",
+          "startLine": 16,
+          "endLine": 18
+        },
+        {
+          "name": "CAdapter::language",
+          "signature": "CAdapter::language(&self)",
+          "startLine": 22,
+          "endLine": 24
+        },
+        {
+          "name": "CAdapter::extract_functions",
+          "signature": "CAdapter::extract_functions(&self, tree, source)",
+          "startLine": 26,
+          "endLine": 28
+        },
+        {
+          "name": "CAdapter::extract_imports",
+          "signature": "CAdapter::extract_imports(&self, tree, source)",
+          "startLine": 30,
+          "endLine": 32
+        },
+        {
+          "name": "CAdapter::extract_exports",
+          "signature": "CAdapter::extract_exports(&self, tree, source)",
+          "startLine": 34,
+          "endLine": 36
+        },
+        {
+          "name": "CAdapter::extract_classes",
+          "signature": "CAdapter::extract_classes(&self, tree, source)",
+          "startLine": 38,
+          "endLine": 40
+        },
+        {
+          "name": "CAdapter::extract_variables",
+          "signature": "CAdapter::extract_variables(&self, tree, source)",
+          "startLine": 42,
+          "endLine": 44
+        },
+        {
+          "name": "extract_c_functions",
+          "signature": "extract_c_functions(tree, source)",
+          "startLine": 51,
+          "endLine": 80
+        },
+        {
+          "name": "extract_c_includes",
+          "signature": "extract_c_includes(tree, source)",
+          "startLine": 82,
+          "endLine": 106
+        },
+        {
+          "name": "extract_c_exports",
+          "signature": "extract_c_exports(tree, source)",
+          "startLine": 108,
+          "endLine": 169
+        },
+        {
+          "name": "extract_c_classes",
+          "signature": "extract_c_classes(tree, source)",
+          "startLine": 171,
+          "endLine": 196
+        },
+        {
+          "name": "has_storage_class_static",
+          "signature": "has_storage_class_static(func_def, source)",
+          "startLine": 198,
+          "endLine": 206
+        },
+        {
+          "name": "extract_c_variables",
+          "signature": "extract_c_variables(tree, source, allow_constexpr)",
+          "startLine": 210,
+          "endLine": 255
+        },
+        {
+          "name": "child_has_func_decl",
+          "signature": "child_has_func_decl(node)",
+          "startLine": 257,
+          "endLine": 270
+        },
+        {
+          "name": "child_has_const",
+          "signature": "child_has_const(node, source, allow_constexpr)",
+          "startLine": 272,
+          "endLine": 283
+        },
+        {
+          "name": "child_has_storage_class",
+          "signature": "child_has_storage_class(node, source, class)",
+          "startLine": 285,
+          "endLine": 293
+        },
+        {
+          "name": "bare_identifier",
+          "signature": "bare_identifier(text)",
+          "startLine": 295,
+          "endLine": 301
+        },
+        {
+          "name": "extract_c_params",
+          "signature": "extract_c_params(params_node, source)",
+          "startLine": 303,
+          "endLine": 315
+        },
+        {
+          "name": "parse",
+          "signature": "parse(source)",
+          "startLine": 321,
+          "endLine": 326
+        },
+        {
+          "name": "test_c_extract_functions",
+          "signature": "test_c_extract_functions()",
+          "startLine": 329,
+          "endLine": 344
+        },
+        {
+          "name": "test_c_extract_includes",
+          "signature": "test_c_extract_includes()",
+          "startLine": 347,
+          "endLine": 358
+        },
+        {
+          "name": "test_c_extract_structs",
+          "signature": "test_c_extract_structs()",
+          "startLine": 361,
+          "endLine": 374
+        },
+        {
+          "name": "test_c_extract_variables",
+          "signature": "test_c_extract_variables()",
+          "startLine": 377,
+          "endLine": 397
+        }
+      ],
+      "classes": [
+        {
+          "name": "CAdapter",
+          "startLine": 7,
+          "endLine": 7
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "super",
+          "symbols": [
+            "find_descendant_of_type",
+            "node_text",
+            "walk_nodes",
+            "ClassInfo",
+            "ExportInfo",
+            "FunctionInfo",
+            "ImportInfo",
+            "LanguageAdapter",
+            "VariableInfo"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "tree_sitter",
+          "symbols": [
+            "Language",
+            "Tree"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        }
+      ],
+      "exports": [
+        "CAdapter",
+        "extract_c_functions",
+        "extract_c_includes",
+        "extract_c_exports",
+        "extract_c_classes",
+        "extract_c_variables"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "CAdapter": {
+          "symbol": "CAdapter",
+          "importLine": 0,
+          "useLines": [
+            322,
+            340,
+            350,
+            369,
+            385
+          ]
+        },
+        "ClassInfo": {
+          "symbol": "ClassInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "ExportInfo": {
+          "symbol": "ExportInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "FunctionInfo": {
+          "symbol": "FunctionInfo",
+          "importLine": 1,
+          "useLines": [
+            2
+          ]
+        },
+        "ImportInfo": {
+          "symbol": "ImportInfo",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "Language": {
+          "symbol": "Language",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "LanguageAdapter": {
+          "symbol": "LanguageAdapter",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "Tree": {
+          "symbol": "Tree",
+          "importLine": 5,
+          "useLines": [
+            5
+          ]
+        },
+        "VariableInfo": {
+          "symbol": "VariableInfo",
+          "importLine": 1,
+          "useLines": [
+            3
+          ]
+        },
+        "extract_c_classes": {
+          "symbol": "extract_c_classes",
+          "importLine": 0,
+          "useLines": [
+            39
+          ]
+        },
+        "extract_c_exports": {
+          "symbol": "extract_c_exports",
+          "importLine": 0,
+          "useLines": [
+            35
+          ]
+        },
+        "extract_c_functions": {
+          "symbol": "extract_c_functions",
+          "importLine": 0,
+          "useLines": [
+            27
+          ]
+        },
+        "extract_c_includes": {
+          "symbol": "extract_c_includes",
+          "importLine": 0,
+          "useLines": [
+            31
+          ]
+        },
+        "extract_c_variables": {
+          "symbol": "extract_c_variables",
+          "importLine": 0,
+          "useLines": [
+            43
+          ]
+        },
+        "find_descendant_of_type": {
+          "symbol": "find_descendant_of_type",
+          "importLine": 1,
+          "useLines": [
+            2,
+            57,
+            117,
+            155,
+            235,
+            264
+          ]
+        },
+        "node_text": {
+          "symbol": "node_text",
+          "importLine": 1,
+          "useLines": [
+            2,
+            65,
+            95,
+            119,
+            134,
+            145,
+            156,
+            185,
+            201,
+            240,
+            276,
+            288,
+            310
+          ]
+        },
+        "walk_nodes": {
+          "symbol": "walk_nodes",
+          "importLine": 1,
+          "useLines": [
+            2,
+            53,
+            84,
+            111,
+            173
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/commands/mod.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:fdf1c76236f180a0",
+      "lines": 7,
+      "functions": [],
+      "classes": [],
+      "types": [],
+      "variables": [],
+      "imports": [],
+      "exports": [
+        "impact",
+        "query",
+        "scan",
+        "slice",
+        "status",
+        "update"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {}
+    },
+    "temp_codemap/rust-cli/src/slicer.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:56aeca1d09cca3da",
+      "lines": 391,
+      "functions": [
+        {
+          "name": "generate_overview",
+          "signature": "generate_overview(graph)",
+          "startLine": 97,
+          "endLine": 124
+        },
+        {
+          "name": "generate_slices",
+          "signature": "generate_slices(graph)",
+          "startLine": 128,
+          "endLine": 137
+        },
+        {
+          "name": "build_module_slice",
+          "signature": "build_module_slice(graph, mod_name, mod_data)",
+          "startLine": 140,
+          "endLine": 191
+        },
+        {
+          "name": "get_module_slice_with_deps",
+          "signature": "get_module_slice_with_deps(graph, module_name)",
+          "startLine": 194,
+          "endLine": 238
+        },
+        {
+          "name": "save_slices",
+          "signature": "save_slices(output_dir, graph)",
+          "startLine": 242,
+          "endLine": 261
+        },
+        {
+          "name": "collect_module_stats",
+          "signature": "collect_module_stats(graph, mod_data)",
+          "startLine": 265,
+          "endLine": 290
+        },
+        {
+          "name": "module_path",
+          "signature": "module_path(mod_data, mod_name)",
+          "startLine": 292,
+          "endLine": 304
+        },
+        {
+          "name": "dedup_sorted",
+          "signature": "dedup_sorted(v)",
+          "startLine": 306,
+          "endLine": 310
+        },
+        {
+          "name": "make_test_graph",
+          "signature": "make_test_graph()",
+          "startLine": 319,
+          "endLine": 353
+        },
+        {
+          "name": "test_generate_overview",
+          "signature": "test_generate_overview()",
+          "startLine": 356,
+          "endLine": 363
+        },
+        {
+          "name": "test_build_module_slice",
+          "signature": "test_build_module_slice()",
+          "startLine": 366,
+          "endLine": 375
+        },
+        {
+          "name": "test_get_module_slice_with_deps_not_found",
+          "signature": "test_get_module_slice_with_deps_not_found()",
+          "startLine": 378,
+          "endLine": 382
+        },
+        {
+          "name": "test_dedup_sorted",
+          "signature": "test_dedup_sorted()",
+          "startLine": 385,
+          "endLine": 389
+        }
+      ],
+      "classes": [
+        {
+          "name": "ModuleStats",
+          "startLine": 8,
+          "endLine": 19
+        },
+        {
+          "name": "OverviewModule",
+          "startLine": 22,
+          "endLine": 33
+        },
+        {
+          "name": "Overview",
+          "startLine": 36,
+          "endLine": 46
+        },
+        {
+          "name": "SliceFile",
+          "startLine": 49,
+          "endLine": 63
+        },
+        {
+          "name": "ModuleSlice",
+          "startLine": 66,
+          "endLine": 76
+        },
+        {
+          "name": "DepInfo",
+          "startLine": 79,
+          "endLine": 85
+        },
+        {
+          "name": "ModuleSliceWithDeps",
+          "startLine": 88,
+          "endLine": 92
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "crate::graph",
+          "symbols": [
+            "CodeGraph",
+            "ModuleEntry"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "serde",
+          "symbols": [
+            "Deserialize",
+            "Serialize"
+          ],
+          "isExternal": true,
+          "importLine": 2
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "Path"
+          ],
+          "isExternal": true,
+          "importLine": 3
+        },
+        {
+          "source": "crate::graph",
+          "symbols": [
+            "create_empty_graph",
+            "FileEntry",
+            "ModuleEntry"
+          ],
+          "isExternal": true,
+          "importLine": 317
+        }
+      ],
+      "exports": [
+        "ModuleStats",
+        "OverviewModule",
+        "Overview",
+        "SliceFile",
+        "ModuleSlice",
+        "DepInfo",
+        "ModuleSliceWithDeps",
+        "generate_overview",
+        "generate_slices",
+        "build_module_slice",
+        "get_module_slice_with_deps",
+        "save_slices"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "CodeGraph": {
+          "symbol": "CodeGraph",
+          "importLine": 1,
+          "useLines": [
+            1
+          ]
+        },
+        "Deserialize": {
+          "symbol": "Deserialize",
+          "importLine": 2,
+          "useLines": [
+            2,
+            7,
+            21,
+            35,
+            48,
+            65,
+            78,
+            87
+          ]
+        },
+        "FileEntry": {
+          "symbol": "FileEntry",
+          "importLine": 317,
+          "useLines": [
+            317
+          ]
+        },
+        "ModuleEntry": {
+          "symbol": "ModuleEntry",
+          "importLine": 317,
+          "useLines": [
+            1,
+            317
+          ]
+        },
+        "Path": {
+          "symbol": "Path",
+          "importLine": 3,
+          "useLines": [
+            3,
+            295
+          ]
+        },
+        "Serialize": {
+          "symbol": "Serialize",
+          "importLine": 2,
+          "useLines": [
+            2,
+            7,
+            21,
+            35,
+            48,
+            65,
+            78,
+            87
+          ]
+        },
+        "build_module_slice": {
+          "symbol": "build_module_slice",
+          "importLine": 0,
+          "useLines": [
+            133,
+            203,
+            369
+          ]
+        },
+        "create_empty_graph": {
+          "symbol": "create_empty_graph",
+          "importLine": 317,
+          "useLines": [
+            317,
+            320
+          ]
+        },
+        "generate_overview": {
+          "symbol": "generate_overview",
+          "importLine": 0,
+          "useLines": [
+            247,
+            358
+          ]
+        },
+        "generate_slices": {
+          "symbol": "generate_slices",
+          "importLine": 0,
+          "useLines": [
+            252
+          ]
+        },
+        "get_module_slice_with_deps": {
+          "symbol": "get_module_slice_with_deps",
+          "importLine": 0,
+          "useLines": [
+            380
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/graph.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:0c3c6a47c0497498",
+      "lines": 354,
+      "functions": [
+        {
+          "name": "create_empty_graph",
+          "signature": "create_empty_graph(project_name, root_dir)",
+          "startLine": 163,
+          "endLine": 189
+        },
+        {
+          "name": "compute_file_hash",
+          "signature": "compute_file_hash(content)",
+          "startLine": 192,
+          "endLine": 198
+        },
+        {
+          "name": "is_entry_point",
+          "signature": "is_entry_point(file_path)",
+          "startLine": 201,
+          "endLine": 208
+        },
+        {
+          "name": "save_graph",
+          "signature": "save_graph(output_dir, graph)",
+          "startLine": 211,
+          "endLine": 232
+        },
+        {
+          "name": "load_graph",
+          "signature": "load_graph(output_dir)",
+          "startLine": 235,
+          "endLine": 238
+        },
+        {
+          "name": "load_meta",
+          "signature": "load_meta(output_dir)",
+          "startLine": 241,
+          "endLine": 244
+        },
+        {
+          "name": "hex_encode",
+          "signature": "hex_encode(bytes)",
+          "startLine": 248,
+          "endLine": 250
+        },
+        {
+          "name": "chrono_now",
+          "signature": "chrono_now()",
+          "startLine": 253,
+          "endLine": 266
+        },
+        {
+          "name": "unix_to_datetime",
+          "signature": "unix_to_datetime(secs)",
+          "startLine": 268,
+          "endLine": 311
+        },
+        {
+          "name": "is_leap",
+          "signature": "is_leap(year)",
+          "startLine": 313,
+          "endLine": 315
+        },
+        {
+          "name": "test_compute_file_hash",
+          "signature": "test_compute_file_hash()",
+          "startLine": 324,
+          "endLine": 328
+        },
+        {
+          "name": "test_is_entry_point",
+          "signature": "test_is_entry_point()",
+          "startLine": 331,
+          "endLine": 336
+        },
+        {
+          "name": "test_create_empty_graph",
+          "signature": "test_create_empty_graph()",
+          "startLine": 339,
+          "endLine": 344
+        },
+        {
+          "name": "test_graph_serialization",
+          "signature": "test_graph_serialization()",
+          "startLine": 347,
+          "endLine": 352
+        }
+      ],
+      "classes": [
+        {
+          "name": "FunctionInfo",
+          "startLine": 10,
+          "endLine": 17
+        },
+        {
+          "name": "ImportInfo",
+          "startLine": 20,
+          "endLine": 27
+        },
+        {
+          "name": "ClassInfo",
+          "startLine": 30,
+          "endLine": 36
+        },
+        {
+          "name": "TypeInfo",
+          "startLine": 39,
+          "endLine": 46
+        },
+        {
+          "name": "VariableInfo",
+          "startLine": 49,
+          "endLine": 56
+        },
+        {
+          "name": "SymbolRef",
+          "startLine": 59,
+          "endLine": 65
+        },
+        {
+          "name": "FileEntry",
+          "startLine": 68,
+          "endLine": 84
+        },
+        {
+          "name": "ModuleEntry",
+          "startLine": 87,
+          "endLine": 93
+        },
+        {
+          "name": "ProjectInfo",
+          "startLine": 96,
+          "endLine": 99
+        },
+        {
+          "name": "GraphSummary",
+          "startLine": 102,
+          "endLine": 115
+        },
+        {
+          "name": "GraphConfig",
+          "startLine": 118,
+          "endLine": 122
+        },
+        {
+          "name": "CodeGraph",
+          "startLine": 125,
+          "endLine": 136
+        },
+        {
+          "name": "MetaInfo",
+          "startLine": 141,
+          "endLine": 154
+        }
+      ],
+      "types": [],
+      "variables": [
+        {
+          "name": "ENTRY_POINT_NAMES",
+          "kind": "const",
+          "startLine": 158,
+          "isExported": false
+        }
+      ],
+      "imports": [
+        {
+          "source": "serde",
+          "symbols": [
+            "Deserialize",
+            "Serialize"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "sha2",
+          "symbols": [
+            "Digest",
+            "Sha256"
+          ],
+          "isExternal": true,
+          "importLine": 2
+        },
+        {
+          "source": "std::collections",
+          "symbols": [
+            "BTreeMap"
+          ],
+          "isExternal": true,
+          "importLine": 3
+        },
+        {
+          "source": "std::collections",
+          "symbols": [
+            "HashMap"
+          ],
+          "isExternal": true,
+          "importLine": 4
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "Path"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        },
+        {
+          "source": "std::time",
+          "symbols": [
+            "SystemTime",
+            "UNIX_EPOCH"
+          ],
+          "isExternal": true,
+          "importLine": 255
+        }
+      ],
+      "exports": [
+        "FunctionInfo",
+        "ImportInfo",
+        "ClassInfo",
+        "TypeInfo",
+        "VariableInfo",
+        "SymbolRef",
+        "FileEntry",
+        "ModuleEntry",
+        "ProjectInfo",
+        "GraphSummary",
+        "GraphConfig",
+        "CodeGraph",
+        "MetaInfo",
+        "create_empty_graph",
+        "compute_file_hash",
+        "is_entry_point",
+        "save_graph",
+        "load_graph",
+        "load_meta",
+        "chrono_now"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "BTreeMap": {
+          "symbol": "BTreeMap",
+          "importLine": 3,
+          "useLines": [
+            3
+          ]
+        },
+        "Deserialize": {
+          "symbol": "Deserialize",
+          "importLine": 1,
+          "useLines": [
+            1,
+            9,
+            19,
+            29,
+            38,
+            48,
+            58,
+            67,
+            86,
+            95,
+            101,
+            117,
+            124,
+            140
+          ]
+        },
+        "Digest": {
+          "symbol": "Digest",
+          "importLine": 2,
+          "useLines": [
+            2
+          ]
+        },
+        "ENTRY_POINT_NAMES": {
+          "symbol": "ENTRY_POINT_NAMES",
+          "importLine": 0,
+          "useLines": [
+            207
+          ]
+        },
+        "HashMap": {
+          "symbol": "HashMap",
+          "importLine": 4,
+          "useLines": [
+            4,
+            182,
+            186,
+            187
+          ]
+        },
+        "Path": {
+          "symbol": "Path",
+          "importLine": 5,
+          "useLines": [
+            5,
+            332,
+            333,
+            334,
+            335
+          ]
+        },
+        "Serialize": {
+          "symbol": "Serialize",
+          "importLine": 1,
+          "useLines": [
+            1,
+            9,
+            19,
+            29,
+            38,
+            48,
+            58,
+            67,
+            86,
+            95,
+            101,
+            117,
+            124,
+            140
+          ]
+        },
+        "Sha256": {
+          "symbol": "Sha256",
+          "importLine": 2,
+          "useLines": [
+            2,
+            193
+          ]
+        },
+        "SystemTime": {
+          "symbol": "SystemTime",
+          "importLine": 255,
+          "useLines": [
+            255,
+            256
+          ]
+        },
+        "UNIX_EPOCH": {
+          "symbol": "UNIX_EPOCH",
+          "importLine": 255,
+          "useLines": [
+            255,
+            257
+          ]
+        },
+        "chrono_now": {
+          "symbol": "chrono_now",
+          "importLine": 0,
+          "useLines": [
+            164,
+            224
+          ]
+        },
+        "compute_file_hash": {
+          "symbol": "compute_file_hash",
+          "importLine": 0,
+          "useLines": [
+            325
+          ]
+        },
+        "create_empty_graph": {
+          "symbol": "create_empty_graph",
+          "importLine": 0,
+          "useLines": [
+            340,
+            348
+          ]
+        },
+        "is_entry_point": {
+          "symbol": "is_entry_point",
+          "importLine": 0,
+          "useLines": [
+            332,
+            333,
+            334,
+            335
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/tests/slicer_compat.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:a6c1f3aa972d123e",
+      "lines": 278,
+      "functions": [
+        {
+          "name": "fixture",
+          "signature": "fixture()",
+          "startLine": 12,
+          "endLine": 14
+        },
+        {
+          "name": "test_overview_has_project",
+          "signature": "test_overview_has_project()",
+          "startLine": 19,
+          "endLine": 26
+        },
+        {
+          "name": "test_overview_has_scanned_at",
+          "signature": "test_overview_has_scanned_at()",
+          "startLine": 29,
+          "endLine": 36
+        },
+        {
+          "name": "test_overview_has_summary",
+          "signature": "test_overview_has_summary()",
+          "startLine": 39,
+          "endLine": 46
+        },
+        {
+          "name": "test_overview_has_modules",
+          "signature": "test_overview_has_modules()",
+          "startLine": 49,
+          "endLine": 53
+        },
+        {
+          "name": "test_overview_compact_json",
+          "signature": "test_overview_compact_json()",
+          "startLine": 56,
+          "endLine": 65
+        },
+        {
+          "name": "test_overview_auth_module_has_file_count",
+          "signature": "test_overview_auth_module_has_file_count()",
+          "startLine": 68,
+          "endLine": 77
+        },
+        {
+          "name": "test_overview_auth_module_has_exports",
+          "signature": "test_overview_auth_module_has_exports()",
+          "startLine": 80,
+          "endLine": 86
+        },
+        {
+          "name": "test_overview_auth_module_has_depends_on",
+          "signature": "test_overview_auth_module_has_depends_on()",
+          "startLine": 89,
+          "endLine": 95
+        },
+        {
+          "name": "test_overview_has_entry_points",
+          "signature": "test_overview_has_entry_points()",
+          "startLine": 98,
+          "endLine": 103
+        },
+        {
+          "name": "test_slices_has_auth_module",
+          "signature": "test_slices_has_auth_module()",
+          "startLine": 108,
+          "endLine": 115
+        },
+        {
+          "name": "test_slices_has_api_module",
+          "signature": "test_slices_has_api_module()",
+          "startLine": 118,
+          "endLine": 125
+        },
+        {
+          "name": "test_slices_auth_has_files",
+          "signature": "test_slices_auth_has_files()",
+          "startLine": 128,
+          "endLine": 133
+        },
+        {
+          "name": "test_slices_auth_files_have_functions",
+          "signature": "test_slices_auth_files_have_functions()",
+          "startLine": 136,
+          "endLine": 142
+        },
+        {
+          "name": "test_slices_auth_files_have_imports",
+          "signature": "test_slices_auth_files_have_imports()",
+          "startLine": 145,
+          "endLine": 150
+        },
+        {
+          "name": "test_slices_api_depends_on_auth",
+          "signature": "test_slices_api_depends_on_auth()",
+          "startLine": 153,
+          "endLine": 160
+        },
+        {
+          "name": "test_slices_auth_has_stats",
+          "signature": "test_slices_auth_has_stats()",
+          "startLine": 163,
+          "endLine": 171
+        },
+        {
+          "name": "test_slice_with_deps_api_module",
+          "signature": "test_slice_with_deps_api_module()",
+          "startLine": 176,
+          "endLine": 180
+        },
+        {
+          "name": "test_slice_with_deps_api_has_files",
+          "signature": "test_slice_with_deps_api_has_files()",
+          "startLine": 183,
+          "endLine": 190
+        },
+        {
+          "name": "test_slice_with_deps_api_has_dependencies",
+          "signature": "test_slice_with_deps_api_has_dependencies()",
+          "startLine": 193,
+          "endLine": 200
+        },
+        {
+          "name": "test_slice_with_deps_api_auth_dep_exists",
+          "signature": "test_slice_with_deps_api_auth_dep_exists()",
+          "startLine": 203,
+          "endLine": 208
+        },
+        {
+          "name": "test_slice_with_deps_auth_dep_has_exports",
+          "signature": "test_slice_with_deps_auth_dep_has_exports()",
+          "startLine": 211,
+          "endLine": 220
+        },
+        {
+          "name": "test_save_slices_creates_overview_json",
+          "signature": "test_save_slices_creates_overview_json()",
+          "startLine": 225,
+          "endLine": 238
+        },
+        {
+          "name": "test_save_slices_creates_module_files",
+          "signature": "test_save_slices_creates_module_files()",
+          "startLine": 241,
+          "endLine": 258
+        },
+        {
+          "name": "test_save_slices_overview_valid_json",
+          "signature": "test_save_slices_overview_valid_json()",
+          "startLine": 261,
+          "endLine": 277
+        }
+      ],
+      "classes": [],
+      "types": [],
+      "variables": [
+        {
+          "name": "FIXTURE_DIR",
+          "kind": "const",
+          "startLine": 10,
+          "isExported": false
+        }
+      ],
+      "imports": [
+        {
+          "source": "codegraph::scanner",
+          "symbols": [
+            "scan_project"
+          ],
+          "isExternal": true,
+          "importLine": 4
+        },
+        {
+          "source": "codegraph::slicer",
+          "symbols": [
+            "generate_overview",
+            "generate_slices",
+            "get_module_slice_with_deps",
+            "save_slices"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "Path"
+          ],
+          "isExternal": true,
+          "importLine": 8
+        }
+      ],
+      "exports": [],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "FIXTURE_DIR": {
+          "symbol": "FIXTURE_DIR",
+          "importLine": 0,
+          "useLines": [
+            13,
+            227,
+            243,
+            263
+          ]
+        },
+        "Path": {
+          "symbol": "Path",
+          "importLine": 8,
+          "useLines": [
+            8,
+            13,
+            227,
+            243,
+            263
+          ]
+        },
+        "generate_overview": {
+          "symbol": "generate_overview",
+          "importLine": 5,
+          "useLines": [
+            6,
+            21,
+            31,
+            41,
+            51,
+            58,
+            70,
+            82,
+            91,
+            100
+          ]
+        },
+        "generate_slices": {
+          "symbol": "generate_slices",
+          "importLine": 5,
+          "useLines": [
+            6,
+            110,
+            120,
+            130,
+            138,
+            147,
+            155,
+            165
+          ]
+        },
+        "get_module_slice_with_deps": {
+          "symbol": "get_module_slice_with_deps",
+          "importLine": 5,
+          "useLines": [
+            6,
+            178,
+            185,
+            195,
+            205,
+            213
+          ]
+        },
+        "save_slices": {
+          "symbol": "save_slices",
+          "importLine": 5,
+          "useLines": [
+            6,
+            228,
+            244,
+            264
+          ]
+        },
+        "scan_project": {
+          "symbol": "scan_project",
+          "importLine": 4,
+          "useLines": [
+            4,
+            13
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/commands/update.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:0b4c260582db7631",
+      "lines": 218,
+      "functions": [
+        {
+          "name": "run",
+          "signature": "run(args)",
+          "startLine": 14,
+          "endLine": 217
+        }
+      ],
+      "classes": [
+        {
+          "name": "UpdateArgs",
+          "startLine": 6,
+          "endLine": 12
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "clap",
+          "symbols": [
+            "Args"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "std::collections",
+          "symbols": [
+            "HashMap"
+          ],
+          "isExternal": true,
+          "importLine": 2
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "PathBuf"
+          ],
+          "isExternal": true,
+          "importLine": 3
+        }
+      ],
+      "exports": [
+        "UpdateArgs",
+        "run"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "Args": {
+          "symbol": "Args",
+          "importLine": 1,
+          "useLines": [
+            1,
+            5
+          ]
+        },
+        "HashMap": {
+          "symbol": "HashMap",
+          "importLine": 2,
+          "useLines": [
+            2,
+            45,
+            46,
+            95
+          ]
+        },
+        "PathBuf": {
+          "symbol": "PathBuf",
+          "importLine": 3,
+          "useLines": [
+            3,
+            16
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/tests/impact_compat.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:ee4635810afbf9aa",
+      "lines": 122,
+      "functions": [
+        {
+          "name": "fixture",
+          "signature": "fixture()",
+          "startLine": 10,
+          "endLine": 12
+        },
+        {
+          "name": "test_impact_auth_target_type_module",
+          "signature": "test_impact_auth_target_type_module()",
+          "startLine": 15,
+          "endLine": 19
+        },
+        {
+          "name": "test_impact_auth_target_module",
+          "signature": "test_impact_auth_target_module()",
+          "startLine": 22,
+          "endLine": 26
+        },
+        {
+          "name": "test_impact_auth_direct_dependants_contains_api",
+          "signature": "test_impact_auth_direct_dependants_contains_api()",
+          "startLine": 29,
+          "endLine": 37
+        },
+        {
+          "name": "test_impact_auth_impacted_modules_contains_auth_and_api",
+          "signature": "test_impact_auth_impacted_modules_contains_auth_and_api()",
+          "startLine": 40,
+          "endLine": 45
+        },
+        {
+          "name": "test_impact_file_target_type",
+          "signature": "test_impact_file_target_type()",
+          "startLine": 48,
+          "endLine": 58
+        },
+        {
+          "name": "test_impact_file_target_module",
+          "signature": "test_impact_file_target_module()",
+          "startLine": 61,
+          "endLine": 71
+        },
+        {
+          "name": "test_impact_file_impacted_files_has_auth_and_api",
+          "signature": "test_impact_file_impacted_files_has_auth_and_api()",
+          "startLine": 74,
+          "endLine": 91
+        },
+        {
+          "name": "test_impact_api_no_dependants",
+          "signature": "test_impact_api_no_dependants()",
+          "startLine": 94,
+          "endLine": 101
+        },
+        {
+          "name": "test_impact_depth_zero_no_transitive",
+          "signature": "test_impact_depth_zero_no_transitive()",
+          "startLine": 104,
+          "endLine": 112
+        },
+        {
+          "name": "test_impact_unknown_target_graceful",
+          "signature": "test_impact_unknown_target_graceful()",
+          "startLine": 115,
+          "endLine": 121
+        }
+      ],
+      "classes": [],
+      "types": [],
+      "variables": [
+        {
+          "name": "FIXTURE_DIR",
+          "kind": "const",
+          "startLine": 8,
+          "isExported": false
+        }
+      ],
+      "imports": [
+        {
+          "source": "codegraph::impact",
+          "symbols": [
+            "analyze_impact"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "codegraph::scanner",
+          "symbols": [
+            "scan_project"
+          ],
+          "isExternal": true,
+          "importLine": 5
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "Path"
+          ],
+          "isExternal": true,
+          "importLine": 6
+        }
+      ],
+      "exports": [],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "FIXTURE_DIR": {
+          "symbol": "FIXTURE_DIR",
+          "importLine": 0,
+          "useLines": [
+            11
+          ]
+        },
+        "Path": {
+          "symbol": "Path",
+          "importLine": 6,
+          "useLines": [
+            6,
+            11
+          ]
+        },
+        "analyze_impact": {
+          "symbol": "analyze_impact",
+          "importLine": 1,
+          "useLines": [
+            1,
+            17,
+            24,
+            31,
+            42,
+            56,
+            69,
+            82,
+            96,
+            106,
+            117
+          ]
+        },
+        "scan_project": {
+          "symbol": "scan_project",
+          "importLine": 5,
+          "useLines": [
+            5,
+            11
+          ]
+        }
+      }
+    },
+    "temp_codemap/rust-cli/src/commands/query.rs": {
+      "language": "rust",
+      "module": "temp_codemap",
+      "hash": "sha256:db0675bbe0f8f3f9",
+      "lines": 67,
+      "functions": [
+        {
+          "name": "run",
+          "signature": "run(args)",
+          "startLine": 19,
+          "endLine": 66
+        }
+      ],
+      "classes": [
+        {
+          "name": "QueryArgs",
+          "startLine": 5,
+          "endLine": 17
+        }
+      ],
+      "types": [],
+      "variables": [],
+      "imports": [
+        {
+          "source": "clap",
+          "symbols": [
+            "Args"
+          ],
+          "isExternal": true,
+          "importLine": 1
+        },
+        {
+          "source": "std::path",
+          "symbols": [
+            "PathBuf"
+          ],
+          "isExternal": true,
+          "importLine": 2
+        }
+      ],
+      "exports": [
+        "QueryArgs",
+        "run"
+      ],
+      "isEntryPoint": false,
+      "symbolRefs": {
+        "Args": {
+          "symbol": "Args",
+          "importLine": 1,
+          "useLines": [
+            1,
+            4
+          ]
+        },
+        "PathBuf": {
+          "symbol": "PathBuf",
+          "importLine": 2,
+          "useLines": [
+            2,
+            20
+          ]
+        }
+      }
+    }
+  }
+}

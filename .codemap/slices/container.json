@@ -1,0 +1,127 @@
+{
+  "module": "container",
+  "path": "container/nodejs",
+  "files": [
+    {
+      "path": "container/nodejs/index.js",
+      "language": "javascript",
+      "lines": 200,
+      "functions": [
+        {
+          "name": "ensureModule",
+          "signature": "ensureModule(name)",
+          "startLine": 6,
+          "endLine": 13
+        }
+      ],
+      "classes": [],
+      "types": [],
+      "variables": [
+        {
+          "name": "os",
+          "kind": "const",
+          "startLine": 1,
+          "isExported": false
+        },
+        {
+          "name": "http",
+          "kind": "const",
+          "startLine": 2,
+          "isExported": false
+        },
+        {
+          "name": "fs",
+          "kind": "const",
+          "startLine": 3,
+          "isExported": false
+        },
+        {
+          "name": "net",
+          "kind": "const",
+          "startLine": 4,
+          "isExported": false
+        },
+        {
+          "name": "{ exec, execSync }",
+          "kind": "const",
+          "startLine": 5,
+          "isExported": false
+        },
+        {
+          "name": "{ WebSocket, createWebSocketStream }",
+          "kind": "const",
+          "startLine": 14,
+          "isExported": false
+        },
+        {
+          "name": "subtxt",
+          "kind": "const",
+          "startLine": 15,
+          "isExported": false
+        },
+        {
+          "name": "NAME",
+          "kind": "const",
+          "startLine": 16,
+          "isExported": false
+        },
+        {
+          "name": "PORT",
+          "kind": "const",
+          "startLine": 17,
+          "isExported": false
+        },
+        {
+          "name": "uuid",
+          "kind": "const",
+          "startLine": 18,
+          "isExported": false
+        },
+        {
+          "name": "DOMAIN",
+          "kind": "const",
+          "startLine": 19,
+          "isExported": false
+        },
+        {
+          "name": "vlessInfo",
+          "kind": "const",
+          "startLine": 20,
+          "isExported": false
+        },
+        {
+          "name": "server",
+          "kind": "const",
+          "startLine": 39,
+          "isExported": false
+        },
+        {
+          "name": "wss",
+          "kind": "const",
+          "startLine": 177,
+          "isExported": false
+        },
+        {
+          "name": "uuidkey",
+          "kind": "const",
+          "startLine": 178,
+          "isExported": false
+        }
+      ],
+      "imports": [],
+      "exports": [],
+      "isEntryPoint": true,
+      "hash": "sha256:7170e81e8def3dc2"
+    }
+  ],
+  "exports": [],
+  "dependsOn": [],
+  "dependedBy": [],
+  "stats": {
+    "totalFiles": 1,
+    "totalFunctions": 1,
+    "totalClasses": 0,
+    "totalVariables": 15,
+    "totalLines": 200
+  }
+}
