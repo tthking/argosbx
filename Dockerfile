@@ -7,7 +7,7 @@ RUN apk add --no-cache \
     wget \
     coreutils \
     sed \
-    awk \
+    gawk \
     procps \
     iproute2 \
     ca-certificates \
