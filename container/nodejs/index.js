@@ -15,9 +15,9 @@ const { WebSocket, createWebSocketStream } = require('ws');
 const subtxt = `${process.env.HOME}/agsbx/jh.txt`;
 const NAME = process.env.NAME || os.hostname();
 const PORT = process.env.PORT || 3000;
-const uuid = process.env.uuid || '79411d85-b0dc-4cd2-b46c-01789a18c650';
+let uuid = process.env.uuid || '79411d85-b0dc-4cd2-b46c-01789a18c650';
 const DOMAIN = process.env.DOMAIN || 'YOUR.DOMAIN';
-const vlessInfo = `vless://${uuid}@${DOMAIN}:443?encryption=none&security=tls&sni=${DOMAIN}&fp=chrome&type=ws&host=${DOMAIN}&path=%2F#Vl-ws-tls-${NAME}`;
+let vlessInfo = `vless://${uuid}@${DOMAIN}:443?encryption=none&security=tls&sni=${DOMAIN}&fp=chrome&type=ws&host=${DOMAIN}&path=%2F#Vl-ws-tls-${NAME}`;
 console.log(`vless-ws-tls节点分享: ${vlessInfo}`);
 
 fs.chmod("start.sh", 0o777, (err) => {
@@ -53,7 +53,7 @@ const server = http.createServer((req, res) => {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Argosbx Premium Subscription</title>
+    <title>Argosbx Web Management Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Outfit:wght@300;600&display=swap" rel="stylesheet">
     <style>
@@ -65,30 +65,61 @@ const server = http.createServer((req, res) => {
             --glass-border: rgba(255, 255, 255, 0.1);
         }
         body {
-            background: radial-gradient(circle at top right, #1a2346, var(--bg));
+            background: var(--bg);
             color: #fff;
             font-family: 'Outfit', sans-serif;
             margin: 0;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+            flex-direction: column;
+            height: 100vh;
             overflow-x: hidden;
         }
-        .container {
-            width: 90%;
-            max-width: 500px;
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            text-align: center;
-            animation: fadeIn 0.8s ease-out;
+        .header {
+            background: rgba(0,0,0,0.5);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--glass-border);
         }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        h1 { font-family: 'Orbitron', sans-serif; font-size: 28px; margin-bottom: 30px; letter-spacing: 2px; color: var(--primary); }
+        .header h1 {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            font-size: 24px;
+            color: var(--primary);
+        }
+        .main-content {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        @media (max-width: 900px) {
+            .main-content { flex-direction: column; }
+        }
+        .sidebar {
+            width: 380px;
+            background: rgba(255,255,255,0.02);
+            padding: 30px;
+            border-right: 1px solid var(--glass-border);
+            overflow-y: auto;
+        }
+        @media (max-width: 900px) {
+            .sidebar { width: auto; border-right: none; border-bottom: 1px solid var(--glass-border); height: 400px; }
+        }
+        .iframe-container {
+            flex: 1;
+            background: #fff;
+            border-radius: 12px;
+            margin: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #fff; /* For dark mode pages, they will style themselves */
+        }
         .card {
             background: rgba(0,0,0,0.2);
             border-radius: 16px;
@@ -116,38 +147,154 @@ const server = http.createServer((req, res) => {
         .btn-primary:hover { background: #3c65df; transform: scale(1.02); }
         .btn-secondary { background: var(--glass); border: 1px solid var(--glass-border); color: #fff; margin-top: 15px; }
         .btn-secondary:hover { background: rgba(255,255,255,0.1); }
-        .footer { margin-top: 30px; font-size: 12px; color: #666; }
+        .footer { margin-top: 30px; font-size: 12px; color: #666; text-align: center; }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a { color: #fff; text-decoration: none; opacity: 0.7; transition: 0.3s; font-size: 14px; background: var(--glass); padding: 8px 16px; border-radius: 8px; border: 1px solid var(--glass-border); }
+        .nav-links a:hover { opacity: 1; color: var(--primary); border-color: var(--primary); }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Argosbx Subs</h1>
-        
-        <div class="card">
-            <label>通用订阅链接 (V2Ray / Shadowrocket)</label>
-            <div class="card-content">${subUrl}</div>
-            <button class="btn btn-secondary" onclick="copyText('${subUrl}')">复制订阅</button>
+    <div class="header">
+        <h1>Argosbx Web Panel</h1>
+        <div class="nav-links">
+            <a href="#" onclick="copyText('${subUrl}')">复制通用订阅</a>
+            <a href="${clashUrl}" target="_blank">一键导入Clash</a>
         </div>
+    </div>
+    <div class="main-content">
+        <div class="sidebar">
+            <h2 style="margin-top:0;">我的节点订阅</h2>
+            <div class="card">
+                <label>通用订阅链接 (V2Ray / Shadowrocket)</label>
+                <div class="card-content">${subUrl}</div>
+                <button class="btn btn-secondary" onclick="copyText('${subUrl}')">复制订阅连接</button>
+            </div>
+            <div class="card" style="border-left: 4px solid var(--secondary);">
+                <label>Clash / Stash 一键订阅</label>
+                <div class="card-content">${clashUrl.substring(0, 50)}...</div>
+                <a href="${clashUrl}" class="btn btn-primary" target="_blank">一键导入 Clash</a>
+            </div>
+            
+            <div class="card" style="border-left: 4px solid #22c55e;">
+                <label>最终生成的节点分享信息</label>
+                <div class="card-content" style="font-size: 12px; opacity: 0.8;">${vlessInfo}</div>
+            </div>
 
-        <div class="card" style="border-left: 4px solid var(--secondary);">
-            <label>Clash / Stash 一键订阅</label>
-            <div class="card-content">${clashUrl.substring(0, 50)}...</div>
-            <a href="${clashUrl}" class="btn btn-primary" target="_blank">一键导入 Clash</a>
+            <div class="footer">
+                Powered by Argosbx Web & CodeMap Skill
+            </div>
         </div>
-
-        <div class="footer">
-            Powered by Argosbx Premium & CodeMap Skill
+        <div class="iframe-container">
+            <iframe src="/generator"></iframe>
         </div>
     </div>
     <script>
         function copyText(text) {
-            navigator.clipboard.writeText(text).then(() => alert('已复制到剪贴板'));
+            navigator.clipboard.writeText(text).then(() => alert('已复制到剪贴板 =》 ' + text));
         }
     </script>
 </body>
 </html>
         `;
         res.end(html);
+        return;
+    }
+
+    if (req.url === '/generator') {
+        const injectScript = (htmlStr) => {
+            return htmlStr.replace('</body>', `
+                <script>
+                    if (window.top !== window.self) {
+                        const actionsDiv = document.querySelector('.actions');
+                        if (actionsDiv) {
+                            const btn = document.createElement('button');
+                            btn.innerHTML = '⚡ 一键应用配置到本机部署';
+                            btn.className = 'primary';
+                            btn.style.background = 'linear-gradient(180deg, #10b981, #047857)';
+                            btn.style.borderColor = '#047857';
+                            btn.style.marginTop = '10px';
+                            btn.type = 'button';
+                            btn.onclick = function() {
+                                let cmd = document.getElementById('output').value;
+                                const varsMatch = cmd.match(/^(.*?)bash/);
+                                let vars = varsMatch ? varsMatch[1].trim() : "";
+                                
+                                btn.innerHTML = '部署重启中，请稍候...';
+                                fetch('/api/deploy', {
+                                    method: 'POST',
+                                    body: JSON.stringify({ vars_str: vars }),
+                                    headers: {'Content-Type': 'application/json'}
+                                }).then(r=>r.json()).then(res => {
+                                    alert("✅ 核心应用已成功重启并生效新参数！\\n请注意，如果您修改了 UUID，左侧面板地址也会随之变更为: /" + res.uuid);
+                                    btn.innerHTML = '⚡ 一键应用配置到本机部署';
+                                    if(res.uuid) window.top.location.href = '/' + res.uuid;
+                                }).catch(e => {
+                                    alert('❌ 部署通信失败: ' + e);
+                                    btn.innerHTML = '⚡ 一键应用配置到本机部署';
+                                });
+                            };
+                            actionsDiv.appendChild(btn);
+                        }
+                    }
+                </script>
+            </body>`);
+        };
+
+        const https = require('https');
+        https.get('https://raw.githubusercontent.com/tthking/argosbx/main/index.html', (resp) => {
+            let data = '';
+            resp.on('data', (chunk) => { data += chunk; });
+            resp.on('end', () => {
+                res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+                res.end(injectScript(data));
+            });
+        }).on("error", (err) => {
+            try {
+                const fs = require('fs');
+                const path = require('path');
+                const localPath = path.join(__dirname, '../../index.html');
+                if (fs.existsSync(localPath)) {
+                    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+                    res.end(injectScript(fs.readFileSync(localPath, 'utf8')));
+                } else {
+                    res.writeHead(500);
+                    res.end("Error loading generator UI: " + err.message);
+                }
+            } catch (e) {
+                res.writeHead(500);
+                res.end("Fetch failed & Local fallback failed.");
+            }
+        });
+        return;
+    }
+
+    if (req.url === '/api/deploy' && req.method === 'POST') {
+        let body = '';
+        req.on('data', chunk => body += chunk.toString());
+        req.on('end', () => {
+            try {
+                const data = JSON.parse(body);
+                const varsStr = data.vars_str || "";
+                const cmd = `export ${varsStr.replace(/ /g, ' export ')} && bash start.sh`;
+                
+                const uuidMatch = varsStr.match(/uuid="([^"]+)"/);
+                if (uuidMatch && uuidMatch[1]) {
+                    uuid = uuidMatch[1];
+                    uuidkey = uuid.replace(/-/g, "");
+                    vlessInfo = `vless://${uuid}@${DOMAIN}:443?encryption=none&security=tls&sni=${DOMAIN}&fp=chrome&type=ws&host=${DOMAIN}&path=%2F#Vl-ws-tls-${NAME}`;
+                }
+                
+                exec(cmd, { cwd: __dirname }, (err, stdout, stderr) => {
+                    res.writeHead(200, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ success: true, uuid: uuid, logs: "Deployment triggered successfully" }));
+                });
+            } catch (e) {
+                res.writeHead(400); res.end("Error parsing deploy request");
+            }
+        });
         return;
     }
 

@@ -65,7 +65,7 @@ crontime=5
 
 echo "*****************************************************"
 echo "*****************************************************"
-echo "甬哥Github项目  ：github.com/yonggekkk"
+echo "甬哥Github项目  ：github.com/tthking"
 echo "甬哥Blogger博客 ：ygkkk.blogspot.com"
 echo "甬哥YouTube频道 ：www.youtube.com/@ygkkk"
 echo "Argosbx小钢炮脚本-SAP多账户自动保活脚本【VPS】"

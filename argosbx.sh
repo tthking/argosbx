@@ -41,10 +41,10 @@ export warp=${warp:-''}
 export name=${name:-''}
 export oap=${oap:-''}
 v46url="https://icanhazip.com"
-agsbxurl="https://raw.githubusercontent.com/yonggekkk/argosbx/main/argosbx.sh"
+agsbxurl="https://raw.githubusercontent.com/tthking/argosbx/main/argosbx.sh"
 showmode(){
-echo "Argosbx脚本一键SSH命令生器在线网址：https://yonggekkk.github.io/argosbx/"
-echo "主脚本：bash <(curl -Ls https://raw.githubusercontent.com/yonggekkk/argosbx/main/argosbx.sh) 或 bash <(wget -qO- https://raw.githubusercontent.com/yonggekkk/argosbx/main/argosbx.sh)"
+echo "Argosbx脚本一键SSH命令生器在线网址：https://tthking.github.io/argosbx/"
+echo "主脚本：bash <(curl -Ls https://raw.githubusercontent.com/tthking/argosbx/main/argosbx.sh) 或 bash <(wget -qO- https://raw.githubusercontent.com/tthking/argosbx/main/argosbx.sh)"
 echo "显示节点信息命令：agsbx list 【或者】 主脚本 list"
 echo "重置变量组命令：自定义各种协议变量组 agsbx rep 【或者】 自定义各种协议变量组 主脚本 rep"
 echo "更新脚本命令：原已安装的自定义各种协议变量组 主脚本 rep"
@@ -56,7 +56,7 @@ echo "---------------------------------------------------------"
 echo
 }
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo "甬哥Github项目 ：github.com/yonggekkk"
+echo "甬哥Github项目 ：github.com/tthking"
 echo "甬哥Blogger博客 ：ygkkk.blogspot.com"
 echo "甬哥YouTube频道 ：www.youtube.com/@ygkkk"
 echo "Argosbx一键无交互小钢炮脚本💣"
@@ -105,10 +105,33 @@ echo
 echo "所有节点名称前缀：$name"
 fi
 v4v6
+warp_skip=false
 if echo "$v6" | grep -q '^2a09' || echo "$v4" | grep -q '^104.28'; then
-s1outtag=direct; s2outtag=direct; x1outtag=direct; x2outtag=direct; xip='"::/0", "0.0.0.0/0"'; sip='"::/0", "0.0.0.0/0"'; wap=warpargo
-echo; echo "请注意：你已安装了warp"
+echo; echo "【系统检测】检测到你的 IP 已处于 WARP 状态 (v4: $v4 | v6: $v6)"
+if [ -n "$warp" ]; then
+echo "=> 你已通过参数配置了强行追加内置 WARP (warp=$warp)，正在强制加载中..."
 else
+echo "=> 根据检测，系统本身已由 WARP 接管。"
+echo "请选择是否还需要强制在你的代理内核中双重叠加配置内置 WARP？"
+echo "1. 否，沿用当前的内置直连，依赖系统 WARP (推荐，15秒后默认采用此项)"
+echo "2. 是，我就是要强行叠加多一层内置 WARP 代理"
+read -t 15 -p "请输入你的选择 (1 或 2): " warp_choice
+if [ "$warp_choice" = "2" ]; then
+echo ""
+read -t 15 -p "请输入你要强行加载的 WARP 模式 (如 s, sx, s4 等，默认为 sx): " warp_mode
+warp="${warp_mode:-sx}"
+wap=yes
+echo "你选择了强制叠加套娃 WARP 模式: $warp"
+else
+echo ""
+echo "=> 选择了跳过叠加，不追加配置内置 WARP。"
+warp_skip=true
+s1outtag=direct; s2outtag=direct; x1outtag=direct; x2outtag=direct; xip='"::/0", "0.0.0.0/0"'; sip='"::/0", "0.0.0.0/0"'; wap=warpargo
+fi
+fi
+fi
+
+if [ "$warp_skip" != true ]; then
 if [ "$wap" != yes ]; then
 s1outtag=direct; s2outtag=direct; x1outtag=direct; x2outtag=direct; xip='"::/0", "0.0.0.0/0"'; sip='"::/0", "0.0.0.0/0"'; wap=warpargo
 else
@@ -155,13 +178,13 @@ case "$warp" in *x6*) xryx='ForceIPv6' ;; *x*) xryx='ForceIPv4v6' ;; *) xryx='Fo
 fi
 }
 upxray(){
-url="https://github.com/yonggekkk/argosbx/releases/download/argosbx/xray-$cpu"; out="$HOME/agsbx/xray"; (command -v curl >/dev/null 2>&1 && curl -Lo "$out" -# --retry 2 "$url") || (command -v wget>/dev/null 2>&1 && timeout 3 wget -O "$out" --tries=2 "$url")
+url="https://github.com/tthking/argosbx/releases/download/argosbx/xray-$cpu"; out="$HOME/agsbx/xray"; (command -v curl >/dev/null 2>&1 && curl -Lo "$out" -# --retry 2 "$url") || (command -v wget>/dev/null 2>&1 && timeout 3 wget -O "$out" --tries=2 "$url")
 chmod +x "$HOME/agsbx/xray"
 sbcore=$("$HOME/agsbx/xray" version 2>/dev/null | awk '/^Xray/{print $2}')
 echo "已安装Xray正式版内核：$sbcore"
 }
 upsingbox(){
-url="https://github.com/yonggekkk/argosbx/releases/download/argosbx/sing-box-$cpu"; out="$HOME/agsbx/sing-box"; (command -v curl>/dev/null 2>&1 && curl -Lo "$out" -# --retry 2 "$url") || (command -v wget>/dev/null 2>&1 && timeout 3 wget -O "$out" --tries=2 "$url")
+url="https://github.com/tthking/argosbx/releases/download/argosbx/sing-box-$cpu"; out="$HOME/agsbx/sing-box"; (command -v curl>/dev/null 2>&1 && curl -Lo "$out" -# --retry 2 "$url") || (command -v wget>/dev/null 2>&1 && timeout 3 wget -O "$out" --tries=2 "$url")
 chmod +x "$HOME/agsbx/sing-box"
 sbcore=$("$HOME/agsbx/sing-box" version 2>/dev/null | awk '/version/{print $NF}')
 echo "已安装Sing-box正式版内核：$sbcore"
@@ -440,8 +463,8 @@ insuuid
 command -v openssl >/dev/null 2>&1 && openssl ecparam -genkey -name prime256v1 -out "$HOME/agsbx/private.key" >/dev/null 2>&1
 command -v openssl >/dev/null 2>&1 && openssl req -new -x509 -days 36500 -key "$HOME/agsbx/private.key" -out "$HOME/agsbx/cert.pem" -subj "/CN=www.bing.com" >/dev/null 2>&1
 if [ ! -f "$HOME/agsbx/private.key" ]; then
-url="https://github.com/yonggekkk/argosbx/releases/download/argosbx/private.key"; out="$HOME/agsbx/private.key"; (command -v curl>/dev/null 2>&1 && curl -Ls -o "$out" --retry 2 "$url") || (command -v wget>/dev/null 2>&1 && timeout 3 wget -q -O "$out" --tries=2 "$url")
-url="https://github.com/yonggekkk/argosbx/releases/download/argosbx/cert.pem"; out="$HOME/agsbx/cert.pem"; (command -v curl>/dev/null 2>&1 && curl -Ls -o "$out" --retry 2 "$url") || (command -v wget>/dev/null 2>&1 && timeout 3 wget -q -O "$out" --tries=2 "$url")
+url="https://github.com/tthking/argosbx/releases/download/argosbx/private.key"; out="$HOME/agsbx/private.key"; (command -v curl>/dev/null 2>&1 && curl -Ls -o "$out" --retry 2 "$url") || (command -v wget>/dev/null 2>&1 && timeout 3 wget -q -O "$out" --tries=2 "$url")
+url="https://github.com/tthking/argosbx/releases/download/argosbx/cert.pem"; out="$HOME/agsbx/cert.pem"; (command -v curl>/dev/null 2>&1 && curl -Ls -o "$out" --retry 2 "$url") || (command -v wget>/dev/null 2>&1 && timeout 3 wget -q -O "$out" --tries=2 "$url")
 fi
 if [ -n "$hyp" ]; then
 hyp=hypt
@@ -1399,6 +1422,11 @@ rc-update del "$svc" default >/dev/null 2>&1
 done
 rm -rf /etc/init.d/{sing-box,xray,argo}
 fi
+echo
+echo "=> 正在同步清理内置 WARP 参数与代理缓存..."
+echo "提示：本次同步卸载已自动清除代理内核挂载的内置 WARP 配置与专属私钥。"
+echo "若系统层面自行安装了全局 WARP 客户端（如 wgcf/warp-cli），请自行斟酌保留或卸载。"
+echo "内置 WARP 环境重置清理完毕！"
 }
 xrestart(){
 kill -15 $(pgrep -f 'agsbx/x' 2>/dev/null) >/dev/null 2>&1

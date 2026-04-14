@@ -5,7 +5,7 @@ echo "脚本仅支持Alpine、Debian、Ubuntu系统" && exit
 fi
 [[ $EUID -ne 0 ]] && echo "请以root模式运行脚本" && exit
 sapsbxinstall(){
-URL="https://raw.githubusercontent.com/yonggekkk/argosbx/main/sapsbxh.sh"
+URL="https://raw.githubusercontent.com/tthking/argosbx/main/sapsbxh.sh"
 DEST="$HOME/sapsbxh.sh"
 command -v curl > /dev/null 2>&1 && curl -sSL $URL -o $DEST || wget -q $URL -O $DEST
 if [ -s "$HOME/sapsbxh.sh" ]; then
@@ -68,7 +68,7 @@ sed -i "62s/^.*$/crontime=$input/" $HOME/sapsbxh.sh
 fi
 echo "脚本安装设置完毕"
 echo "每天上午8:10-9:00之间脚本自动运行保活，可以再次进入脚本选择2测试执行一次" && sleep 3
-command -v curl > /dev/null 2>&1 && bash <(curl -Ls https://raw.githubusercontent.com/yonggekkk/argosbx/main/saph.sh) || bash <(wget -qO- https://raw.githubusercontent.com/yonggekkk/argosbx/main/saph.sh)
+command -v curl > /dev/null 2>&1 && bash <(curl -Ls https://raw.githubusercontent.com/tthking/argosbx/main/saph.sh) || bash <(wget -qO- https://raw.githubusercontent.com/tthking/argosbx/main/saph.sh)
 else
 echo "下载文件失败，请检查当前服务器是否支持curl或wget，网络是否支持github"
 fi
@@ -100,7 +100,7 @@ fi
 
 echo "*****************************************************"
 echo "*****************************************************"
-echo "甬哥Github项目  ：github.com/yonggekkk"
+echo "甬哥Github项目  ：github.com/tthking"
 echo "甬哥Blogger博客 ：ygkkk.blogspot.com"
 echo "甬哥YouTube频道 ：www.youtube.com/@ygkkk"
 echo "Argosbx小钢炮脚本-SAP多账户自动保活脚本【VPS】"
