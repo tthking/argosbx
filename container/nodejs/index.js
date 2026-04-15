@@ -409,7 +409,7 @@ server.listen(PORT, () => {
 });
 
 const wss = new (require('ws').Server)({ server });
-const uuidkey = uuid.replace(/-/g, "");
+let uuidkey = uuid.replace(/-/g, "");
 wss.on('connection', ws => {
     ws.once('message', msg => {
         const [VERSION] = msg;
