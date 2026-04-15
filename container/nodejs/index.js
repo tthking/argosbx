@@ -444,17 +444,23 @@ const server = http.createServer((req, res) => {
     }
 
     if (req.url === `/${uuid}/sub`) {
-        res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
-        if (fs.existsSync(subtxt)) {
-            fs.readFile(subtxt, 'utf8', (err, data) => {
-                const allLinks = `${vlessInfo}\n${data || ''}`;
-                const base64Sub = Buffer.from(allLinks).toString('base64');
-                res.end(base64Sub);
-            });
-        } else {
-            const base64Sub = Buffer.from(vlessInfo).toString('base64');
+        console.log(`>>> 收到订阅请求: ${req.url}`);
+        console.log(`>>> 当前系统期望 UUID: ${uuid}`);
+        
+        fs.readFile(subtxt, 'utf8', (err, data) => {
+            res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
+            if (err) {
+                console.error(`!!! 订阅文件读取失败: ${err.message}`);
+                // 如果读取失败，至少把基础的 Vless 节点发出去，不让页面转圈
+                const base64Fallback = Buffer.from(vlessInfo).toString('base64');
+                return res.end(base64Fallback);
+            }
+            
+            console.log(`>>> 订阅数据读取成功，正在下发...`);
+            const allLinks = `${vlessInfo}\n${data || ''}`;
+            const base64Sub = Buffer.from(allLinks).toString('base64');
             res.end(base64Sub);
-        }
+        });
         return;
     }
 
