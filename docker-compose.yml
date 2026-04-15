@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   argosbx:
+    build: .
     image: imccn/argosbx:latest
     container_name: argosbx-app
     restart: always
@@ -12,6 +13,8 @@ services:
       - DOMAIN=your.domain.com                     # 请在此处填入您的域名或 VPS IP
       - NAME=Argosbx-VPS                           # 节点名称标签
       - PORT=3000
+      - LANG=C.UTF-8
+      - LC_ALL=C.UTF-8
     volumes:
       - ./data:/root/agsbx                        # 数据将持久化到 /www/wwwroot/argosbx/data
     logging:

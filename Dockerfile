@@ -13,6 +13,10 @@ RUN apk add --no-cache \
     ca-certificates \
     tzdata
 
+# 设置环境变量支持 UTF-8，防止中文乱码
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
 # 设置工作目录
 WORKDIR /app/container/nodejs
 

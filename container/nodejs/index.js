@@ -38,8 +38,69 @@ fs.chmod("start.sh", 0o777, (err) => {
 
 const server = http.createServer((req, res) => {
     if (req.url === '/') {
-        res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
-        res.end('🟢恭喜！Argosbx小钢炮脚本-nodejs版部署成功！\n\n查看节点信息路径：/你的uuid');
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        const html = `
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Argosbx Deployment Success</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #0b1020;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+        }
+        h1 { color: #4f7cff; margin-bottom: 10px; }
+        p { color: #888; line-height: 1.6; }
+        .uuid-box {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-family: monospace;
+            color: #22c55e;
+            border: 1px dashed #22c55e;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #4f7cff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn:hover { background: #3c65df; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🟢 部署成功</h1>
+        <p>Argosbx 小钢炮脚本已成功在 Docker 环境中运行。</p>
+        <p>您的管理面板访问路径为：</p>
+        <div class="uuid-box">/${uuid}</div>
+        <a href="/${uuid}" class="btn">进入管理面板</a>
+    </div>
+</body>
+</html>`;
+        res.end(html);
         return;
     }
 
@@ -208,6 +269,17 @@ const server = http.createServer((req, res) => {
             return htmlStr.replace('</body>', `
                 <script>
                     if (window.top !== window.self) {
+                        // 预填当前 UUID
+                        const uuidInput = document.getElementById('uuid');
+                        if (uuidInput) {
+                            uuidInput.value = '${uuid}';
+                            // 禁用修改，防止用户误操作生成新 UUID 导致面板失效
+                            uuidInput.setAttribute('readonly', 'true');
+                            uuidInput.style.opacity = '0.7';
+                            const genBtn = document.getElementById('generateUuidBtn');
+                            if (genBtn) genBtn.style.display = 'none';
+                        }
+
                         const actionsDiv = document.querySelector('.actions');
                         if (actionsDiv) {
                             const btn = document.createElement('button');
