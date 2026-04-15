@@ -12,8 +12,8 @@ function ensureModule(name) {
     }
 }
 const { WebSocket, createWebSocketStream } = require('ws');
-const configPath = `${__dirname}/user_config.env`;
-const subtxt = `${process.env.HOME}/agsbx/jh.txt`;
+const configPath = `/root/user_config.env`;
+const subtxt = `/root/agsbx/jh.txt`;
 const NAME = process.env.NAME || os.hostname();
 const PORT = process.env.PORT || 3000;
 let uuid = process.env.uuid || '79411d85-b0dc-4cd2-b46c-01789a18c650';
@@ -409,7 +409,8 @@ const server = http.createServer((req, res) => {
                 let cmd = `bash start.sh`;
                 if (varsStr) {
                     console.log(`\n>>> 正在应用新配置并重启核心...\n变量: ${varsStr}`);
-                    cmd = `export ${varsStr.replace(/ /g, ' export ')} && bash start.sh`;
+                    // 增加 2 秒延迟确保内核进程已登记在系统进程表中
+                    cmd = `export ${varsStr.replace(/ /g, ' export ')} && bash start.sh && sleep 2`;
                 }
                 
                 // 尝试提取 UUID 以便重定向
