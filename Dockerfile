@@ -11,7 +11,10 @@ RUN apk add --no-cache \
     procps \
     iproute2 \
     ca-certificates \
-    tzdata
+    tzdata \
+    libc6-compat \
+    gcompat \
+    libstdc++
 
 # 设置环境变量支持 UTF-8，防止中文乱码
 ENV LANG=C.UTF-8

@@ -445,13 +445,23 @@ const server = http.createServer((req, res) => {
 
     if (req.url === `/${uuid}/sub`) {
         console.log(`>>> 收到订阅请求: ${req.url}`);
-        console.log(`>>> 当前系统期望 UUID: ${uuid}`);
         
+        // 设置读取超时，防止永久转圈
+        const timeout = setTimeout(() => {
+            if (!res.writableEnded) {
+                console.log(">>> 订阅读取超时，下发默认节点...");
+                res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
+                res.end(Buffer.from(vlessInfo).toString('base64'));
+            }
+        }, 5000);
+
         fs.readFile(subtxt, 'utf8', (err, data) => {
+            clearTimeout(timeout);
+            if (res.writableEnded) return;
+
             res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
             if (err) {
                 console.error(`!!! 订阅文件读取失败: ${err.message}`);
-                // 如果读取失败，至少把基础的 Vless 节点发出去，不让页面转圈
                 const base64Fallback = Buffer.from(vlessInfo).toString('base64');
                 return res.end(base64Fallback);
             }
