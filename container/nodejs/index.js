@@ -299,12 +299,15 @@ const server = http.createServer((req, res) => {
                                     method: 'POST',
                                     body: JSON.stringify({ vars_str: vars }),
                                     headers: {'Content-Type': 'application/json'}
-                                }).then(r=>r.json()).then(res => {
+                                }).then(r => {
+                                    if (!r.ok) return r.text().then(t => { throw new Error(t) });
+                                    return r.json();
+                                }).then(res => {
                                     alert("✅ 核心应用已成功重启并生效新参数！\\n请注意，如果您修改了 UUID，左侧面板地址也会随之变更为: /" + res.uuid);
                                     btn.innerHTML = '⚡ 一键应用配置到本机部署';
                                     if(res.uuid) window.top.location.href = '/' + res.uuid;
                                 }).catch(e => {
-                                    alert('❌ 部署通信失败: ' + e);
+                                    alert('❌ 部署通信失败: ' + e.message);
                                     btn.innerHTML = '⚡ 一键应用配置到本机部署';
                                 });
                             };
@@ -344,14 +347,25 @@ const server = http.createServer((req, res) => {
     }
 
     if (req.url === '/api/deploy' && req.method === 'POST') {
-        let body = '';
-        req.on('data', chunk => body += chunk.toString());
+        let body = [];
+        req.on('data', chunk => body.push(chunk));
         req.on('end', () => {
             try {
-                const data = JSON.parse(body);
+                const rawBody = Buffer.concat(body).toString();
+                if (!rawBody) {
+                    res.writeHead(400, { 'Content-Type': 'application/json' });
+                    return res.end(JSON.stringify({ error: "Empty request body" }));
+                }
+                const data = JSON.parse(rawBody);
                 const varsStr = data.vars_str || "";
-                const cmd = `export ${varsStr.replace(/ /g, ' export ')} && bash start.sh`;
                 
+                // 构建执行命令
+                let cmd = `bash start.sh`;
+                if (varsStr) {
+                    cmd = `export ${varsStr.replace(/ /g, ' export ')} && bash start.sh`;
+                }
+                
+                // 尝试提取 UUID 以便重定向
                 const uuidMatch = varsStr.match(/uuid="([^"]+)"/);
                 if (uuidMatch && uuidMatch[1]) {
                     uuid = uuidMatch[1];
@@ -361,10 +375,11 @@ const server = http.createServer((req, res) => {
                 
                 exec(cmd, { cwd: __dirname }, (err, stdout, stderr) => {
                     res.writeHead(200, { 'Content-Type': 'application/json' });
-                    res.end(JSON.stringify({ success: true, uuid: uuid, logs: "Deployment triggered successfully" }));
+                    res.end(JSON.stringify({ success: true, uuid: uuid, message: "Deployment started" }));
                 });
             } catch (e) {
-                res.writeHead(400); res.end("Error parsing deploy request");
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: "JSON Parse Error: " + e.message }));
             }
         });
         return;
