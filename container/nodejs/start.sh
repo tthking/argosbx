@@ -1,5 +1,5 @@
 #!/bin/sh
-export LANG=en_US.UTF-8
+export LANG=${LANG:-C.UTF-8}
 export uuid=${uuid}
 export vlpt=${vlpt}
 export vmpt=${vmpt}
@@ -128,7 +128,7 @@ elif [ -n "$uuid" ]; then
 echo "$uuid" > "$HOME/agsbx/uuid"
 fi
 uuid=$(cat "$HOME/agsbx/uuid")
-echo "UUID密码：$uuid"
+echo "当前使用 UUID 密码：$uuid"
 }
 installxray(){
 echo
