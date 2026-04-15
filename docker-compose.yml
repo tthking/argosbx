@@ -1,8 +1,6 @@
-version: '3.8'
 
 services:
   argosbx:
-    build: .
     image: imccn/argosbx:latest
     container_name: argosbx-app
     restart: always
