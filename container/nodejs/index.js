@@ -126,7 +126,15 @@ const server = http.createServer((req, res) => {
     if (req.url === `/${uuid}`) {
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
         const host = DOMAIN === 'YOUR.DOMAIN' ? (req.headers.host || DOMAIN) : DOMAIN;
-        const subUrl = `http://${host}/${uuid}/sub`;
+        
+        // 核心逻辑：如果设置了 SUB_PORT，强制将订阅链接的端口替换掉
+        const SUB_PORT = process.env.SUB_PORT;
+        let subHost = host;
+        if (SUB_PORT) {
+            subHost = host.split(':')[0] + ':' + SUB_PORT;
+        }
+        
+        const subUrl = `http://${subHost}/${uuid}/sub`;
         const clashUrl = `https://sub.ygkkk.workers.dev/sub?target=clash&url=${encodeURIComponent(subUrl)}&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online.ini&emoji=true&list=false&tfo=false&scv=false&fdn=false&sort=false&new_name=true`;
 
         const html = `
