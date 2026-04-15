@@ -12,12 +12,21 @@ function ensureModule(name) {
     }
 }
 const { WebSocket, createWebSocketStream } = require('ws');
+const configPath = `${__dirname}/user_config.env`;
 const subtxt = `${process.env.HOME}/agsbx/jh.txt`;
 const NAME = process.env.NAME || os.hostname();
 const PORT = process.env.PORT || 3000;
 let uuid = process.env.uuid || '79411d85-b0dc-4cd2-b46c-01789a18c650';
 const DOMAIN = process.env.DOMAIN || 'YOUR.DOMAIN';
 let vlessInfo = `vless://${uuid}@${DOMAIN}:443?encryption=none&security=tls&sni=${DOMAIN}&fp=chrome&type=ws&host=${DOMAIN}&path=%2F#Vl-ws-tls-${NAME}`;
+
+function getSavedConfig() {
+    if (fs.existsSync(configPath)) {
+        return fs.readFileSync(configPath, 'utf8');
+    }
+    return "";
+}
+
 console.log(`vless-ws-tls节点分享: ${vlessInfo}`);
 
 fs.chmod("start.sh", 0o777, (err) => {
@@ -26,8 +35,18 @@ fs.chmod("start.sh", 0o777, (err) => {
         return;
     }
     console.log(`start.sh empowerment successful`);
-    const child = exec('bash start.sh');
-    child.stdout.on('data', (data) => console.log(data));
+    
+    // 启动时尝试加载保存的配置
+    const savedVars = getSavedConfig();
+    let cmd = `bash start.sh`;
+    if (savedVars) {
+        console.log(`Checking for saved configuration...`);
+        cmd = `export ${savedVars.replace(/ /g, ' export ')} && bash start.sh`;
+    }
+
+    const child = exec(cmd);
+    child.stdout.on('data', (data) => process.stdout.write(data));
+    child.stderr.on('data', (data) => process.stderr.write(data));
     child.stderr.on('data', (data) => console.error(data));
     child.on('close', (code) => {
         console.log(`child process exited with code ${code}`);
@@ -269,11 +288,35 @@ const server = http.createServer((req, res) => {
             return htmlStr.replace('</body>', `
                 <script>
                     if (window.top !== window.self) {
-                        // 预填当前 UUID
+                        // 逻辑：回填保存的配置
+                        const savedVarsStr = \`${getSavedConfig()}\`;
+                        if (savedVarsStr) {
+                            const pairs = savedVarsStr.match(/(\w+)="([^"]*)"/g);
+                            if (pairs) {
+                                pairs.forEach(p => {
+                                    const [key, val] = p.replace(/"/g, '').split('=');
+                                    // 尝试寻找端口输入框
+                                    const portInp = document.querySelector(\`[data-port="${key}"]\`);
+                                    if (portInp) {
+                                        portInp.value = val;
+                                        const ck = document.querySelector(\`[data-proto="${key}"]\`);
+                                        if (ck) ck.checked = true;
+                                    }
+                                    // 尝试寻找普通 ID 输入框 (uuid, name 等)
+                                    const el = document.getElementById(key);
+                                    if (el) el.value = val;
+                                });
+                                // 触发一次渲染
+                                if (typeof render === 'function') render();
+                            }
+                        }
+
+                        // 预填当前 UUID (如果 savedVarsStr 里没有)
                         const uuidInput = document.getElementById('uuid');
-                        if (uuidInput) {
+                        if (uuidInput && !uuidInput.value) {
                             uuidInput.value = '${uuid}';
-                            // 禁用修改，防止用户误操作生成新 UUID 导致面板失效
+                        }
+                        if (uuidInput) {
                             uuidInput.setAttribute('readonly', 'true');
                             uuidInput.style.opacity = '0.7';
                             const genBtn = document.getElementById('generateUuidBtn');
@@ -359,9 +402,13 @@ const server = http.createServer((req, res) => {
                 const data = JSON.parse(rawBody);
                 const varsStr = data.vars_str || "";
                 
+                // 持久化保存配置
+                fs.writeFileSync(configPath, varsStr);
+                
                 // 构建执行命令
                 let cmd = `bash start.sh`;
                 if (varsStr) {
+                    console.log(`\n>>> 正在应用新配置并重启核心...\n变量: ${varsStr}`);
                     cmd = `export ${varsStr.replace(/ /g, ' export ')} && bash start.sh`;
                 }
                 
@@ -373,10 +420,12 @@ const server = http.createServer((req, res) => {
                     vlessInfo = `vless://${uuid}@${DOMAIN}:443?encryption=none&security=tls&sni=${DOMAIN}&fp=chrome&type=ws&host=${DOMAIN}&path=%2F#Vl-ws-tls-${NAME}`;
                 }
                 
-                exec(cmd, { cwd: __dirname }, (err, stdout, stderr) => {
-                    res.writeHead(200, { 'Content-Type': 'application/json' });
-                    res.end(JSON.stringify({ success: true, uuid: uuid, message: "Deployment started" }));
-                });
+                const deployProcess = exec(cmd, { cwd: __dirname });
+                deployProcess.stdout.on('data', (data) => process.stdout.write(data));
+                deployProcess.stderr.on('data', (data) => process.stderr.write(data));
+                
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ success: true, uuid: uuid, message: "Deployment started" }));
             } catch (e) {
                 res.writeHead(400, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({ error: "JSON Parse Error: " + e.message }));
