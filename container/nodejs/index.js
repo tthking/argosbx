@@ -288,30 +288,30 @@ const server = http.createServer((req, res) => {
             return htmlStr.replace('</body>', `
                 <script>
                     if (window.top !== window.self) {
-                        // 逻辑：回填保存的配置
-                        const savedVarsStr = \`${getSavedConfig()}\`;
-                        if (savedVarsStr) {
-                            const pairs = savedVarsStr.match(/(\w+)="([^"]*)"/g);
-                            if (pairs) {
-                                pairs.forEach(p => {
-                                    const [key, val] = p.replace(/"/g, '').split('=');
-                                    // 尝试寻找端口输入框
-                                    const portInp = document.querySelector(\`[data-port="${key}"]\`);
-                                    if (portInp) {
-                                        portInp.value = val;
-                                        const ck = document.querySelector(\`[data-proto="${key}"]\`);
-                                        if (ck) ck.checked = true;
-                                    }
-                                    // 尝试寻找普通 ID 输入框 (uuid, name 等)
-                                    const el = document.getElementById(key);
-                                    if (el) el.value = val;
-                                });
-                                // 触发一次渲染
-                                if (typeof render === 'function') render();
+                        // 逻辑：安全回填保存的配置
+                        try {
+                            const b64Config = "${Buffer.from(getSavedConfig()).toString('base64')}";
+                            const savedVarsStr = b64Config ? decodeURIComponent(escape(window.atob(b64Config))) : "";
+                            
+                            if (savedVarsStr) {
+                                const pairs = savedVarsStr.match(/(\w+)="([^"]*)"/g);
+                                if (pairs) {
+                                    pairs.forEach(p => {
+                                        const [key, val] = p.replace(/"/g, '').split('=');
+                                        const portInp = document.querySelector(\`[data-port="\${key}"]\`);
+                                        if (portInp) {
+                                            portInp.value = val;
+                                            const ck = document.querySelector(\`[data-proto="\${key}"]\`);
+                                            if (ck) ck.checked = true;
+                                        }
+                                        const el = document.getElementById(key);
+                                        if (el) el.value = val;
+                                    });
+                                    if (typeof render === 'function') render();
+                                }
                             }
-                        }
+                        } catch(e) { console.error("Restore config failed:", e); }
 
-                        // 预填当前 UUID (如果 savedVarsStr 里没有)
                         const uuidInput = document.getElementById('uuid');
                         if (uuidInput && !uuidInput.value) {
                             uuidInput.value = '${uuid}';
