@@ -7,12 +7,12 @@ services:
     container_name: argosbx-app
     restart: always
     ports:
-      - "3000:3000"
+      - "12589:3000"
     environment:
       - uuid=9e7a7ce1-beee-48b6-848e-ff9ab1266d7e  # 已为您自动生成并替换
       - DOMAIN=your.domain.com                     # 请在此处填入您的域名或 VPS IP
       - NAME=Argosbx-VPS                           # 节点名称标签
-      - PORT=3000
+      - PORT=12589
       - LANG=C.UTF-8
       - LC_ALL=C.UTF-8
     volumes:
