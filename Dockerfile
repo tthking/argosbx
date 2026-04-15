@@ -1,43 +1,34 @@
-FROM node:alpine
-
-# 安装项目运行所需的系统工具
-RUN apk add --no-cache \
-    bash \
-    curl \
-    wget \
-    coreutils \
-    sed \
-    gawk \
-    procps \
-    iproute2 \
-    ca-certificates \
-    tzdata \
-    libc6-compat \
-    gcompat \
-    libstdc++
-
-# 设置环境变量支持 UTF-8，防止中文乱码
-ENV LANG=C.UTF-8
-ENV LC_ALL=C.UTF-8
+FROM node:20-bullseye-slim
 
 # 设置工作目录
-WORKDIR /app/container/nodejs
+WORKDIR /app
 
-# 复制依赖定义并安装
-COPY container/nodejs/package.json ./
-RUN npm install
+# 安装核心依赖
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    bash \
+    ca-certificates \
+    procps \
+    iproute2 \
+    locales \
+    && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
+    && locale-gen \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# 复制 Node 控制面板源码及启动脚本
-COPY container/nodejs/index.js container/nodejs/start.sh ./
+# 设置环境变量支持 UTF-8
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV LC_ALL=en_US.UTF-8
 
-# 复制根目录的生成器页面供本地回退使用 (对应 index.js 中的 ../../index.html 路径)
-COPY index.html ../../
+# 复制项目代码
+COPY . .
 
-# 赋予执行权限
-RUN chmod +x start.sh
+# 授权脚本执行
+RUN chmod +x container/nodejs/start.sh
 
-# 声明容器端口（与 index.js 中的 PORT 变量一致，默认为 3000）
+# 暴露管理面板端口
 EXPOSE 3000
 
-# 启动 Node 服务
-CMD ["node", "index.js"]
+# 运行应用
+CMD ["node", "container/nodejs/index.js"]
