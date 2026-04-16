@@ -125,7 +125,7 @@ const server = http.createServer((req, res) => {
 
     if (req.url === `/${uuid}`) {
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-        const host = DOMAIN === 'YOUR.DOMAIN' ? (req.headers.host || DOMAIN) : DOMAIN;
+        const host = (DOMAIN === 'YOUR.DOMAIN' || !DOMAIN) ? (req.headers.host || 'localhost') : DOMAIN;
         
         // 核心逻辑：如果设置了 SUB_PORT，强制将订阅链接的端口替换掉
         const SUB_PORT = process.env.SUB_PORT;
@@ -509,7 +509,10 @@ const server = http.createServer((req, res) => {
                 } catch(e) { return false; }
             };
             const warpLogPath = '/root/agsbx/warp.log';
-            const warpLog = fs.existsSync(warpLogPath) ? fs.readFileSync(warpLogPath, 'utf8') : 'No WARP config log yet.';
+            let warpLog = fs.existsSync(warpLogPath) ? fs.readFileSync(warpLogPath, 'utf8') : 'No WARP config log yet.';
+            if (warpLog && !warpLog.includes('IPV4') && (warpLog.includes('IPV6') || warpLog.includes('Private_key'))) {
+                warpLog += '\nIPV4：172.16.0.2 (WARP固定内网分配)';
+            }
             res.end(JSON.stringify({
                 singBox: isRunning("sing-box"),
                 xray: isRunning("xray"),
