@@ -337,19 +337,21 @@ const server = http.createServer((req, res) => {
                             const savedVarsStr = b64Config ? decodeURIComponent(escape(window.atob(b64Config))) : "";
                             
                             if (savedVarsStr) {
-                                const pairs = savedVarsStr.match(/(\w+)="([^"]*)"/g);
-                                if (pairs) {
-                                    pairs.forEach(p => {
-                                        const [key, val] = p.replace(/"/g, '').split('=');
-                                        const portInp = document.querySelector(\`[data-port="\${key}"]\`);
-                                        if (portInp) {
-                                            portInp.value = val;
-                                            const ck = document.querySelector(\`[data-proto="\${key}"]\`);
-                                            if (ck) ck.checked = true;
+                                const regex = /(\\w+)="([^"]*)"/g;
+                                let match;
+                                while ((match = regex.exec(savedVarsStr)) !== null) {
+                                    const key = match[1];
+                                    const val = match[2];
+                                    
+                                    const checkProto = document.querySelector(\`[data-proto="\${key}"]\`);
+                                    if (checkProto) {
+                                        checkProto.checked = true;
+                                        checkProto.dispatchEvent(new Event('change'));
+                                        const portInput = document.querySelector(\`[data-port="\${key}"]\`);
+                                        if (portInput && val !== '""') {
+                                            portInput.value = val;
+                                            portInput.dispatchEvent(new Event('change'));
                                         }
-                                        const el = document.getElementById(key);
-                                        if (el) el.value = val;
-                                    });
                                     if (typeof render === 'function') render();
                                 }
                             }
