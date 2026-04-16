@@ -352,7 +352,17 @@ const server = http.createServer((req, res) => {
                                             portInput.value = val;
                                             portInput.dispatchEvent(new Event('change'));
                                         }
-                                    if (typeof render === 'function') render();
+                                        continue;
+                                    }
+
+                                    const el = document.getElementById(key);
+                                    if (el) {
+                                        el.value = val;
+                                        el.dispatchEvent(new Event('change'));
+                                    }
+                                }
+                                if (typeof render === 'function') {
+                                    render();
                                 }
                             }
                         } catch(e) { console.error("Restore config failed:", e); }
