@@ -50,6 +50,7 @@ v6dq=$( (command -v curl >/dev/null 2>&1 && curl -s6m5 -k https://ip.fm | sed -E
 }
 warpsx(){
 warpurl=$( (command -v curl >/dev/null 2>&1 && curl -sm5 -k https://ygkkk-warp.renky.eu.org 2>/dev/null) || (command -v wget >/dev/null 2>&1 && timeout 3 wget --tries=2 -qO- https://ygkkk-warp.renky.eu.org 2>/dev/null) )
+echo "$warpurl" > "$HOME/agsbx/warp.log"
 if echo "$warpurl" | grep -q ygkkk; then
 pvk=$(echo "$warpurl" | awk -F'：' '/Private_key/{print $2}' | xargs)
 wpv6=$(echo "$warpurl" | awk -F'：' '/IPV6/{print $2}' | xargs)
@@ -879,18 +880,17 @@ fi
 }
 argosbxstatus(){
 echo "=========当前三大内核运行状态========="
-procs=$(find /proc/*/exe -type l 2>/dev/null | grep -E '/proc/[0-9]+/exe' | xargs -r readlink 2>/dev/null)
-if echo "$procs" | grep -Eq 'agsbx/s' || pgrep -f 'agsbx/s' >/dev/null 2>&1; then
+if grep -q "agsbx/sing-box" /proc/[0-9]*/cmdline 2>/dev/null || pgrep -f "agsbx/sing-box" >/dev/null 2>&1 || ps eww 2>/dev/null | grep -v grep | grep -q "agsbx/sing-box"; then
 echo "Sing-box：运行中"
 else
 echo "Sing-box：未启用"
 fi
-if echo "$procs" | grep -Eq 'agsbx/x' || pgrep -f 'agsbx/x' >/dev/null 2>&1; then
+if grep -q "agsbx/xray" /proc/[0-9]*/cmdline 2>/dev/null || pgrep -f "agsbx/xray" >/dev/null 2>&1 || ps eww 2>/dev/null | grep -v grep | grep -q "agsbx/xray"; then
 echo "Xray：运行中"
 else
 echo "Xray：未启用"
 fi
-if echo "$procs" | grep -Eq 'agsbx/c' || pgrep -f 'agsbx/c' >/dev/null 2>&1; then
+if command -v cloudflared >/dev/null 2>&1 && pgrep -f "cloudflared tunnel" >/dev/null 2>&1 || grep -q "agsbx/cloudflared" /proc/[0-9]*/cmdline 2>/dev/null || pgrep -f "agsbx/cloudflared" >/dev/null 2>&1 || ps eww 2>/dev/null | grep -v grep | grep -q "agsbx/cloudflared"; then
 echo "Argo：运行中"
 else
 echo "Argo：未启用"

@@ -3,13 +3,13 @@
     "name": "argosbx",
     "root": "/Users/mccn/Desktop/Antigravity/argosbx"
   },
-  "scannedAt": "2026-04-14T03:27:50.000Z",
+  "scannedAt": "2026-04-16T08:29:44.000Z",
   "commitHash": null,
   "summary": {
     "totalFiles": 2,
-    "totalFunctions": 1,
+    "totalFunctions": 2,
     "totalClasses": 0,
-    "totalVariables": 15,
+    "totalVariables": 16,
     "languages": {
       "javascript": 2
     },
@@ -23,6 +23,21 @@
   },
   "modules": [
     {
+      "name": "container",
+      "path": "container/nodejs",
+      "fileCount": 1,
+      "exports": [],
+      "dependsOn": [],
+      "dependedBy": [],
+      "stats": {
+        "totalFiles": 1,
+        "totalFunctions": 2,
+        "totalClasses": 0,
+        "totalVariables": 16,
+        "totalLines": 508
+      }
+    },
+    {
       "name": "_root",
       "path": "_root",
       "fileCount": 1,
@@ -35,21 +50,6 @@
         "totalClasses": 0,
         "totalVariables": 0,
         "totalLines": 9
-      }
-    },
-    {
-      "name": "container",
-      "path": "container/nodejs",
-      "fileCount": 1,
-      "exports": [],
-      "dependsOn": [],
-      "dependedBy": [],
-      "stats": {
-        "totalFiles": 1,
-        "totalFunctions": 1,
-        "totalClasses": 0,
-        "totalVariables": 15,
-        "totalLines": 200
       }
     }
   ],

@@ -271,6 +271,21 @@ const server = http.createServer((req, res) => {
                 <div class="card-content" style="font-size: 12px; opacity: 0.8;">${vlessInfo}</div>
             </div>
 
+            <div class="card" style="border-left: 4px solid #f59e0b;">
+                <label>内核运行状态 & WARP</label>
+                <div class="card-content" id="core-status" style="display:flex; flex-direction:column; gap:8px; margin-top:10px;">
+                    <div style="display:flex; justify-content:space-between;">
+                        <span id="st-singbox">Sing-box: ⚪查询中</span>
+                        <span id="st-xray">Xray: ⚪查询中</span>
+                        <span id="st-argo">Argo: ⚪查询中</span>
+                    </div>
+                    <div style="margin-top:5px; font-size:12px; background:rgba(0,0,0,0.3); padding:8px; border-radius:8px;">
+                        <span style="color:#dbeafe;">WARP IP 分配状态:</span>
+                        <pre id="st-warp" style="margin:5px 0 0 0; white-space:pre-wrap; word-break:break-all; opacity:0.8;"></pre>
+                    </div>
+                </div>
+            </div>
+
             <div class="footer">
                 Powered by Argosbx Web & CodeMap Skill
             </div>
@@ -283,6 +298,23 @@ const server = http.createServer((req, res) => {
         function copyText(text) {
             navigator.clipboard.writeText(text).then(() => alert('已复制到剪贴板 =》 ' + text));
         }
+        function updateStatus() {
+            fetch('/api/status').then(r => r.json()).then(res => {
+                const render = (id, name, isRunning) => {
+                    const el = document.getElementById(id);
+                    if(el) el.innerHTML = `${name}: ${isRunning ? '🟢运行中' : '🔴未启用'}`;
+                };
+                if(!res.error) {
+                    render('st-singbox', 'Sing-box', res.singBox);
+                    render('st-xray', 'Xray', res.xray);
+                    render('st-argo', 'Argo', res.argo);
+                    const warpEl = document.getElementById('st-warp');
+                    if(warpEl) warpEl.innerText = res.warpLog ? (res.warpLog.substring(0, 150) + (res.warpLog.length > 150 ? '...' : '')) : '暂无数据';
+                }
+            }).catch(e => console.error(e));
+        }
+        updateStatus();
+        setInterval(updateStatus, 10000);
     </script>
 </body>
 </html>
@@ -424,7 +456,7 @@ const server = http.createServer((req, res) => {
                 // 尝试提取 UUID 以便重定向
                 const uuidMatch = varsStr.match(/uuid="([^"]+)"/);
                 if (uuidMatch && uuidMatch[1]) {
-                    uuid = uuidMatch[1];
+                uuid = uuidMatch[1];
                     uuidkey = uuid.replace(/-/g, "");
                     vlessInfo = `vless://${uuid}@${DOMAIN}:443?encryption=none&security=tls&sni=${DOMAIN}&fp=chrome&type=ws&host=${DOMAIN}&path=%2F#Vl-ws-tls-${NAME}`;
                 }
@@ -443,32 +475,55 @@ const server = http.createServer((req, res) => {
         return;
     }
 
+    if (req.url === '/api/status') {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        try {
+            const isRunning = (keyword) => {
+                try {
+                    const out = execSync(`pgrep -f "${keyword}" || grep -q "${keyword}" /proc/[0-9]*/cmdline 2>/dev/null && echo "1" || echo "0"`).toString().trim();
+                    return out === "1";
+                } catch(e) { return false; }
+            };
+            const warpLogPath = '/root/agsbx/warp.log';
+            const warpLog = fs.existsSync(warpLogPath) ? fs.readFileSync(warpLogPath, 'utf8') : 'No WARP config log yet.';
+            res.end(JSON.stringify({
+                singBox: isRunning("agsbx/sing-box"),
+                xray: isRunning("agsbx/xray"),
+                argo: isRunning("agsbx/cloudflared") || isRunning("cloudflared tunnel"),
+                warpLog: warpLog
+            }));
+        } catch(e) {
+            res.end(JSON.stringify({ error: e.message }));
+        }
+        return;
+    }
+
     if (req.url === `/${uuid}/sub`) {
         console.log(`>>> 收到订阅请求: ${req.url}`);
         
-        // 设置读取超时，防止永久转圈
-        const timeout = setTimeout(() => {
-            if (!res.writableEnded) {
-                console.log(">>> 订阅读取超时，下发默认节点...");
-                res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
-                res.end(Buffer.from(vlessInfo).toString('base64'));
-            }
-        }, 5000);
+        const now = Date.now();
+        if (global.subCache && (now - global.subCacheTime < 10000)) {
+            res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
+            return res.end(global.subCache);
+        }
 
         fs.readFile(subtxt, 'utf8', (err, data) => {
-            clearTimeout(timeout);
-            if (res.writableEnded) return;
-
             res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
-            if (err) {
-                console.error(`!!! 订阅文件读取失败: ${err.message}`);
-                const base64Fallback = Buffer.from(vlessInfo).toString('base64');
+            if (err || !data || !data.trim()) {
+                console.error(`!!! 订阅文件未就绪或为空: ${err ? err.message : 'Empty file'}`);
+                if (global.subCache) {
+                    return res.end(global.subCache);
+                }
+                const notReadyNode = "vmess://" + Buffer.from(JSON.stringify({ v: "2", ps: "🔴 核心配置未就绪,请稍后刷新", add: "127.0.0.1", port: "0", id: uuid, net: "tcp", type: "none" })).toString('base64');
+                const base64Fallback = Buffer.from(vlessInfo + '\n' + notReadyNode).toString('base64');
                 return res.end(base64Fallback);
             }
             
             console.log(`>>> 订阅数据读取成功，正在下发...`);
             const allLinks = `${vlessInfo}\n${data || ''}`;
             const base64Sub = Buffer.from(allLinks).toString('base64');
+            global.subCache = base64Sub;
+            global.subCacheTime = Date.now();
             res.end(base64Sub);
         });
         return;

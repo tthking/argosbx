@@ -4,7 +4,7 @@
     "name": "argosbx",
     "root": "/Users/mccn/Desktop/Antigravity/argosbx"
   },
-  "scannedAt": "2026-04-14T03:27:50.000Z",
+  "scannedAt": "2026-04-16T08:29:44.000Z",
   "commitHash": null,
   "config": {
     "languages": [
@@ -14,9 +14,9 @@
   },
   "summary": {
     "totalFiles": 2,
-    "totalFunctions": 1,
+    "totalFunctions": 2,
     "totalClasses": 0,
-    "totalVariables": 15,
+    "totalVariables": 16,
     "languages": {
       "javascript": 2
     },
@@ -29,16 +29,16 @@
     ]
   },
   "modules": {
-    "_root": {
+    "container": {
       "files": [
-        "_worker.js"
+        "container/nodejs/index.js"
       ],
       "dependsOn": [],
       "dependedBy": []
     },
-    "container": {
+    "_root": {
       "files": [
-        "container/nodejs/index.js"
+        "_worker.js"
       ],
       "dependsOn": [],
       "dependedBy": []
@@ -62,14 +62,20 @@
     "container/nodejs/index.js": {
       "language": "javascript",
       "module": "container",
-      "hash": "sha256:7753b8a330faf967",
-      "lines": 200,
+      "hash": "sha256:38aeb3ec75223788",
+      "lines": 508,
       "functions": [
         {
           "name": "ensureModule",
           "signature": "ensureModule(name)",
           "startLine": 6,
           "endLine": 13
+        },
+        {
+          "name": "getSavedConfig",
+          "signature": "getSavedConfig()",
+          "startLine": 23,
+          "endLine": 28
         }
       ],
       "classes": [],
@@ -112,57 +118,63 @@
           "isExported": false
         },
         {
-          "name": "subtxt",
+          "name": "configPath",
           "kind": "const",
           "startLine": 15,
           "isExported": false
         },
         {
-          "name": "NAME",
+          "name": "subtxt",
           "kind": "const",
           "startLine": 16,
           "isExported": false
         },
         {
-          "name": "PORT",
+          "name": "NAME",
           "kind": "const",
           "startLine": 17,
           "isExported": false
         },
         {
-          "name": "uuid",
+          "name": "PORT",
           "kind": "const",
           "startLine": 18,
           "isExported": false
         },
         {
-          "name": "DOMAIN",
-          "kind": "const",
+          "name": "uuid",
+          "kind": "let",
           "startLine": 19,
           "isExported": false
         },
         {
-          "name": "vlessInfo",
+          "name": "DOMAIN",
           "kind": "const",
           "startLine": 20,
           "isExported": false
         },
         {
+          "name": "vlessInfo",
+          "kind": "let",
+          "startLine": 21,
+          "isExported": false
+        },
+        {
           "name": "server",
           "kind": "const",
-          "startLine": 39,
+          "startLine": 58,
           "isExported": false
         },
         {
           "name": "wss",
           "kind": "const",
-          "startLine": 177,
+          "startLine": 485,
           "isExported": false
         },
         {
           "name": "uuidkey",
-          "kind": "const",
-          "startLine": 178,
+          "kind": "let",
+          "startLine": 486,
           "isExported": false
         }
       ],
@@ -174,102 +186,128 @@
           "symbol": "DOMAIN",
           "importLine": 0,
           "useLines": [
-            20,
-            48
+            21,
+            128,
+            429
           ]
         },
         "NAME": {
           "symbol": "NAME",
           "importLine": 0,
           "useLines": [
-            20
+            21,
+            429
           ]
         },
         "PORT": {
           "symbol": "PORT",
           "importLine": 0,
           "useLines": [
-            173,
-            174
+            481,
+            482
+          ]
+        },
+        "configPath": {
+          "symbol": "configPath",
+          "importLine": 0,
+          "useLines": [
+            24,
+            25,
+            414
           ]
         },
         "fs": {
           "symbol": "fs",
           "importLine": 0,
           "useLines": [
-            23,
-            156,
-            157
+            24,
+            25,
+            32,
+            382,
+            385,
+            387,
+            414,
+            458
           ]
         },
         "http": {
           "symbol": "http",
           "importLine": 0,
           "useLines": [
-            39
+            58
           ]
         },
         "net": {
           "symbol": "net",
           "importLine": 0,
           "useLines": [
-            194
+            502
           ]
         },
         "os": {
           "symbol": "os",
           "importLine": 0,
           "useLines": [
-            16
+            17
           ]
         },
         "server": {
           "symbol": "server",
           "importLine": 0,
           "useLines": [
-            173
+            481
           ]
         },
         "subtxt": {
           "symbol": "subtxt",
           "importLine": 0,
           "useLines": [
-            156,
-            157
+            458
           ]
         },
         "uuid": {
           "symbol": "uuid",
           "importLine": 0,
           "useLines": [
-            20,
-            46,
-            49,
-            154,
-            178
+            21,
+            117,
+            118,
+            126,
+            137,
+            325,
+            427,
+            428,
+            429,
+            437,
+            446,
+            486
           ]
         },
         "uuidkey": {
           "symbol": "uuidkey",
           "importLine": 0,
           "useLines": [
-            183
+            428,
+            491
           ]
         },
         "vlessInfo": {
           "symbol": "vlessInfo",
           "importLine": 0,
           "useLines": [
-            21,
-            158,
-            163
+            30,
+            271,
+            429,
+            454,
+            465,
+            470
           ]
         },
         "wss": {
           "symbol": "wss",
           "importLine": 0,
           "useLines": [
-            179
+            487
           ]
         }
       }

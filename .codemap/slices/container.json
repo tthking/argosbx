@@ -5,13 +5,19 @@
     {
       "path": "container/nodejs/index.js",
       "language": "javascript",
-      "lines": 200,
+      "lines": 508,
       "functions": [
         {
           "name": "ensureModule",
           "signature": "ensureModule(name)",
           "startLine": 6,
           "endLine": 13
+        },
+        {
+          "name": "getSavedConfig",
+          "signature": "getSavedConfig()",
+          "startLine": 23,
+          "endLine": 28
         }
       ],
       "classes": [],
@@ -54,64 +60,70 @@
           "isExported": false
         },
         {
-          "name": "subtxt",
+          "name": "configPath",
           "kind": "const",
           "startLine": 15,
           "isExported": false
         },
         {
-          "name": "NAME",
+          "name": "subtxt",
           "kind": "const",
           "startLine": 16,
           "isExported": false
         },
         {
-          "name": "PORT",
+          "name": "NAME",
           "kind": "const",
           "startLine": 17,
           "isExported": false
         },
         {
-          "name": "uuid",
+          "name": "PORT",
           "kind": "const",
           "startLine": 18,
           "isExported": false
         },
         {
-          "name": "DOMAIN",
-          "kind": "const",
+          "name": "uuid",
+          "kind": "let",
           "startLine": 19,
           "isExported": false
         },
         {
-          "name": "vlessInfo",
+          "name": "DOMAIN",
           "kind": "const",
           "startLine": 20,
           "isExported": false
         },
         {
+          "name": "vlessInfo",
+          "kind": "let",
+          "startLine": 21,
+          "isExported": false
+        },
+        {
           "name": "server",
           "kind": "const",
-          "startLine": 39,
+          "startLine": 58,
           "isExported": false
         },
         {
           "name": "wss",
           "kind": "const",
-          "startLine": 177,
+          "startLine": 485,
           "isExported": false
         },
         {
           "name": "uuidkey",
-          "kind": "const",
-          "startLine": 178,
+          "kind": "let",
+          "startLine": 486,
           "isExported": false
         }
       ],
       "imports": [],
       "exports": [],
       "isEntryPoint": true,
-      "hash": "sha256:7753b8a330faf967"
+      "hash": "sha256:38aeb3ec75223788"
     }
   ],
   "exports": [],
@@ -119,9 +131,9 @@
   "dependedBy": [],
   "stats": {
     "totalFiles": 1,
-    "totalFunctions": 1,
+    "totalFunctions": 2,
     "totalClasses": 0,
-    "totalVariables": 15,
-    "totalLines": 200
+    "totalVariables": 16,
+    "totalLines": 508
   }
 }
