@@ -499,9 +499,9 @@ const server = http.createServer((req, res) => {
             const warpLogPath = '/root/agsbx/warp.log';
             const warpLog = fs.existsSync(warpLogPath) ? fs.readFileSync(warpLogPath, 'utf8') : 'No WARP config log yet.';
             res.end(JSON.stringify({
-                singBox: isRunning("agsbx/sing-box"),
-                xray: isRunning("agsbx/xray"),
-                argo: isRunning("agsbx/cloudflared") || isRunning("cloudflared tunnel"),
+                singBox: isRunning("sing-box"),
+                xray: isRunning("xray"),
+                argo: isRunning("cloudflared"),
                 warpLog: warpLog
             }));
         } catch(e) {

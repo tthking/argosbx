@@ -50,8 +50,8 @@ v6dq=$( (command -v curl >/dev/null 2>&1 && curl -s6m5 -k https://ip.fm | sed -E
 }
 warpsx(){
 warpurl=$( (command -v curl >/dev/null 2>&1 && curl -sm5 -k https://ygkkk-warp.renky.eu.org 2>/dev/null) || (command -v wget >/dev/null 2>&1 && timeout 3 wget --tries=2 -qO- https://ygkkk-warp.renky.eu.org 2>/dev/null) )
-echo "$warpurl" > "$HOME/agsbx/warp.log"
 if echo "$warpurl" | grep -q ygkkk; then
+echo "$warpurl" > "$HOME/agsbx/warp.log"
 pvk=$(echo "$warpurl" | awk -F'：' '/Private_key/{print $2}' | xargs)
 wpv6=$(echo "$warpurl" | awk -F'：' '/IPV6/{print $2}' | xargs)
 res=$(echo "$warpurl" | awk -F'：' '/reserved/{print $2}' | xargs)
@@ -59,6 +59,7 @@ else
 wpv6='2606:4700:110:8d8d:1845:c39f:2dd5:a03a'
 pvk='52cuYFgCJXp0LAq7+nWJIbCXXgU9eGggOc+Hlfz5u6A'
 res='[215, 69, 233]'
+echo -e "获取超时，将采用默认预留参数:\nPrivate_key：$pvk\nIPV6：$wpv6\nreserved：$res" > "$HOME/agsbx/warp.log"
 fi
 if [ -n "$name" ]; then
 sxname=$name-
