@@ -309,7 +309,10 @@ const server = http.createServer((req, res) => {
                     render('st-xray', 'Xray', res.xray);
                     render('st-argo', 'Argo', res.argo);
                     const warpEl = document.getElementById('st-warp');
-                    if(warpEl) warpEl.innerText = res.warpLog ? (res.warpLog.substring(0, 150) + (res.warpLog.length > 150 ? '...' : '')) : '暂无数据';
+                    if(warpEl) {
+                        const txt = res.warpLog ? res.warpLog.trim() : '';
+                        warpEl.innerText = txt ? (txt.substring(0, 150) + (txt.length > 150 ? '...' : '')) : '暂无返回数据 (可能为直连或检测超时)';
+                    }
                 }
             }).catch(e => console.error(e));
         }
@@ -403,6 +406,7 @@ const server = http.createServer((req, res) => {
 
         const https = require('https');
         https.get('https://raw.githubusercontent.com/tthking/argosbx/main/index.html', (resp) => {
+            resp.setEncoding('utf8');
             let data = '';
             resp.on('data', (chunk) => { data += chunk; });
             resp.on('end', () => {
@@ -480,8 +484,16 @@ const server = http.createServer((req, res) => {
         try {
             const isRunning = (keyword) => {
                 try {
-                    const out = execSync(`pgrep -f "${keyword}" || grep -q "${keyword}" /proc/[0-9]*/cmdline 2>/dev/null && echo "1" || echo "0"`).toString().trim();
-                    return out === "1";
+                    const procDirs = fs.readdirSync('/proc');
+                    for (const pid of procDirs) {
+                        if (/^\d+$/.test(pid)) {
+                            try {
+                                const cmdline = fs.readFileSync(`/proc/${pid}/cmdline`, 'utf8');
+                                if (cmdline.includes(keyword)) return true;
+                            } catch(e) {}
+                        }
+                    }
+                    return false;
                 } catch(e) { return false; }
             };
             const warpLogPath = '/root/agsbx/warp.log';
