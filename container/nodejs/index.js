@@ -302,7 +302,7 @@ const server = http.createServer((req, res) => {
             fetch('/api/status').then(r => r.json()).then(res => {
                 const render = (id, name, isRunning) => {
                     const el = document.getElementById(id);
-                    if(el) el.innerHTML = `${name}: ${isRunning ? '🟢运行中' : '🔴未启用'}`;
+                    if(el) el.innerHTML = name + ': ' + (isRunning ? '🟢运行中' : '🔴未启用');
                 };
                 if(!res.error) {
                     render('st-singbox', 'Sing-box', res.singBox);
